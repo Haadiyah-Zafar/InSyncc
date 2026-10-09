@@ -25,6 +25,8 @@ The handoff's confirmed decisions take precedence over conflicting report exampl
 
 ## 2. Target and scope
 
+**Confirmed scope clarification, 9 October 2026:** Programming Fundamentals includes broader foundational CS content, including data structures and database concepts. The first demo includes a shared Python editor with execution and displayed output, plus a shared whiteboard, with a separate editing-control holder for each surface. The exact syllabus, runner, board tools, and handover policies are not settled by these choices. [Issue #2’s decision package](decisions/P0-01-pilot-scope.md) proposes the syllabus, screen inventory, evaluation baseline, and an additional Python-runtime issue with affected backlog updates. That package awaits review; the additional issue is not yet published. See [decision status](decisions/README.md).
+
 **Provider decision, 9 October 2026:** OpenRouter is selected as the initial text-generation gateway. Exact model IDs and underlying provider routes, 10–15-model qualification, quotas/budgets, and embedding model/hosting remain pending. A second runtime gateway is not required by this decision.
 
 The target is a Programming Fundamentals web pilot for school and university audiences, in English, on modern laptop/desktop browsers. Preserve all five agents: Tutor Agent, Quiz Agent, Progress Agent, Teacher Assistant Agent, and Discussion Agent. Preserve all four logical subsystems within the selected architecture.
@@ -40,12 +42,12 @@ The complete pilot journey is:
 5. Progress Agent analyzes accumulated evidence. Teacher Assistant Agent proposes evidence-based recommendations.
 6. Teacher approves or dismisses recommendations. Only approved actions execute and produce later evidence.
 7. Teacher requests balanced or strength-based groups, or creates manual groups; approval/editing precedes student access.
-8. Approved groups discuss and use a Yjs-synchronized shared workspace with the agreed controlled-editing policy. Discussion Agent provides validated hints, with evidence feeding later analysis under approved attribution rules.
+8. Approved groups discuss and use a Yjs-synchronized Python editor with Run/output and a shared whiteboard, each with its own editing-control holder and the agreed handover policy. Discussion Agent provides validated hints, with evidence feeding later analysis under approved attribution rules.
 9. The team evaluates quality/usability/performance/cost, verifies recovery and access, and presents the pilot for acceptance.
 
 Phase 5 is an intermediate demonstration of the individual learning cycle. Phase 6 completes the collaboration scope; it is not optional merely because it appears later. Phase 7 makes the full pilot evaluable and operable.
 
-Mobile applications, additional subjects, external student-information-system integration, emotion/sensor monitoring, model fine-tuning, and additional agent frameworks are outside the recovered current scope. Prototype-only controls such as weekly emails, quiz hints, personalization opt-out, calendars, and global search stay pending in P0-01. They are not silently included or removed.
+Mobile applications, unrelated non-CS subjects, external student-information-system integration, emotion/sensor monitoring, model fine-tuning, and additional agent frameworks are outside the recovered current scope. Prototype-only controls such as weekly emails, quiz hints, personalization opt-out, calendars, and global search stay pending in P0-01. They are not silently included or removed.
 
 ### Required 10–15-model fallback chain for testing and demos
 
