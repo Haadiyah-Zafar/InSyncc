@@ -1,8 +1,8 @@
 {
   "repository": "Haadiyah-Zafar/InSyncc",
   "version": "0.2",
-  "approval_status": "awaiting_user_approval",
-  "publication_status": "not_published",
+  "approval_status": "approved",
+  "publication_status": "published_verified",
   "created_at_local": "2026-10-09 Asia/Karachi",
   "issue_count": 60,
   "issues": [
@@ -32,10 +32,10 @@
         "Approved acceptance measures distinguish usability, learning-support quality, response time, cost, and coordination; no invented participant numbers or outcome claims.",
         "A traceability map connects the fifteen use cases to implementation and verification issues; evaluation includes teacher-review delay and the value of shared evidence."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Ready",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 2,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/2",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
@@ -68,10 +68,10 @@
         "Sequence examples cover concurrent evidence, restart while awaiting a teacher, repeated events, and unavailable agents.",
         "The human approves the exact state/recovery decisions and downstream schema, graph, API, test, and diagram changes."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Ready",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 3,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/3",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
@@ -105,10 +105,10 @@
         "Examples cover another student, another class teacher, a removed member, expired authentication, and hidden-field serialization.",
         "Approved negative-access cases become fixtures for API, database, retrieval, storage, and WebSocket tests."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Ready",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 4,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/4",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
@@ -142,10 +142,10 @@
         "Examples preserve Medium cold start, two-answer changes, Easy/Medium/Hard weights 1/2/3, and separate raw and weighted scores.",
         "Every transition states authorization, persistence, user feedback, event effects, and retry behavior."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Ready",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 5,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/5",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
@@ -183,10 +183,10 @@
         "Each recommendation action maps to an accountable executor and evidence references; no activity runs from a pending or dismissed recommendation.",
         "Decisions can be reviewed in smaller Q-specific records; unresolved subdecisions keep their dependent issues blocked."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Ready",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 6,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/6",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
@@ -223,10 +223,10 @@
         "Hint cases preserve levels 1\u20133, three-minute inactivity, five off-topic messages, five-minute proactive cooldown, and no private individual weakness in hints; unresolved timing interpretations are explicitly decided.",
         "Raw cursor and mouse movement are excluded from learning evidence; group events are not silently treated as individual performance."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Ready",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 7,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/7",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
@@ -254,25 +254,35 @@
         "Compare concrete LLM/embedding providers and models, storage, accepted upload formats/limits, chunking/retrieval settings, and vector dimension compatibility.",
         "Choose and approve the background mechanism, checkpoint integration with P0-02, timeout/retry/backoff rules, validation regeneration budget, cancellation, and pending-work recovery.",
         "Specify development/test service topology, hosting target, API budget, monitoring, content-report handling, learner-data consent/retention/deletion, backups, and restore expectations.",
-        "List required variable names and provider access; check existing bindings before requesting secure configuration."
+        "List required variable names and provider access; check existing bindings before requesting secure configuration.",
+        "Select and document a ranked demo fallback chain of 10\u201315 distinct text-generation models and their verified provider routes."
       ],
       "acceptance_criteria": [
         "The human approves choices with cost, complexity, privacy, and recovery trade-offs; no provider, queue, or hosting platform is silently assumed.",
         "Embedding dimension and database/re-indexing implications agree; the documented 20-second timeout/two-retry rule has an approved precise interpretation.",
         "An operations record identifies required services, deployment permissions, secret names, backup/restore criteria, and numerical pilot targets agreed in P0-01.",
-        "Credentials are supplied through secure settings when needed, never issue bodies or source files."
+        "Credentials are supplied through secure settings when needed, never issue bodies or source files.",
+        "Publish a ranked chain containing 10\u201315 distinct generation models in total (primary plus 9\u201314 alternatives). Repeated aliases or provider routes for the same model do not count as additional models.",
+        "For every entry record its exact OpenRouter model/version ID, license and whether it is open-source or open-weight, underlying provider routes, credentials/access requirement, context/output limits, structured-output capability, eligible agent operations, pricing, quotas, and measured smoke-test result/date.",
+        "Use OpenRouter as the initial text-generation gateway, selected by the human on 9 October 2026. Document independence/shared quota domains for model, underlying provider, OpenRouter account, and platform. A different model name does not prove independent capacity; all OpenRouter-hosted candidates can share an account/platform outage. Do not add a second gateway without a separate decision.",
+        "Approve routing priority, health/cooldown policy, rate-limit Retry-After handling, per-attempt timeout, maximum attempts, total request deadline, aggregate retry/regeneration budget, and cost ceiling. Reconcile the existing 20-second/two-retry rule with this overall budget; do not multiply it blindly across 15 models.",
+        "Define task-compatible subsets and quality thresholds for each LLM-supported agent operation. Do not invoke LLMs for deterministic arithmetic merely to exercise the chain. Do not lower validation or teacher-review requirements on fallback.",
+        "Keep embeddings on an approved model/version and compatible embedding space. Same dimensionality alone does not make a different embedding model compatible; a model change requires the approved re-embedding/index migration.",
+        "Verify current availability, authentication, and usable quota for all selected candidates before calling the chain demo-ready. A catalogue entry, free-tier label, or untested key is not evidence of usable fallback capacity."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Ready",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 8,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/8",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
         "type:decision",
         "workstream:B"
       ],
-      "body": "<!-- insync-plan-id: P0-07; plan-version: 0.2 -->\n**Outcome:** Approve service choices, background execution, and operations\n**Milestone:** P0 \u2014 Decisions and contracts\n**Suggested workstream:** B; **Size:** M; one accountable owner, a different reviewer.\n**Start after:** None.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** Q14, Q15, Q18.\n**Source:** Context \u00a7\u00a78, 12, 14; report \u00a7\u00a76.4.5\u20136.4.9.\n\n**Scope**\n\n- Compare concrete LLM/embedding providers and models, storage, accepted upload formats/limits, chunking/retrieval settings, and vector dimension compatibility.\n- Choose and approve the background mechanism, checkpoint integration with P0-02, timeout/retry/backoff rules, validation regeneration budget, cancellation, and pending-work recovery.\n- Specify development/test service topology, hosting target, API budget, monitoring, content-report handling, learner-data consent/retention/deletion, backups, and restore expectations.\n- List required variable names and provider access; check existing bindings before requesting secure configuration.\n\n**Acceptance checks**\n\n- [ ] The human approves choices with cost, complexity, privacy, and recovery trade-offs; no provider, queue, or hosting platform is silently assumed.\n- [ ] Embedding dimension and database/re-indexing implications agree; the documented 20-second timeout/two-retry rule has an approved precise interpretation.\n- [ ] An operations record identifies required services, deployment permissions, secret names, backup/restore criteria, and numerical pilot targets agreed in P0-01.\n- [ ] Credentials are supplied through secure settings when needed, never issue bodies or source files.\n\n**Approval boundary**\n\nRequires explicit human approval of the listed decision and affected downstream changes. Preparing options is allowed; selecting an unresolved design is not authorized by backlog approval.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration."
+      "body": "<!-- insync-plan-id: P0-07; plan-version: 0.2 -->\n**Outcome:** Approve service choices, background execution, and operations\n**Milestone:** P0 \u2014 Decisions and contracts\n**Suggested workstream:** B; **Size:** M; one accountable owner, a different reviewer.\n**Start after:** None.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** Q14, Q15, Q18.\n**Source:** Context \u00a7\u00a78, 12, 14; report \u00a7\u00a76.4.5\u20136.4.9.\n\n**Scope**\n\n- Compare concrete LLM/embedding providers and models, storage, accepted upload formats/limits, chunking/retrieval settings, and vector dimension compatibility.\n- Choose and approve the background mechanism, checkpoint integration with P0-02, timeout/retry/backoff rules, validation regeneration budget, cancellation, and pending-work recovery.\n- Specify development/test service topology, hosting target, API budget, monitoring, content-report handling, learner-data consent/retention/deletion, backups, and restore expectations.\n- List required variable names and provider access; check existing bindings before requesting secure configuration.\n\n**Acceptance checks**\n\n- [ ] The human approves choices with cost, complexity, privacy, and recovery trade-offs; no provider, queue, or hosting platform is silently assumed.\n- [ ] Embedding dimension and database/re-indexing implications agree; the documented 20-second timeout/two-retry rule has an approved precise interpretation.\n- [ ] An operations record identifies required services, deployment permissions, secret names, backup/restore criteria, and numerical pilot targets agreed in P0-01.\n- [ ] Credentials are supplied through secure settings when needed, never issue bodies or source files.\n\n**Approval boundary**\n\nRequires explicit human approval of the listed decision and affected downstream changes. Preparing options is allowed; selecting an unresolved design is not authorized by backlog approval.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.\n\n<!-- insync-demo-fallback: v1 -->\n\n**Approved demo fallback requirement \u2014 9 October 2026**\n\nThe human requested an explicit 10\u201315-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.\n\n**Additional scope:** Select and document a ranked demo fallback chain of 10\u201315 distinct text-generation models and their verified provider routes.\n\n**Additional acceptance checks**\n\n- [ ] Publish a ranked chain containing 10\u201315 distinct generation models in total (primary plus 9\u201314 alternatives). Repeated aliases or provider routes for the same model do not count as additional models.\n- [ ] For every entry record its exact OpenRouter model/version ID, license and whether it is open-source or open-weight, underlying provider routes, credentials/access requirement, context/output limits, structured-output capability, eligible agent operations, pricing, quotas, and measured smoke-test result/date.\n- [ ] Use OpenRouter as the initial text-generation gateway, selected by the human on 9 October 2026. Document independence/shared quota domains for model, underlying provider, OpenRouter account, and platform. A different model name does not prove independent capacity; all OpenRouter-hosted candidates can share an account/platform outage. Do not add a second gateway without a separate decision.\n- [ ] Approve routing priority, health/cooldown policy, rate-limit Retry-After handling, per-attempt timeout, maximum attempts, total request deadline, aggregate retry/regeneration budget, and cost ceiling. Reconcile the existing 20-second/two-retry rule with this overall budget; do not multiply it blindly across 15 models.\n- [ ] Define task-compatible subsets and quality thresholds for each LLM-supported agent operation. Do not invoke LLMs for deterministic arithmetic merely to exercise the chain. Do not lower validation or teacher-review requirements on fallback.\n- [ ] Keep embeddings on an approved model/version and compatible embedding space. Same dimensionality alone does not make a different embedding model compatible; a model change requires the approved re-embedding/index migration.\n- [ ] Verify current availability, authentication, and usable quota for all selected candidates before calling the chain demo-ready. A catalogue entry, free-tier label, or untested key is not evidence of usable fallback capacity.\n\n<!-- /insync-demo-fallback -->\n\n<!-- insync-openrouter-choice: v1 -->\n\n**Provider decision \u2014 9 October 2026**\n\nThe human selected **OpenRouter as the initial text-generation gateway** to start development quickly. This settles the initial gateway choice; exact models and provider routes, cost/deadline limits, and live verification of the 10\u201315-model chain remain work in #8/#18. Embedding model/hosting selection remains separate. Hugging Face is not required as a second runtime gateway for the initial implementation. OpenRouter model/provider fallbacks do not cover loss of the OpenRouter platform or the shared account; preserve bounded unavailable behavior and saved work in that case.\n\n<!-- /insync-openrouter-choice -->",
+      "demo_fallback_amendment": "published_verified",
+      "initial_text_generation_gateway": "OpenRouter"
     },
     {
       "id": "P0-08",
@@ -306,10 +316,10 @@
         "Every approved lifecycle in P0-02 through P0-07 can be represented without an undocumented state or relation.",
         "Feature migration boundaries and a single migration integration owner are documented; report/schema conflicts are tracked explicitly."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 9,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/9",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
@@ -347,10 +357,10 @@
         "Frontend mocks and backend schemas can be checked against the same examples; no client API exposes an individual agent or hidden solutions.",
         "The human approves remaining product-visible contract choices; peer review verifies consistency with the approved schema and decision records."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 10,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/10",
       "milestone_title": "P0 \u2014 Decisions and contracts",
       "labels": [
         "phase:P0",
@@ -381,10 +391,10 @@
         "A PR template links its issue, acceptance evidence, contract changes, and reviewer; main is the integration branch.",
         "Required branch protection is documented and configured only with repository-admin authorization; capability limitations are reported."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 11,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/11",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -415,10 +425,10 @@
         "Missing required configuration fails clearly; secrets are redacted from logs/errors.",
         "Backend test fixtures exercise startup and a representative error response."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 12,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/12",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -449,10 +459,10 @@
         "Shared controls support keyboard use, labels, loading, empty, and error states.",
         "No mock feature or hard-coded role is represented as authenticated application behavior."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 13,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/13",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -485,10 +495,10 @@
         "A restart preserves intended data and restores required processes through documented commands.",
         "Mocked services are clearly distinguished from real integration checks; missing credentials block only dependent checks."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 14,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/14",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -521,10 +531,10 @@
         "The normal suite runs actual tests; passing with zero collected tests does not satisfy this issue.",
         "Fork PRs cannot access deployment or provider secrets; setup uses lockfiles and verified downloads."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 15,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/15",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -560,10 +570,10 @@
         "Database access checks cover own versus foreign class/student and the approved privileged-operation rules.",
         "One integration owner reviews migration ordering; tests do not rely on manually edited hosted tables."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 16,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/16",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -599,10 +609,10 @@
         "A pending review survives process restart and resumes only for an authorized decision under approved replay rules.",
         "A repeated event/approval does not duplicate its intended effect; infrastructure tests do not claim that all five agents are implemented."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 17,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/17",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -632,24 +642,34 @@
       "sources": "Approved provider/operation matrix; context \u00a7\u00a78.4, 12.",
       "scope": [
         "Implement provider-independent LLMClient and embedding adapters with typed schemas, approved prompt templates, filtering, and minimum necessary context.",
-        "Implement approved timeouts, transport retries, regeneration limits, usage/cost metadata, and deterministic doubles."
+        "Implement approved timeouts, transport retries, regeneration limits, usage/cost metadata, and deterministic doubles.",
+        "Implement the approved 10\u201315-model registry and bounded, observable runtime failover for text-generation operations."
       ],
       "acceptance_criteria": [
         "Tests cover malformed output, provider timeout, rate limit, exhausted retry budget, and invalid embedding dimension.",
         "One credentialed LLM request and one embedding request verify the chosen providers when securely configured; failures are reported distinctly from double-based tests.",
-        "Unvalidated output never writes state; logs and client responses contain no privileged credential or unnecessary learner history."
+        "Unvalidated output never writes state; logs and client responses contain no privileged credential or unnecessary learner history.",
+        "Implement the OpenRouter adapter and load the ranked 10\u201315 distinct model candidates from validated non-secret configuration, with per-operation eligibility, explicit underlying-provider routing/fallback settings, and securely supplied credentials. Account for OpenRouter provider retries and application retries within one total request budget; retain a provider-independent interface.",
+        "On approved transient failures (such as 429, timeout, connection failure, or provider 5xx), select the next eligible healthy route within the global deadline/attempt/cost budget. Honor Retry-After through cooldown scheduling; skip routes sharing an exhausted quota domain. Authentication/configuration and invalid-request failures are surfaced distinctly rather than blindly consuming the chain.",
+        "Implement provider/model cooldown or circuit-breaker behavior and recovery probes under the approved policy. If no route is eligible within the budget, return a clear unavailable state and preserve saved work; do not claim guaranteed uptime from chain length.",
+        "Every candidate must satisfy the same Pydantic/output/content checks and operation-specific educational constraints. Handle invalid outputs using the approved validation/regeneration policy; fallback must not bypass teacher approval, reveal quiz answers, or silently return fabricated/canned success.",
+        "Retries and model switches preserve the logical request identity and cannot duplicate quiz drafts, persisted answers, recommendations, hint posts, or teacher-approved actions. Define partial-stream replacement behavior before displaying mixed results from different models.",
+        "Automated tests simulate failure of the primary and several successive candidates, shared-provider/account rate limits, recovered routes, malformed outputs, exhausted chain, cancellation, and deadline/cost limits. Credentialed smoke tests verify each configured model independently; report unrun/failed candidates explicitly.",
+        "Record route/model selection and fallback reason without secrets or unnecessary learner content. Keep embedding fallback separate and reject incompatible embedding model/version changes."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 18,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/18",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
         "type:agents",
         "workstream:C"
       ],
-      "body": "<!-- insync-plan-id: P1-08; plan-version: 0.2 -->\n**Outcome:** Implement model-provider wrappers and validated outputs\n**Milestone:** P1 \u2014 Development foundation\n**Suggested workstream:** C; **Size:** M; one accountable owner, a different reviewer.\n**Start after:** P0-07, P0-09, P1-02.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** Q02, Q14, Q15.\n**Source:** Approved provider/operation matrix; context \u00a7\u00a78.4, 12.\n\n**Scope**\n\n- Implement provider-independent LLMClient and embedding adapters with typed schemas, approved prompt templates, filtering, and minimum necessary context.\n- Implement approved timeouts, transport retries, regeneration limits, usage/cost metadata, and deterministic doubles.\n\n**Acceptance checks**\n\n- [ ] Tests cover malformed output, provider timeout, rate limit, exhausted retry budget, and invalid embedding dimension.\n- [ ] One credentialed LLM request and one embedding request verify the chosen providers when securely configured; failures are reported distinctly from double-based tests.\n- [ ] Unvalidated output never writes state; logs and client responses contain no privileged credential or unnecessary learner history.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration."
+      "body": "<!-- insync-plan-id: P1-08; plan-version: 0.2 -->\n**Outcome:** Implement model-provider wrappers and validated outputs\n**Milestone:** P1 \u2014 Development foundation\n**Suggested workstream:** C; **Size:** M; one accountable owner, a different reviewer.\n**Start after:** P0-07, P0-09, P1-02.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** Q02, Q14, Q15.\n**Source:** Approved provider/operation matrix; context \u00a7\u00a78.4, 12.\n\n**Scope**\n\n- Implement provider-independent LLMClient and embedding adapters with typed schemas, approved prompt templates, filtering, and minimum necessary context.\n- Implement approved timeouts, transport retries, regeneration limits, usage/cost metadata, and deterministic doubles.\n\n**Acceptance checks**\n\n- [ ] Tests cover malformed output, provider timeout, rate limit, exhausted retry budget, and invalid embedding dimension.\n- [ ] One credentialed LLM request and one embedding request verify the chosen providers when securely configured; failures are reported distinctly from double-based tests.\n- [ ] Unvalidated output never writes state; logs and client responses contain no privileged credential or unnecessary learner history.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.\n\n<!-- insync-demo-fallback: v1 -->\n\n**Approved demo fallback requirement \u2014 9 October 2026**\n\nThe human requested an explicit 10\u201315-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.\n\n**Additional scope:** Implement the approved 10\u201315-model registry and bounded, observable runtime failover for text-generation operations.\n\n**Additional acceptance checks**\n\n- [ ] Implement the OpenRouter adapter and load the ranked 10\u201315 distinct model candidates from validated non-secret configuration, with per-operation eligibility, explicit underlying-provider routing/fallback settings, and securely supplied credentials. Account for OpenRouter provider retries and application retries within one total request budget; retain a provider-independent interface.\n- [ ] On approved transient failures (such as 429, timeout, connection failure, or provider 5xx), select the next eligible healthy route within the global deadline/attempt/cost budget. Honor Retry-After through cooldown scheduling; skip routes sharing an exhausted quota domain. Authentication/configuration and invalid-request failures are surfaced distinctly rather than blindly consuming the chain.\n- [ ] Implement provider/model cooldown or circuit-breaker behavior and recovery probes under the approved policy. If no route is eligible within the budget, return a clear unavailable state and preserve saved work; do not claim guaranteed uptime from chain length.\n- [ ] Every candidate must satisfy the same Pydantic/output/content checks and operation-specific educational constraints. Handle invalid outputs using the approved validation/regeneration policy; fallback must not bypass teacher approval, reveal quiz answers, or silently return fabricated/canned success.\n- [ ] Retries and model switches preserve the logical request identity and cannot duplicate quiz drafts, persisted answers, recommendations, hint posts, or teacher-approved actions. Define partial-stream replacement behavior before displaying mixed results from different models.\n- [ ] Automated tests simulate failure of the primary and several successive candidates, shared-provider/account rate limits, recovered routes, malformed outputs, exhausted chain, cancellation, and deadline/cost limits. Credentialed smoke tests verify each configured model independently; report unrun/failed candidates explicitly.\n- [ ] Record route/model selection and fallback reason without secrets or unnecessary learner content. Keep embedding fallback separate and reject incompatible embedding model/version changes.\n\n<!-- /insync-demo-fallback -->\n\n<!-- insync-openrouter-choice: v1 -->\n\n**Provider decision \u2014 9 October 2026**\n\nThe human selected **OpenRouter as the initial text-generation gateway** to start development quickly. This settles the initial gateway choice; exact models and provider routes, cost/deadline limits, and live verification of the 10\u201315-model chain remain work in #8/#18. Embedding model/hosting selection remains separate. Hugging Face is not required as a second runtime gateway for the initial implementation. OpenRouter model/provider fallbacks do not cover loss of the OpenRouter platform or the shared account; preserve bounded unavailable behavior and saved work in that case.\n\n<!-- /insync-openrouter-choice -->",
+      "demo_fallback_amendment": "published_verified",
+      "initial_text_generation_gateway": "OpenRouter"
     },
     {
       "id": "P1-09",
@@ -679,10 +699,10 @@
         "Restart and duplicate-delivery tests follow the approved recovery contract without duplicate learning records.",
         "Exhausted work remains diagnosable/retryable as specified; the implementation does not introduce an unapproved queue topology."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 19,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/19",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -721,10 +741,10 @@
         "Temporary awareness/control state is distinguished from durable document state; disconnected control holders follow the approved expiry/recovery policy.",
         "A short compatibility report unblocks P6-06/P6-07 or identifies a specific design change for approval. This technical proof does not claim the full workspace is implemented."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 20,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/20",
       "milestone_title": "P1 \u2014 Development foundation",
       "labels": [
         "phase:P1",
@@ -759,10 +779,10 @@
         "Student role escalation and cross-user/class access fail; database policy and API behavior agree.",
         "No service-role credential is required in the browser; public errors do not expose sensitive token data."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 21,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/21",
       "milestone_title": "P2 \u2014 Identity, classes, and sessions",
       "labels": [
         "phase:P2",
@@ -799,10 +819,10 @@
         "A refreshed session retains appropriate navigation; logout/expiry removes protected client state.",
         "Integration with P2-01 succeeds; hiding a route is not treated as backend authorization."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 22,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/22",
       "milestone_title": "P2 \u2014 Identity, classes, and sessions",
       "labels": [
         "phase:P2",
@@ -836,10 +856,10 @@
         "Archiving requires the approved confirmation flow and preserves records.",
         "Topics and Concepts remain distinct; validation and empty-state responses match the shared contract."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 23,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/23",
       "milestone_title": "P2 \u2014 Identity, classes, and sessions",
       "labels": [
         "phase:P2",
@@ -875,10 +895,10 @@
         "A repeated end does not emit duplicate logical work; session state persists across restart.",
         "The event is contract-valid; actual draft-quiz generation is explicitly verified in P4-03."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 24,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/24",
       "milestone_title": "P2 \u2014 Identity, classes, and sessions",
       "labels": [
         "phase:P2",
@@ -916,10 +936,10 @@
         "Invalid membership, archived class, no topic, no active session, loading, and failure cases are visible.",
         "Integration tests verify server permissions and retained records after archive."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 25,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/25",
       "milestone_title": "P2 \u2014 Identity, classes, and sessions",
       "labels": [
         "phase:P2",
@@ -952,10 +972,10 @@
         "Fixtures are safe to reset in the designated development/test environment and never target production by default.",
         "The demo records actual checks and remaining configuration needs; no AI behavior is claimed yet."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 26,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/26",
       "milestone_title": "P2 \u2014 Identity, classes, and sessions",
       "labels": [
         "phase:P2",
@@ -991,10 +1011,10 @@
         "Stored originals are traceable to material/topic/class and have the approved access policy.",
         "Upload/storage/job failures give actionable states; duplicates/replacements follow the approved policy."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 27,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/27",
       "milestone_title": "P3 \u2014 Learning materials and Tutor Agent",
       "labels": [
         "phase:P3",
@@ -1029,10 +1049,10 @@
         "Empty/corrupt/unsupported input, provider failure, dimension mismatch, and repeated processing are tested.",
         "Failed or partial ingestion is not exposed as ready; updated material follows the approved version/deletion rules."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 28,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/28",
       "milestone_title": "P3 \u2014 Learning materials and Tutor Agent",
       "labels": [
         "phase:P3",
@@ -1068,10 +1088,10 @@
         "A closer vector from a foreign class can never be returned; changed membership is respected.",
         "No-match, fewer-than-three matches, and ingestion/provider failures remain distinguishable."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 29,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/29",
       "milestone_title": "P3 \u2014 Learning materials and Tutor Agent",
       "labels": [
         "phase:P3",
@@ -1110,10 +1130,10 @@
         "A real provider-backed material-to-tutor journey stores valid source-linked evidence; deterministic tests cover failure paths.",
         "The ongoing-quiz protection interface is tested against contract fixtures here and real attempts in P5-06."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 30,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/30",
       "milestone_title": "P3 \u2014 Learning materials and Tutor Agent",
       "labels": [
         "phase:P3",
@@ -1149,10 +1169,10 @@
         "Invalid file, storage failure, ingestion failure, and empty list have useful feedback.",
         "Access and available controls reflect server permissions; no privileged storage credential reaches the client."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 31,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/31",
       "milestone_title": "P3 \u2014 Learning materials and Tutor Agent",
       "labels": [
         "phase:P3",
@@ -1189,10 +1209,10 @@
         "Off-topic/unclear/failed requests and reload/history behavior follow approved contracts.",
         "Keyboard and readable status behavior work; a foreign student cannot read another learner\u2019s history."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 32,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/32",
       "milestone_title": "P3 \u2014 Learning materials and Tutor Agent",
       "labels": [
         "phase:P3",
@@ -1228,10 +1248,10 @@
         "Editing reviewed content obeys version/reapproval rules; hidden answers never appear in student payloads.",
         "Manual authoring remains usable when external AI generation is unavailable."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 33,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/33",
       "milestone_title": "P4 \u2014 Approved adaptive assessment",
       "labels": [
         "phase:P4",
@@ -1269,10 +1289,10 @@
         "Boundary/opposite-answer streaks, no attempts, repeats, ties, fallback difficulty, and all-approved-bank-exhausted cases match approved examples.",
         "An unapproved question can never be selected; arithmetic tests do not depend on model responses."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 34,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/34",
       "milestone_title": "P4 \u2014 Approved adaptive assessment",
       "labels": [
         "phase:P4",
@@ -1311,10 +1331,10 @@
         "Repeated events and generation retries do not duplicate logical quizzes or publish unapproved questions.",
         "Provider failure supports the approved retry/manual-authoring path; newly generated questions require additional teacher approval."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 35,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/35",
       "milestone_title": "P4 \u2014 Approved adaptive assessment",
       "labels": [
         "phase:P4",
@@ -1354,10 +1374,10 @@
         "Duplicate/concurrent answers, reload/restart, exhausted bank, teacher approval/rejection, and unauthorized attempts are tested.",
         "No unapproved question or hidden answer reaches the learner; saved results remain available if downstream analysis fails."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 36,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/36",
       "milestone_title": "P4 \u2014 Approved adaptive assessment",
       "labels": [
         "phase:P4",
@@ -1396,10 +1416,10 @@
         "Additional question approval is visible and tied to the approved content version.",
         "Repeated review clicks and stale drafts are handled without unintentionally publishing new content."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 37,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/37",
       "milestone_title": "P4 \u2014 Approved adaptive assessment",
       "labels": [
         "phase:P4",
@@ -1437,10 +1457,10 @@
         "Double submit, reload, lost connection, unavailable teacher, and rejection follow the approved state machine.",
         "Browser payloads do not expose answer keys; students cannot access unassigned/unapproved quizzes."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 38,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/38",
       "milestone_title": "P4 \u2014 Approved adaptive assessment",
       "labels": [
         "phase:P4",
@@ -1482,10 +1502,10 @@
         "Replayed events do not double count; analysis failure preserves original learning evidence and supports later recovery.",
         "Collaboration input uses approved fixtures here; real group attribution is validated in P6-09."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 39,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/39",
       "milestone_title": "P5 \u2014 Progress and teacher-reviewed interventions",
       "labels": [
         "phase:P5",
@@ -1522,10 +1542,10 @@
         "No recommendation triggers an activity on creation; deduplication and insufficient evidence follow approved policy.",
         "Group inputs compute total correct/total attempts and omit unassessed topics; analysis responsibility remains with Progress Agent."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 40,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/40",
       "milestone_title": "P5 \u2014 Progress and teacher-reviewed interventions",
       "labels": [
         "phase:P5",
@@ -1563,10 +1583,10 @@
         "An approved action executes through the router; repeated/concurrent approvals and process restart do not duplicate the effect. Downstream quiz/group creation still respects its separate content/membership approval gates.",
         "Another teacher cannot decide the recommendation; approved downstream failures remain visible and recoverable."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 41,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/41",
       "milestone_title": "P5 \u2014 Progress and teacher-reviewed interventions",
       "labels": [
         "phase:P5",
@@ -1605,10 +1625,10 @@
         "Class filters and authorization prevent private learner information crossing the approved boundary.",
         "No-data/loading/analysis-unavailable cases are informative; color is not the only way to understand performance."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 42,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/42",
       "milestone_title": "P5 \u2014 Progress and teacher-reviewed interventions",
       "labels": [
         "phase:P5",
@@ -1644,10 +1664,10 @@
         "Only the approved action executes; pending and dismissed records remain represented correctly.",
         "No Edit action is added to recommendations; group editing remains a separate flow."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 43,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/43",
       "milestone_title": "P5 \u2014 Progress and teacher-reviewed interventions",
       "labels": [
         "phase:P5",
@@ -1685,10 +1705,10 @@
         "Provider/downstream failures and restart during review preserve results and obey recovery contracts.",
         "Record passed/failed/skipped checks and any credentialed-provider limitations; this milestone does not claim collaboration is complete."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 44,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/44",
       "milestone_title": "P5 \u2014 Progress and teacher-reviewed interventions",
       "labels": [
         "phase:P5",
@@ -1723,10 +1743,10 @@
         "Maximum size and unique membership hold; inputs are not mutated and grouping uses pooled performance.",
         "Output is a proposal for the Teacher Assistant Agent; no student gains access before approval."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 45,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/45",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -1761,10 +1781,10 @@
         "Group scores sum the approved pairwise contributions and memberships meet capacity/uniqueness constraints.",
         "No unapproved optimizer or heuristic replaces the selected algorithm; proposals remain inactive."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 46,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/46",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -1805,10 +1825,10 @@
         "Duplicate/invalid members and stale approvals are handled; hidden solutions are excluded from student responses.",
         "Approved problems and membership lifecycle events are available to WebSocket/hint consumers."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 47,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/47",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -1845,10 +1865,10 @@
         "Invalid membership, no-data students, empty results, and proposal changes receive clear feedback.",
         "Students cannot enter a merely proposed group; problem solutions remain restricted."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 48,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/48",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -1884,10 +1904,10 @@
         "Foreign-group users, expired sessions, and revoked membership cannot keep unauthorized access.",
         "Temporary presence expires correctly and is excluded from learner-performance evidence."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 49,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/49",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -1924,10 +1944,10 @@
         "Persisted Yjs updates/snapshots reconstruct the shared document after the specified restart; awareness/presence and Redis locks are not treated as durable document storage.",
         "Raw mouse/cursor data is not recorded as learning evidence and events preserve approved attribution."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 50,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/50",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -1969,10 +1989,10 @@
         "AI hints are labeled; hidden solutions and individual weaknesses never appear in group content.",
         "Real chat, editing, and hint integrations pass before issue closure."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 52,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/52",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -2013,10 +2033,10 @@
         "Leakage/regeneration/fallback tests and provider-backed samples verify group-directed hints without revealing answers or private weaknesses.",
         "Logs retain approved source attribution for later analysis without assigning unsupported individual performance."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 51,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/51",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -2054,10 +2074,10 @@
         "Yjs convergence/reconstruction, reconnect with stale edits, edit-control transfer/revocation, membership change, simultaneous hint triggers, and provider failure retain correct state.",
         "All five real agent paths are exercised across this demo and P5-06."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 53,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/53",
       "milestone_title": "P6 \u2014 Groups, shared workspace, and Discussion Agent",
       "labels": [
         "phase:P6",
@@ -2092,10 +2112,10 @@
         "Data controls follow recorded requirements and preserve/restrict related records consistently.",
         "No new personalization opt-out, automatic deletion policy, or moderation action is invented beyond approval."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 54,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/54",
       "milestone_title": "P7 \u2014 Evaluation, operations, and pilot release",
       "labels": [
         "phase:P7",
@@ -2123,24 +2143,29 @@
       "sources": "Context \u00a7\u00a78.4, 14; approved operational targets.",
       "scope": [
         "Connect request/job/graph tracing, approved error/availability metrics, provider latency, and API usage/cost records.",
-        "Document diagnosis of processing failures, pending teacher review, retry exhaustion, and configured operational limits."
+        "Document diagnosis of processing failures, pending teacher review, retry exhaustion, and configured operational limits.",
+        "Expose actionable model-chain health, quota-domain, latency, fallback, and cost evidence for the pilot/demo."
       ],
       "acceptance_criteria": [
         "A simulated failure can be traced from user request to job/agent outcome without exposing credentials or unnecessary learner content.",
         "Usage records reconcile with controlled test requests and approved budget/alert behavior.",
-        "Metrics measure teacher-wait time separately from model/server latency."
+        "Metrics measure teacher-wait time separately from model/server latency.",
+        "Record logical request ID, agent operation, selected model/provider, attempted routes, normalized failure reason, cooldown/Retry-After, total latency, and aggregate usage/cost using the approved privacy policy.",
+        "Provide an operator-facing pre-demo check/report covering credentials, eligible candidates, recent validation results, usable quota where observable, and fallback readiness; unknown provider quota remains explicitly unknown.",
+        "Demonstrate that a shared quota outage is visible as one affected domain and that cost/deadline limits apply across the entire chain, not independently per retry. Label synthetic checks separately from live provider evidence."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 55,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/55",
       "milestone_title": "P7 \u2014 Evaluation, operations, and pilot release",
       "labels": [
         "phase:P7",
         "type:infrastructure",
         "workstream:B"
       ],
-      "body": "<!-- insync-plan-id: P7-02; plan-version: 0.2 -->\n**Outcome:** Integrate operational visibility and pilot cost tracking\n**Milestone:** P7 \u2014 Evaluation, operations, and pilot release\n**Suggested workstream:** B; **Size:** M; one accountable owner, a different reviewer.\n**Start after:** P5-06, P6-09, P0-07.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** Q18.\n**Source:** Context \u00a7\u00a78.4, 14; approved operational targets.\n\n**Scope**\n\n- Connect request/job/graph tracing, approved error/availability metrics, provider latency, and API usage/cost records.\n- Document diagnosis of processing failures, pending teacher review, retry exhaustion, and configured operational limits.\n\n**Acceptance checks**\n\n- [ ] A simulated failure can be traced from user request to job/agent outcome without exposing credentials or unnecessary learner content.\n- [ ] Usage records reconcile with controlled test requests and approved budget/alert behavior.\n- [ ] Metrics measure teacher-wait time separately from model/server latency.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration."
+      "body": "<!-- insync-plan-id: P7-02; plan-version: 0.2 -->\n**Outcome:** Integrate operational visibility and pilot cost tracking\n**Milestone:** P7 \u2014 Evaluation, operations, and pilot release\n**Suggested workstream:** B; **Size:** M; one accountable owner, a different reviewer.\n**Start after:** P5-06, P6-09, P0-07.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** Q18.\n**Source:** Context \u00a7\u00a78.4, 14; approved operational targets.\n\n**Scope**\n\n- Connect request/job/graph tracing, approved error/availability metrics, provider latency, and API usage/cost records.\n- Document diagnosis of processing failures, pending teacher review, retry exhaustion, and configured operational limits.\n\n**Acceptance checks**\n\n- [ ] A simulated failure can be traced from user request to job/agent outcome without exposing credentials or unnecessary learner content.\n- [ ] Usage records reconcile with controlled test requests and approved budget/alert behavior.\n- [ ] Metrics measure teacher-wait time separately from model/server latency.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.\n\n<!-- insync-demo-fallback: v1 -->\n\n**Approved demo fallback requirement \u2014 9 October 2026**\n\nThe human requested an explicit 10\u201315-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.\n\n**Additional scope:** Expose actionable model-chain health, quota-domain, latency, fallback, and cost evidence for the pilot/demo.\n\n**Additional acceptance checks**\n\n- [ ] Record logical request ID, agent operation, selected model/provider, attempted routes, normalized failure reason, cooldown/Retry-After, total latency, and aggregate usage/cost using the approved privacy policy.\n- [ ] Provide an operator-facing pre-demo check/report covering credentials, eligible candidates, recent validation results, usable quota where observable, and fallback readiness; unknown provider quota remains explicitly unknown.\n- [ ] Demonstrate that a shared quota outage is visible as one affected domain and that cost/deadline limits apply across the entire chain, not independently per retry. Label synthetic checks separately from live provider evidence.\n\n<!-- /insync-demo-fallback -->",
+      "demo_fallback_amendment": "published_verified"
     },
     {
       "id": "P7-03",
@@ -2160,24 +2185,30 @@
       "sources": "Context \u00a7\u00a712, 14; approved permission/recovery matrix.",
       "scope": [
         "Automate cross-user/class/group access checks across REST, database policies, retrieval, storage, and WebSockets.",
-        "Exercise hidden-answer serialization, role escalation, stale approvals, duplicate events, process/Redis/provider failures, and recovery."
+        "Exercise hidden-answer serialization, role escalation, stale approvals, duplicate events, process/Redis/provider failures, and recovery.",
+        "Verify multi-model failover and graceful exhaustion under rate limiting, provider failures, and recovery."
       ],
       "acceptance_criteria": [
         "Required negative-access scenarios fail closed while legitimate teacher/student journeys still succeed.",
         "Pending approvals and durable records survive the approved failure cases; no duplicated learning activity occurs.",
-        "Failures are linked to fixes and rerun; no blanket security/compliance certification is claimed."
+        "Failures are linked to fixes and rerun; no blanket security/compliance certification is claimed.",
+        "Fault-injection tests force the primary and multiple subsequent routes to fail, including 429 with Retry-After, shared-provider/account exhaustion, timeout, transient 5xx, invalid credentials, and incompatible output. Fault injection is controlled locally; do not intentionally exhaust real provider quotas.",
+        "Verify successful routing to an eligible surviving candidate where one exists and bounded, explicit failure when all eligible candidates are unavailable. Measure the approved total deadline, attempt count, and cost budget.",
+        "Verify no duplicate persisted or teacher-approved side effects during fallback/replay and no validation, access, or content-policy bypass. Test cooldown recovery without retry storms and cancellation without background attempts continuing unnecessarily.",
+        "A text-model fallback must not silently change the embedding space or corrupt retrieval; incompatible embedding changes fail clearly."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 56,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/56",
       "milestone_title": "P7 \u2014 Evaluation, operations, and pilot release",
       "labels": [
         "phase:P7",
         "type:verification",
         "workstream:B"
       ],
-      "body": "<!-- insync-plan-id: P7-03; plan-version: 0.2 -->\n**Outcome:** Run authorization, isolation, and recovery regression tests\n**Milestone:** P7 \u2014 Evaluation, operations, and pilot release\n**Suggested workstream:** B; **Size:** M; one accountable owner, a different reviewer.\n**Start after:** P7-01, P7-02, P6-09, P1-05.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** None.\n**Source:** Context \u00a7\u00a712, 14; approved permission/recovery matrix.\n\n**Scope**\n\n- Automate cross-user/class/group access checks across REST, database policies, retrieval, storage, and WebSockets.\n- Exercise hidden-answer serialization, role escalation, stale approvals, duplicate events, process/Redis/provider failures, and recovery.\n\n**Acceptance checks**\n\n- [ ] Required negative-access scenarios fail closed while legitimate teacher/student journeys still succeed.\n- [ ] Pending approvals and durable records survive the approved failure cases; no duplicated learning activity occurs.\n- [ ] Failures are linked to fixes and rerun; no blanket security/compliance certification is claimed.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration."
+      "body": "<!-- insync-plan-id: P7-03; plan-version: 0.2 -->\n**Outcome:** Run authorization, isolation, and recovery regression tests\n**Milestone:** P7 \u2014 Evaluation, operations, and pilot release\n**Suggested workstream:** B; **Size:** M; one accountable owner, a different reviewer.\n**Start after:** P7-01, P7-02, P6-09, P1-05.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** None.\n**Source:** Context \u00a7\u00a712, 14; approved permission/recovery matrix.\n\n**Scope**\n\n- Automate cross-user/class/group access checks across REST, database policies, retrieval, storage, and WebSockets.\n- Exercise hidden-answer serialization, role escalation, stale approvals, duplicate events, process/Redis/provider failures, and recovery.\n\n**Acceptance checks**\n\n- [ ] Required negative-access scenarios fail closed while legitimate teacher/student journeys still succeed.\n- [ ] Pending approvals and durable records survive the approved failure cases; no duplicated learning activity occurs.\n- [ ] Failures are linked to fixes and rerun; no blanket security/compliance certification is claimed.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.\n\n<!-- insync-demo-fallback: v1 -->\n\n**Approved demo fallback requirement \u2014 9 October 2026**\n\nThe human requested an explicit 10\u201315-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.\n\n**Additional scope:** Verify multi-model failover and graceful exhaustion under rate limiting, provider failures, and recovery.\n\n**Additional acceptance checks**\n\n- [ ] Fault-injection tests force the primary and multiple subsequent routes to fail, including 429 with Retry-After, shared-provider/account exhaustion, timeout, transient 5xx, invalid credentials, and incompatible output. Fault injection is controlled locally; do not intentionally exhaust real provider quotas.\n- [ ] Verify successful routing to an eligible surviving candidate where one exists and bounded, explicit failure when all eligible candidates are unavailable. Measure the approved total deadline, attempt count, and cost budget.\n- [ ] Verify no duplicate persisted or teacher-approved side effects during fallback/replay and no validation, access, or content-policy bypass. Test cooldown recovery without retry storms and cancellation without background attempts continuing unnecessarily.\n- [ ] A text-model fallback must not silently change the embedding space or corrupt retrieval; incompatible embedding changes fail clearly.\n\n<!-- /insync-demo-fallback -->",
+      "demo_fallback_amendment": "published_verified"
     },
     {
       "id": "P7-04",
@@ -2200,24 +2231,30 @@
       "scope": [
         "Prepare approved Programming Fundamentals material/questions and expected evidence examples for the pilot topic set.",
         "Evaluate grounding, question correctness/difficulty, hint answer leakage, grouping explanations, recommendation evidence, coordination, and teacher usability.",
-        "Run the agreed comparison/evaluation protocol and record sample-only versus real-participant evidence, failures, limitations, and API cost."
+        "Run the agreed comparison/evaluation protocol and record sample-only versus real-participant evidence, failures, limitations, and API cost.",
+        "Evaluate every model candidate and the actual fallback transitions against the Programming Fundamentals demo tasks."
       ],
       "acceptance_criteria": [
         "A reproducible evaluation dataset/procedure and rubric approved in P0-01 are used; results include actual sample counts.",
         "Teacher review and evidence transfer across activities are evaluated alongside individual output quality.",
-        "Findings do not claim improved learning or coverage of both audiences without supporting data; failed agreed targets produce follow-up issues."
+        "Findings do not claim improved learning or coverage of both audiences without supporting data; failed agreed targets produce follow-up issues.",
+        "Run the approved task/rubric matrix for every one of the 10\u201315 selected generation models using dated live-provider samples; report eligible operations, structured-output success, grounding, question correctness/difficulty, hint leakage, recommendation evidence, latency, and cost.",
+        "Do not count a listed but inaccessible, untested, or quality-failing model as a working fallback. Replace or fix failed candidates through #8/#18 and rerun the affected checks; retain the approved 10\u201315-model coverage requirement.",
+        "Combine live candidate checks with deterministic fault-injected transitions to prove the application actually uses the chain. Preserve evidence of student/teacher flows and label simulation distinctly; do not claim intentional production rate-limit testing.",
+        "Recheck access and representative calls before the scheduled demo because provider availability and free-tier quotas can change. Record remaining shared-provider/platform risks and the tested exhausted-chain behavior."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 57,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/57",
       "milestone_title": "P7 \u2014 Evaluation, operations, and pilot release",
       "labels": [
         "phase:P7",
         "type:verification",
         "workstream:C"
       ],
-      "body": "<!-- insync-plan-id: P7-04; plan-version: 0.2 -->\n**Outcome:** Run educational quality and pilot evaluation\n**Milestone:** P7 \u2014 Evaluation, operations, and pilot release\n**Suggested workstream:** C; **Size:** L; one accountable owner, a different reviewer.\n**Start after:** P5-06, P6-09, P7-01, P0-01.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** Q18.\n**Source:** Context \u00a7\u00a73, 14; approved evaluation protocol.\n\n**Scope**\n\n- Prepare approved Programming Fundamentals material/questions and expected evidence examples for the pilot topic set.\n- Evaluate grounding, question correctness/difficulty, hint answer leakage, grouping explanations, recommendation evidence, coordination, and teacher usability.\n- Run the agreed comparison/evaluation protocol and record sample-only versus real-participant evidence, failures, limitations, and API cost.\n\n**Acceptance checks**\n\n- [ ] A reproducible evaluation dataset/procedure and rubric approved in P0-01 are used; results include actual sample counts.\n- [ ] Teacher review and evidence transfer across activities are evaluated alongside individual output quality.\n- [ ] Findings do not claim improved learning or coverage of both audiences without supporting data; failed agreed targets produce follow-up issues.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration."
+      "body": "<!-- insync-plan-id: P7-04; plan-version: 0.2 -->\n**Outcome:** Run educational quality and pilot evaluation\n**Milestone:** P7 \u2014 Evaluation, operations, and pilot release\n**Suggested workstream:** C; **Size:** L; one accountable owner, a different reviewer.\n**Start after:** P5-06, P6-09, P7-01, P0-01.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** Q18.\n**Source:** Context \u00a7\u00a73, 14; approved evaluation protocol.\n\n**Scope**\n\n- Prepare approved Programming Fundamentals material/questions and expected evidence examples for the pilot topic set.\n- Evaluate grounding, question correctness/difficulty, hint answer leakage, grouping explanations, recommendation evidence, coordination, and teacher usability.\n- Run the agreed comparison/evaluation protocol and record sample-only versus real-participant evidence, failures, limitations, and API cost.\n\n**Acceptance checks**\n\n- [ ] A reproducible evaluation dataset/procedure and rubric approved in P0-01 are used; results include actual sample counts.\n- [ ] Teacher review and evidence transfer across activities are evaluated alongside individual output quality.\n- [ ] Findings do not claim improved learning or coverage of both audiences without supporting data; failed agreed targets produce follow-up issues.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.\n\n<!-- insync-demo-fallback: v1 -->\n\n**Approved demo fallback requirement \u2014 9 October 2026**\n\nThe human requested an explicit 10\u201315-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.\n\n**Additional scope:** Evaluate every model candidate and the actual fallback transitions against the Programming Fundamentals demo tasks.\n\n**Additional acceptance checks**\n\n- [ ] Run the approved task/rubric matrix for every one of the 10\u201315 selected generation models using dated live-provider samples; report eligible operations, structured-output success, grounding, question correctness/difficulty, hint leakage, recommendation evidence, latency, and cost.\n- [ ] Do not count a listed but inaccessible, untested, or quality-failing model as a working fallback. Replace or fix failed candidates through #8/#18 and rerun the affected checks; retain the approved 10\u201315-model coverage requirement.\n- [ ] Combine live candidate checks with deterministic fault-injected transitions to prove the application actually uses the chain. Preserve evidence of student/teacher flows and label simulation distinctly; do not claim intentional production rate-limit testing.\n- [ ] Recheck access and representative calls before the scheduled demo because provider availability and free-tier quotas can change. Record remaining shared-provider/platform risks and the tested exhausted-chain behavior.\n\n<!-- /insync-demo-fallback -->",
+      "demo_fallback_amendment": "published_verified"
     },
     {
       "id": "P7-05",
@@ -2248,10 +2285,10 @@
         "Core journeys remain usable with keyboard input and across named browsers; issues are linked and verified after fixes.",
         "Performance results distinguish application latency from external model/review delays and do not invent uptime or accessibility certification."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 58,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/58",
       "milestone_title": "P7 \u2014 Evaluation, operations, and pilot release",
       "labels": [
         "phase:P7",
@@ -2288,10 +2325,10 @@
         "A backup restores to an isolated test target and the agreed sample records/materials remain usable.",
         "Deployment and restoration evidence names limitations; production release waits for the phase acceptance decision and required credentials/access."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 59,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/59",
       "milestone_title": "P7 \u2014 Evaluation, operations, and pilot release",
       "labels": [
         "phase:P7",
@@ -2329,10 +2366,10 @@
         "A new contributor can use the documented setup and issue workflow; known limitations and reproducible demos are recorded.",
         "The human accepts the authorized report updates/change pack; unavailable original conversations or editable sources are not claimed reviewed or modified."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 60,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/60",
       "milestone_title": "P7 \u2014 Evaluation, operations, and pilot release",
       "labels": [
         "phase:P7",
@@ -2360,24 +2397,58 @@
       "sources": "Context \u00a7\u00a714, 16; approved pilot acceptance criteria.",
       "scope": [
         "Run the final teacher/student/collaboration demo, reconcile open defects and agreed measures, and prepare release notes and issue evidence.",
-        "Present the concrete tested release for the human\u2019s acceptance and authorized publication/deployment."
+        "Present the concrete tested release for the human\u2019s acceptance and authorized publication/deployment.",
+        "Make verified multi-model fallback readiness a required pilot/demo acceptance gate."
       ],
       "acceptance_criteria": [
         "All required phase gates and tests have recorded outcomes; blocking defects/credentials/approval gaps remain visible.",
         "The human explicitly accepts the pilot or identifies remaining work; unresolved decisions are not silently marked complete.",
-        "Release handoff includes setup, operations, evaluation limits, issue/PR links, and next-scope backlog."
+        "Release handoff includes setup, operations, evaluation limits, issue/PR links, and next-scope backlog.",
+        "The exact ranked 10\u201315-model registry, selected platform/provider arrangement, eligible-operation matrix, credentialed candidate checks, and failover/exhaustion test evidence are available before accepting demo readiness.",
+        "Demonstrate a primary failure followed by a successful eligible fallback, plus controlled all-routes-unavailable behavior that respects the deadline and preserves saved work.",
+        "Known missing credentials, shared exhausted quotas, untested candidates, or failed quality checks remain explicit blockers; model count alone is not accepted as proof of availability."
       ],
-      "status": "Proposed \u2014 awaiting plan approval",
+      "status": "Blocked",
       "assignee": null,
-      "github_number": null,
-      "github_url": null,
+      "github_number": 61,
+      "github_url": "https://github.com/Haadiyah-Zafar/InSyncc/issues/61",
       "milestone_title": "P7 \u2014 Evaluation, operations, and pilot release",
       "labels": [
         "phase:P7",
         "type:integration",
         "workstream:C"
       ],
-      "body": "<!-- insync-plan-id: P7-08; plan-version: 0.2 -->\n**Outcome:** Accept the pilot release and finalize the handoff\n**Milestone:** P7 \u2014 Evaluation, operations, and pilot release\n**Suggested workstream:** C; **Size:** S; one accountable owner, a different reviewer.\n**Start after:** P7-03, P7-04, P7-05, P7-06, P7-07.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** None.\n**Source:** Context \u00a7\u00a714, 16; approved pilot acceptance criteria.\n\n**Scope**\n\n- Run the final teacher/student/collaboration demo, reconcile open defects and agreed measures, and prepare release notes and issue evidence.\n- Present the concrete tested release for the human\u2019s acceptance and authorized publication/deployment.\n\n**Acceptance checks**\n\n- [ ] All required phase gates and tests have recorded outcomes; blocking defects/credentials/approval gaps remain visible.\n- [ ] The human explicitly accepts the pilot or identifies remaining work; unresolved decisions are not silently marked complete.\n- [ ] Release handoff includes setup, operations, evaluation limits, issue/PR links, and next-scope backlog.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration."
+      "body": "<!-- insync-plan-id: P7-08; plan-version: 0.2 -->\n**Outcome:** Accept the pilot release and finalize the handoff\n**Milestone:** P7 \u2014 Evaluation, operations, and pilot release\n**Suggested workstream:** C; **Size:** S; one accountable owner, a different reviewer.\n**Start after:** P7-03, P7-04, P7-05, P7-06, P7-07.\n**Integrate/close after:** None (in addition to start dependencies).\n**Review references:** None.\n**Source:** Context \u00a7\u00a714, 16; approved pilot acceptance criteria.\n\n**Scope**\n\n- Run the final teacher/student/collaboration demo, reconcile open defects and agreed measures, and prepare release notes and issue evidence.\n- Present the concrete tested release for the human\u2019s acceptance and authorized publication/deployment.\n\n**Acceptance checks**\n\n- [ ] All required phase gates and tests have recorded outcomes; blocking defects/credentials/approval gaps remain visible.\n- [ ] The human explicitly accepts the pilot or identifies remaining work; unresolved decisions are not silently marked complete.\n- [ ] Release handoff includes setup, operations, evaluation limits, issue/PR links, and next-scope backlog.\n\n**Approval boundary**\n\nRequires the approved design/contracts cited below. Plan approval authorizes tracking this work; it does not settle any unresolved design choice.\n\n**Completion evidence**\n\n- Link the PR or approved decision record, peer review, and relevant test/demo results.\n- Document contract/schema changes and notify dependent issue owners through the issue/PR.\n- Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.\n\n<!-- insync-demo-fallback: v1 -->\n\n**Approved demo fallback requirement \u2014 9 October 2026**\n\nThe human requested an explicit 10\u201315-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.\n\n**Additional scope:** Make verified multi-model fallback readiness a required pilot/demo acceptance gate.\n\n**Additional acceptance checks**\n\n- [ ] The exact ranked 10\u201315-model registry, selected platform/provider arrangement, eligible-operation matrix, credentialed candidate checks, and failover/exhaustion test evidence are available before accepting demo readiness.\n- [ ] Demonstrate a primary failure followed by a successful eligible fallback, plus controlled all-routes-unavailable behavior that respects the deadline and preserves saved work.\n- [ ] Known missing credentials, shared exhausted quotas, untested candidates, or failed quality checks remain explicit blockers; model count alone is not accepted as proof of availability.\n\n<!-- /insync-demo-fallback -->",
+      "demo_fallback_amendment": "published_verified"
     }
-  ]
+  ],
+  "approval_record": {
+    "version": "0.2",
+    "date": "2026-10-09",
+    "timezone": "Asia/Karachi",
+    "user_statement": "okay i approve of the implementation plan",
+    "scope": "Publish the approved 60-issue backlog and eight milestones; unresolved design decisions remain pending."
+  },
+  "native_dependencies_status": "published_verified",
+  "native_dependency_count": 181,
+  "demo_fallback_amendment": {
+    "date": "2026-10-09",
+    "timezone": "Asia/Karachi",
+    "approval": "Explicit user request for a proper chain of 10 to 15 models for showcasing, testing, and demos.",
+    "status": "published_verified",
+    "issue_numbers": [
+      8,
+      18,
+      55,
+      56,
+      57,
+      61
+    ],
+    "model_selection_status": "OpenRouter selected as initial text-generation gateway; exact models/routes, budgets, embedding model/hosting, and live testing remain pending."
+  },
+  "initial_text_generation_gateway": {
+    "name": "OpenRouter",
+    "decision_date": "2026-10-09",
+    "scope": "Initial text-generation gateway; exact models/routes and embeddings remain undecided."
+  }
 }

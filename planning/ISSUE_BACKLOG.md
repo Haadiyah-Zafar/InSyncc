@@ -1,14 +1,16 @@
 # InSync implementation issue drafts
 
-**Status: proposed; no GitHub issues have been created.**
+**Status: plan/backlog approved and all 60 GitHub issues published on 9 October 2026. See [the live issue index](PUBLISHED_ISSUES.md).**
 
-Read [the implementation plan](IMPLEMENTATION_PLAN.md) first. IDs below are local planning IDs, not GitHub issue numbers. Dependencies will become issue links after approved publication.
+Read [the implementation plan](IMPLEMENTATION_PLAN.md) first. IDs below are local planning IDs, not GitHub issue numbers. The live GitHub bodies contain linked dependencies. Planning IDs remain stable here for reference.
 
 60 issues across eight phase milestones. Start dependencies permit coding; close dependencies permit parallel mock/contract work but require real integration before completion.
 
 ## P0 — Decisions and contracts
 
 ### [P0-01] Approve pilot scope, screen inventory, and evaluation baseline
+
+Published: [GitHub #2](https://github.com/Haadiyah-Zafar/InSyncc/issues/2)
 
 <!-- insync-plan-id: P0-01; plan-version: 0.2 -->
 **Outcome:** Approve pilot scope, screen inventory, and evaluation baseline
@@ -45,6 +47,8 @@ Requires explicit human approval of the listed decision and affected downstream 
 
 ### [P0-02] Approve learner state, graph ownership, and recovery contracts
 
+Published: [GitHub #3](https://github.com/Haadiyah-Zafar/InSyncc/issues/3)
+
 <!-- insync-plan-id: P0-02; plan-version: 0.2 -->
 **Outcome:** Approve learner state, graph ownership, and recovery contracts
 **Milestone:** P0 — Decisions and contracts
@@ -79,6 +83,8 @@ Requires explicit human approval of the listed decision and affected downstream 
 ---
 
 ### [P0-03] Approve identity, access, enrollment, and teacher verification
+
+Published: [GitHub #4](https://github.com/Haadiyah-Zafar/InSyncc/issues/4)
 
 <!-- insync-plan-id: P0-03; plan-version: 0.2 -->
 **Outcome:** Approve identity, access, enrollment, and teacher verification
@@ -115,6 +121,8 @@ Requires explicit human approval of the listed decision and affected downstream 
 
 ### [P0-04] Approve quiz lifecycle, adaptation edge cases, and in-attempt review
 
+Published: [GitHub #5](https://github.com/Haadiyah-Zafar/InSyncc/issues/5)
+
 <!-- insync-plan-id: P0-04; plan-version: 0.2 -->
 **Outcome:** Approve quiz lifecycle, adaptation edge cases, and in-attempt review
 **Milestone:** P0 — Decisions and contracts
@@ -149,6 +157,8 @@ Requires explicit human approval of the listed decision and affected downstream 
 ---
 
 ### [P0-05] Approve tutor, progress, and recommendation semantics
+
+Published: [GitHub #6](https://github.com/Haadiyah-Zafar/InSyncc/issues/6)
 
 <!-- insync-plan-id: P0-05; plan-version: 0.2 -->
 **Outcome:** Approve tutor, progress, and recommendation semantics
@@ -186,6 +196,8 @@ Requires explicit human approval of the listed decision and affected downstream 
 ---
 
 ### [P0-06] Approve grouping, discussion, and shared workspace behavior
+
+Published: [GitHub #7](https://github.com/Haadiyah-Zafar/InSyncc/issues/7)
 
 <!-- insync-plan-id: P0-06; plan-version: 0.2 -->
 **Outcome:** Approve grouping, discussion, and shared workspace behavior
@@ -225,6 +237,8 @@ Requires explicit human approval of the listed decision and affected downstream 
 
 ### [P0-07] Approve service choices, background execution, and operations
 
+Published: [GitHub #8](https://github.com/Haadiyah-Zafar/InSyncc/issues/8)
+
 <!-- insync-plan-id: P0-07; plan-version: 0.2 -->
 **Outcome:** Approve service choices, background execution, and operations
 **Milestone:** P0 — Decisions and contracts
@@ -258,9 +272,39 @@ Requires explicit human approval of the listed decision and affected downstream 
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+<!-- insync-demo-fallback: v1 -->
+
+**Approved demo fallback requirement — 9 October 2026**
+
+The human requested an explicit 10–15-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.
+
+**Additional scope:** Select and document a ranked demo fallback chain of 10–15 distinct text-generation models and their verified provider routes.
+
+**Additional acceptance checks**
+
+- [ ] Publish a ranked chain containing 10–15 distinct generation models in total (primary plus 9–14 alternatives). Repeated aliases or provider routes for the same model do not count as additional models.
+- [ ] For every entry record its exact OpenRouter model/version ID, license and whether it is open-source or open-weight, underlying provider routes, credentials/access requirement, context/output limits, structured-output capability, eligible agent operations, pricing, quotas, and measured smoke-test result/date.
+- [ ] Use OpenRouter as the initial text-generation gateway, selected by the human on 9 October 2026. Document independence/shared quota domains for model, underlying provider, OpenRouter account, and platform. A different model name does not prove independent capacity; all OpenRouter-hosted candidates can share an account/platform outage. Do not add a second gateway without a separate decision.
+- [ ] Approve routing priority, health/cooldown policy, rate-limit Retry-After handling, per-attempt timeout, maximum attempts, total request deadline, aggregate retry/regeneration budget, and cost ceiling. Reconcile the existing 20-second/two-retry rule with this overall budget; do not multiply it blindly across 15 models.
+- [ ] Define task-compatible subsets and quality thresholds for each LLM-supported agent operation. Do not invoke LLMs for deterministic arithmetic merely to exercise the chain. Do not lower validation or teacher-review requirements on fallback.
+- [ ] Keep embeddings on an approved model/version and compatible embedding space. Same dimensionality alone does not make a different embedding model compatible; a model change requires the approved re-embedding/index migration.
+- [ ] Verify current availability, authentication, and usable quota for all selected candidates before calling the chain demo-ready. A catalogue entry, free-tier label, or untested key is not evidence of usable fallback capacity.
+
+<!-- /insync-demo-fallback -->
+
+<!-- insync-openrouter-choice: v1 -->
+
+**Provider decision — 9 October 2026**
+
+The human selected **OpenRouter as the initial text-generation gateway** to start development quickly. This settles the initial gateway choice; exact models and provider routes, cost/deadline limits, and live verification of the 10–15-model chain remain work in #8/#18. Embedding model/hosting selection remains separate. Hugging Face is not required as a second runtime gateway for the initial implementation. OpenRouter model/provider fallbacks do not cover loss of the OpenRouter platform or the shared account; preserve bounded unavailable behavior and saved work in that case.
+
+<!-- /insync-openrouter-choice -->
+
 ---
 
 ### [P0-08] Approve the canonical schema and domain model
+
+Published: [GitHub #9](https://github.com/Haadiyah-Zafar/InSyncc/issues/9)
 
 <!-- insync-plan-id: P0-08; plan-version: 0.2 -->
 **Outcome:** Approve the canonical schema and domain model
@@ -296,6 +340,8 @@ Requires explicit human approval of the listed decision and affected downstream 
 ---
 
 ### [P0-09] Approve API, event, agent, and screen contracts
+
+Published: [GitHub #10](https://github.com/Haadiyah-Zafar/InSyncc/issues/10)
 
 <!-- insync-plan-id: P0-09; plan-version: 0.2 -->
 **Outcome:** Approve API, event, agent, and screen contracts
@@ -335,6 +381,8 @@ Requires explicit human approval of the listed decision and affected downstream 
 
 ### [P1-01] Establish repository tooling and contribution workflow
 
+Published: [GitHub #11](https://github.com/Haadiyah-Zafar/InSyncc/issues/11)
+
 <!-- insync-plan-id: P1-01; plan-version: 0.2 -->
 **Outcome:** Establish repository tooling and contribution workflow
 **Milestone:** P1 — Development foundation
@@ -368,6 +416,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P1-02] Create the FastAPI application foundation
+
+Published: [GitHub #12](https://github.com/Haadiyah-Zafar/InSyncc/issues/12)
 
 <!-- insync-plan-id: P1-02; plan-version: 0.2 -->
 **Outcome:** Create the FastAPI application foundation
@@ -403,6 +453,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-03] Create the React/TypeScript application shell
 
+Published: [GitHub #13](https://github.com/Haadiyah-Zafar/InSyncc/issues/13)
+
 <!-- insync-plan-id: P1-03; plan-version: 0.2 -->
 **Outcome:** Create the React/TypeScript application shell
 **Milestone:** P1 — Development foundation
@@ -436,6 +488,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P1-04] Provide reproducible development and test services
+
+Published: [GitHub #14](https://github.com/Haadiyah-Zafar/InSyncc/issues/14)
 
 <!-- insync-plan-id: P1-04; plan-version: 0.2 -->
 **Outcome:** Provide reproducible development and test services
@@ -472,6 +526,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-05] Run build and tests in pull-request CI
 
+Published: [GitHub #15](https://github.com/Haadiyah-Zafar/InSyncc/issues/15)
+
 <!-- insync-plan-id: P1-05; plan-version: 0.2 -->
 **Outcome:** Run build and tests in pull-request CI
 **Milestone:** P1 — Development foundation
@@ -505,6 +561,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P1-06] Implement core database migrations and access-policy foundation
+
+Published: [GitHub #16](https://github.com/Haadiyah-Zafar/InSyncc/issues/16)
 
 <!-- insync-plan-id: P1-06; plan-version: 0.2 -->
 **Outcome:** Implement core database migrations and access-policy foundation
@@ -540,6 +598,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-07] Implement LangGraph state, routing, and review infrastructure
 
+Published: [GitHub #17](https://github.com/Haadiyah-Zafar/InSyncc/issues/17)
+
 <!-- insync-plan-id: P1-07; plan-version: 0.2 -->
 **Outcome:** Implement LangGraph state, routing, and review infrastructure
 **Milestone:** P1 — Development foundation
@@ -574,6 +634,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-08] Implement model-provider wrappers and validated outputs
 
+Published: [GitHub #18](https://github.com/Haadiyah-Zafar/InSyncc/issues/18)
+
 <!-- insync-plan-id: P1-08; plan-version: 0.2 -->
 **Outcome:** Implement model-provider wrappers and validated outputs
 **Milestone:** P1 — Development foundation
@@ -604,9 +666,39 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+<!-- insync-demo-fallback: v1 -->
+
+**Approved demo fallback requirement — 9 October 2026**
+
+The human requested an explicit 10–15-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.
+
+**Additional scope:** Implement the approved 10–15-model registry and bounded, observable runtime failover for text-generation operations.
+
+**Additional acceptance checks**
+
+- [ ] Implement the OpenRouter adapter and load the ranked 10–15 distinct model candidates from validated non-secret configuration, with per-operation eligibility, explicit underlying-provider routing/fallback settings, and securely supplied credentials. Account for OpenRouter provider retries and application retries within one total request budget; retain a provider-independent interface.
+- [ ] On approved transient failures (such as 429, timeout, connection failure, or provider 5xx), select the next eligible healthy route within the global deadline/attempt/cost budget. Honor Retry-After through cooldown scheduling; skip routes sharing an exhausted quota domain. Authentication/configuration and invalid-request failures are surfaced distinctly rather than blindly consuming the chain.
+- [ ] Implement provider/model cooldown or circuit-breaker behavior and recovery probes under the approved policy. If no route is eligible within the budget, return a clear unavailable state and preserve saved work; do not claim guaranteed uptime from chain length.
+- [ ] Every candidate must satisfy the same Pydantic/output/content checks and operation-specific educational constraints. Handle invalid outputs using the approved validation/regeneration policy; fallback must not bypass teacher approval, reveal quiz answers, or silently return fabricated/canned success.
+- [ ] Retries and model switches preserve the logical request identity and cannot duplicate quiz drafts, persisted answers, recommendations, hint posts, or teacher-approved actions. Define partial-stream replacement behavior before displaying mixed results from different models.
+- [ ] Automated tests simulate failure of the primary and several successive candidates, shared-provider/account rate limits, recovered routes, malformed outputs, exhausted chain, cancellation, and deadline/cost limits. Credentialed smoke tests verify each configured model independently; report unrun/failed candidates explicitly.
+- [ ] Record route/model selection and fallback reason without secrets or unnecessary learner content. Keep embedding fallback separate and reject incompatible embedding model/version changes.
+
+<!-- /insync-demo-fallback -->
+
+<!-- insync-openrouter-choice: v1 -->
+
+**Provider decision — 9 October 2026**
+
+The human selected **OpenRouter as the initial text-generation gateway** to start development quickly. This settles the initial gateway choice; exact models and provider routes, cost/deadline limits, and live verification of the 10–15-model chain remain work in #8/#18. Embedding model/hosting selection remains separate. Hugging Face is not required as a second runtime gateway for the initial implementation. OpenRouter model/provider fallbacks do not cover loss of the OpenRouter platform or the shared account; preserve bounded unavailable behavior and saved work in that case.
+
+<!-- /insync-openrouter-choice -->
+
 ---
 
 ### [P1-09] Implement background execution and recovery
+
+Published: [GitHub #19](https://github.com/Haadiyah-Zafar/InSyncc/issues/19)
 
 <!-- insync-plan-id: P1-09; plan-version: 0.2 -->
 **Outcome:** Implement background execution and recovery
@@ -641,6 +733,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P1-10] Verify Yjs synchronization and controlled editing with FastAPI
+
+Published: [GitHub #20](https://github.com/Haadiyah-Zafar/InSyncc/issues/20)
 
 <!-- insync-plan-id: P1-10; plan-version: 0.2 -->
 **Outcome:** Verify Yjs synchronization and controlled editing with FastAPI
@@ -680,6 +774,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P2-01] Implement backend authentication and authorization
 
+Published: [GitHub #21](https://github.com/Haadiyah-Zafar/InSyncc/issues/21)
+
 <!-- insync-plan-id: P2-01; plan-version: 0.2 -->
 **Outcome:** Implement backend authentication and authorization
 **Milestone:** P2 — Identity, classes, and sessions
@@ -713,6 +809,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P2-02] Build login, account recovery, and role-aware navigation
+
+Published: [GitHub #22](https://github.com/Haadiyah-Zafar/InSyncc/issues/22)
 
 <!-- insync-plan-id: P2-02; plan-version: 0.2 -->
 **Outcome:** Build login, account recovery, and role-aware navigation
@@ -748,6 +846,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P2-03] Implement classes, enrollment, topics, and concepts
 
+Published: [GitHub #23](https://github.com/Haadiyah-Zafar/InSyncc/issues/23)
+
 <!-- insync-plan-id: P2-03; plan-version: 0.2 -->
 **Outcome:** Implement classes, enrollment, topics, and concepts
 **Milestone:** P2 — Identity, classes, and sessions
@@ -781,6 +881,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P2-04] Implement class learning sessions and lifecycle events
+
+Published: [GitHub #24](https://github.com/Haadiyah-Zafar/InSyncc/issues/24)
 
 <!-- insync-plan-id: P2-04; plan-version: 0.2 -->
 **Outcome:** Implement class learning sessions and lifecycle events
@@ -816,6 +918,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P2-05] Build class, enrollment, and session screens
 
+Published: [GitHub #25](https://github.com/Haadiyah-Zafar/InSyncc/issues/25)
+
 <!-- insync-plan-id: P2-05; plan-version: 0.2 -->
 **Outcome:** Build class, enrollment, and session screens
 **Milestone:** P2 — Identity, classes, and sessions
@@ -849,6 +953,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P2-06] Verify the core teacher/student journey with pilot fixtures
+
+Published: [GitHub #26](https://github.com/Haadiyah-Zafar/InSyncc/issues/26)
 
 <!-- insync-plan-id: P2-06; plan-version: 0.2 -->
 **Outcome:** Verify the core teacher/student journey with pilot fixtures
@@ -886,6 +992,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-01] Implement learning-material upload and access
 
+Published: [GitHub #27](https://github.com/Haadiyah-Zafar/InSyncc/issues/27)
+
 <!-- insync-plan-id: P3-01; plan-version: 0.2 -->
 **Outcome:** Implement learning-material upload and access
 **Milestone:** P3 — Learning materials and Tutor Agent
@@ -919,6 +1027,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P3-02] Implement extraction, chunking, and embeddings
+
+Published: [GitHub #28](https://github.com/Haadiyah-Zafar/InSyncc/issues/28)
 
 <!-- insync-plan-id: P3-02; plan-version: 0.2 -->
 **Outcome:** Implement extraction, chunking, and embeddings
@@ -954,6 +1064,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-03] Implement authorized top-three material retrieval
 
+Published: [GitHub #29](https://github.com/Haadiyah-Zafar/InSyncc/issues/29)
+
 <!-- insync-plan-id: P3-03; plan-version: 0.2 -->
 **Outcome:** Implement authorized top-three material retrieval
 **Milestone:** P3 — Learning materials and Tutor Agent
@@ -987,6 +1099,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P3-04] Implement the Tutor Agent and tutoring persistence
+
+Published: [GitHub #30](https://github.com/Haadiyah-Zafar/InSyncc/issues/30)
 
 <!-- insync-plan-id: P3-04; plan-version: 0.2 -->
 **Outcome:** Implement the Tutor Agent and tutoring persistence
@@ -1024,6 +1138,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-05] Build teacher material management screens
 
+Published: [GitHub #31](https://github.com/Haadiyah-Zafar/InSyncc/issues/31)
+
 <!-- insync-plan-id: P3-05; plan-version: 0.2 -->
 **Outcome:** Build teacher material management screens
 **Milestone:** P3 — Learning materials and Tutor Agent
@@ -1056,6 +1172,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P3-06] Build and integrate student tutoring screens
+
+Published: [GitHub #32](https://github.com/Haadiyah-Zafar/InSyncc/issues/32)
 
 <!-- insync-plan-id: P3-06; plan-version: 0.2 -->
 **Outcome:** Build and integrate student tutoring screens
@@ -1093,6 +1211,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-01] Implement manual quiz authoring, review, and assignment
 
+Published: [GitHub #33](https://github.com/Haadiyah-Zafar/InSyncc/issues/33)
+
 <!-- insync-plan-id: P4-01; plan-version: 0.2 -->
 **Outcome:** Implement manual quiz authoring, review, and assignment
 **Milestone:** P4 — Approved adaptive assessment
@@ -1126,6 +1246,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P4-02] Implement adaptive difficulty, question selection, and scoring
+
+Published: [GitHub #34](https://github.com/Haadiyah-Zafar/InSyncc/issues/34)
 
 <!-- insync-plan-id: P4-02; plan-version: 0.2 -->
 **Outcome:** Implement adaptive difficulty, question selection, and scoring
@@ -1161,6 +1283,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-03] Implement Quiz Agent draft generation and question review requests
 
+Published: [GitHub #35](https://github.com/Haadiyah-Zafar/InSyncc/issues/35)
+
 <!-- insync-plan-id: P4-03; plan-version: 0.2 -->
 **Outcome:** Implement Quiz Agent draft generation and question review requests
 **Milestone:** P4 — Approved adaptive assessment
@@ -1194,6 +1318,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P4-04] Implement durable adaptive quiz attempts
+
+Published: [GitHub #36](https://github.com/Haadiyah-Zafar/InSyncc/issues/36)
 
 <!-- insync-plan-id: P4-04; plan-version: 0.2 -->
 **Outcome:** Implement durable adaptive quiz attempts
@@ -1230,6 +1356,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-05] Build teacher quiz authoring and review screens
 
+Published: [GitHub #37](https://github.com/Haadiyah-Zafar/InSyncc/issues/37)
+
 <!-- insync-plan-id: P4-05; plan-version: 0.2 -->
 **Outcome:** Build teacher quiz authoring and review screens
 **Milestone:** P4 — Approved adaptive assessment
@@ -1263,6 +1391,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P4-06] Build and integrate adaptive student quiz screens
+
+Published: [GitHub #38](https://github.com/Haadiyah-Zafar/InSyncc/issues/38)
 
 <!-- insync-plan-id: P4-06; plan-version: 0.2 -->
 **Outcome:** Build and integrate adaptive student quiz screens
@@ -1299,6 +1429,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ## P5 — Progress and teacher-reviewed interventions
 
 ### [P5-01] Implement the Progress Agent and evidence analysis
+
+Published: [GitHub #39](https://github.com/Haadiyah-Zafar/InSyncc/issues/39)
 
 <!-- insync-plan-id: P5-01; plan-version: 0.2 -->
 **Outcome:** Implement the Progress Agent and evidence analysis
@@ -1337,6 +1469,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-02] Implement Teacher Assistant recommendations and group-performance inputs
 
+Published: [GitHub #40](https://github.com/Haadiyah-Zafar/InSyncc/issues/40)
+
 <!-- insync-plan-id: P5-02; plan-version: 0.2 -->
 **Outcome:** Implement Teacher Assistant recommendations and group-performance inputs
 **Milestone:** P5 — Progress and teacher-reviewed interventions
@@ -1370,6 +1504,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P5-03] Implement teacher decisions and approved-action execution
+
+Published: [GitHub #41](https://github.com/Haadiyah-Zafar/InSyncc/issues/41)
 
 <!-- insync-plan-id: P5-03; plan-version: 0.2 -->
 **Outcome:** Implement teacher decisions and approved-action execution
@@ -1405,6 +1541,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-04] Build learner progress and teacher performance dashboards
 
+Published: [GitHub #42](https://github.com/Haadiyah-Zafar/InSyncc/issues/42)
+
 <!-- insync-plan-id: P5-04; plan-version: 0.2 -->
 **Outcome:** Build learner progress and teacher performance dashboards
 **Milestone:** P5 — Progress and teacher-reviewed interventions
@@ -1439,6 +1577,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-05] Build recommendation evidence and teacher review screens
 
+Published: [GitHub #43](https://github.com/Haadiyah-Zafar/InSyncc/issues/43)
+
 <!-- insync-plan-id: P5-05; plan-version: 0.2 -->
 **Outcome:** Build recommendation evidence and teacher review screens
 **Milestone:** P5 — Progress and teacher-reviewed interventions
@@ -1472,6 +1612,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P5-06] Verify the complete tutoring-to-teacher-review learning cycle
+
+Published: [GitHub #44](https://github.com/Haadiyah-Zafar/InSyncc/issues/44)
 
 <!-- insync-plan-id: P5-06; plan-version: 0.2 -->
 **Outcome:** Verify the complete tutoring-to-teacher-review learning cycle
@@ -1510,6 +1652,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-01] Implement balanced group formation
 
+Published: [GitHub #45](https://github.com/Haadiyah-Zafar/InSyncc/issues/45)
+
 <!-- insync-plan-id: P6-01; plan-version: 0.2 -->
 **Outcome:** Implement balanced group formation
 **Milestone:** P6 — Groups, shared workspace, and Discussion Agent
@@ -1544,6 +1688,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-02] Implement strength-based group formation
 
+Published: [GitHub #46](https://github.com/Haadiyah-Zafar/InSyncc/issues/46)
+
 <!-- insync-plan-id: P6-02; plan-version: 0.2 -->
 **Outcome:** Implement strength-based group formation
 **Milestone:** P6 — Groups, shared workspace, and Discussion Agent
@@ -1577,6 +1723,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P6-03] Implement group proposals, manual groups, approval, and problems
+
+Published: [GitHub #47](https://github.com/Haadiyah-Zafar/InSyncc/issues/47)
 
 <!-- insync-plan-id: P6-03; plan-version: 0.2 -->
 **Outcome:** Implement group proposals, manual groups, approval, and problems
@@ -1614,6 +1762,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-04] Build teacher group and problem management screens
 
+Published: [GitHub #48](https://github.com/Haadiyah-Zafar/InSyncc/issues/48)
+
 <!-- insync-plan-id: P6-04; plan-version: 0.2 -->
 **Outcome:** Build teacher group and problem management screens
 **Milestone:** P6 — Groups, shared workspace, and Discussion Agent
@@ -1648,6 +1798,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-05] Implement authenticated group chat and presence
 
+Published: [GitHub #49](https://github.com/Haadiyah-Zafar/InSyncc/issues/49)
+
 <!-- insync-plan-id: P6-05; plan-version: 0.2 -->
 **Outcome:** Implement authenticated group chat and presence
 **Milestone:** P6 — Groups, shared workspace, and Discussion Agent
@@ -1681,6 +1833,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P6-06] Implement Yjs workspace synchronization, controlled editing, and recovery
+
+Published: [GitHub #50](https://github.com/Haadiyah-Zafar/InSyncc/issues/50)
 
 <!-- insync-plan-id: P6-06; plan-version: 0.2 -->
 **Outcome:** Implement Yjs workspace synchronization, controlled editing, and recovery
@@ -1719,6 +1873,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-07] Build the Yjs shared editor, student workspace, and teacher monitoring
 
+Published: [GitHub #52](https://github.com/Haadiyah-Zafar/InSyncc/issues/52)
+
 <!-- insync-plan-id: P6-07; plan-version: 0.2 -->
 **Outcome:** Build the Yjs shared editor, student workspace, and teacher monitoring
 **Milestone:** P6 — Groups, shared workspace, and Discussion Agent
@@ -1755,6 +1911,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-08] Implement Discussion Agent hints and trigger coordination
 
+Published: [GitHub #51](https://github.com/Haadiyah-Zafar/InSyncc/issues/51)
+
 <!-- insync-plan-id: P6-08; plan-version: 0.2 -->
 **Outcome:** Implement Discussion Agent hints and trigger coordination
 **Milestone:** P6 — Groups, shared workspace, and Discussion Agent
@@ -1790,6 +1948,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P6-09] Verify collaboration and its evidence-to-progress loop
+
+Published: [GitHub #53](https://github.com/Haadiyah-Zafar/InSyncc/issues/53)
 
 <!-- insync-plan-id: P6-09; plan-version: 0.2 -->
 **Outcome:** Verify collaboration and its evidence-to-progress loop
@@ -1828,6 +1988,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P7-01] Implement content reporting and approved data controls
 
+Published: [GitHub #54](https://github.com/Haadiyah-Zafar/InSyncc/issues/54)
+
 <!-- insync-plan-id: P7-01; plan-version: 0.2 -->
 **Outcome:** Implement content reporting and approved data controls
 **Milestone:** P7 — Evaluation, operations, and pilot release
@@ -1862,6 +2024,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P7-02] Integrate operational visibility and pilot cost tracking
 
+Published: [GitHub #55](https://github.com/Haadiyah-Zafar/InSyncc/issues/55)
+
 <!-- insync-plan-id: P7-02; plan-version: 0.2 -->
 **Outcome:** Integrate operational visibility and pilot cost tracking
 **Milestone:** P7 — Evaluation, operations, and pilot release
@@ -1892,9 +2056,26 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+<!-- insync-demo-fallback: v1 -->
+
+**Approved demo fallback requirement — 9 October 2026**
+
+The human requested an explicit 10–15-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.
+
+**Additional scope:** Expose actionable model-chain health, quota-domain, latency, fallback, and cost evidence for the pilot/demo.
+
+**Additional acceptance checks**
+
+- [ ] Record logical request ID, agent operation, selected model/provider, attempted routes, normalized failure reason, cooldown/Retry-After, total latency, and aggregate usage/cost using the approved privacy policy.
+- [ ] Provide an operator-facing pre-demo check/report covering credentials, eligible candidates, recent validation results, usable quota where observable, and fallback readiness; unknown provider quota remains explicitly unknown.
+- [ ] Demonstrate that a shared quota outage is visible as one affected domain and that cost/deadline limits apply across the entire chain, not independently per retry. Label synthetic checks separately from live provider evidence.
+
+<!-- /insync-demo-fallback -->
 ---
 
 ### [P7-03] Run authorization, isolation, and recovery regression tests
+
+Published: [GitHub #56](https://github.com/Haadiyah-Zafar/InSyncc/issues/56)
 
 <!-- insync-plan-id: P7-03; plan-version: 0.2 -->
 **Outcome:** Run authorization, isolation, and recovery regression tests
@@ -1926,9 +2107,27 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+<!-- insync-demo-fallback: v1 -->
+
+**Approved demo fallback requirement — 9 October 2026**
+
+The human requested an explicit 10–15-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.
+
+**Additional scope:** Verify multi-model failover and graceful exhaustion under rate limiting, provider failures, and recovery.
+
+**Additional acceptance checks**
+
+- [ ] Fault-injection tests force the primary and multiple subsequent routes to fail, including 429 with Retry-After, shared-provider/account exhaustion, timeout, transient 5xx, invalid credentials, and incompatible output. Fault injection is controlled locally; do not intentionally exhaust real provider quotas.
+- [ ] Verify successful routing to an eligible surviving candidate where one exists and bounded, explicit failure when all eligible candidates are unavailable. Measure the approved total deadline, attempt count, and cost budget.
+- [ ] Verify no duplicate persisted or teacher-approved side effects during fallback/replay and no validation, access, or content-policy bypass. Test cooldown recovery without retry storms and cancellation without background attempts continuing unnecessarily.
+- [ ] A text-model fallback must not silently change the embedding space or corrupt retrieval; incompatible embedding changes fail clearly.
+
+<!-- /insync-demo-fallback -->
 ---
 
 ### [P7-04] Run educational quality and pilot evaluation
+
+Published: [GitHub #57](https://github.com/Haadiyah-Zafar/InSyncc/issues/57)
 
 <!-- insync-plan-id: P7-04; plan-version: 0.2 -->
 **Outcome:** Run educational quality and pilot evaluation
@@ -1961,9 +2160,27 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+<!-- insync-demo-fallback: v1 -->
+
+**Approved demo fallback requirement — 9 October 2026**
+
+The human requested an explicit 10–15-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.
+
+**Additional scope:** Evaluate every model candidate and the actual fallback transitions against the Programming Fundamentals demo tasks.
+
+**Additional acceptance checks**
+
+- [ ] Run the approved task/rubric matrix for every one of the 10–15 selected generation models using dated live-provider samples; report eligible operations, structured-output success, grounding, question correctness/difficulty, hint leakage, recommendation evidence, latency, and cost.
+- [ ] Do not count a listed but inaccessible, untested, or quality-failing model as a working fallback. Replace or fix failed candidates through #8/#18 and rerun the affected checks; retain the approved 10–15-model coverage requirement.
+- [ ] Combine live candidate checks with deterministic fault-injected transitions to prove the application actually uses the chain. Preserve evidence of student/teacher flows and label simulation distinctly; do not claim intentional production rate-limit testing.
+- [ ] Recheck access and representative calls before the scheduled demo because provider availability and free-tier quotas can change. Record remaining shared-provider/platform risks and the tested exhausted-chain behavior.
+
+<!-- /insync-demo-fallback -->
 ---
 
 ### [P7-05] Verify accessibility, browser compatibility, and performance
+
+Published: [GitHub #58](https://github.com/Haadiyah-Zafar/InSyncc/issues/58)
 
 <!-- insync-plan-id: P7-05; plan-version: 0.2 -->
 **Outcome:** Verify accessibility, browser compatibility, and performance
@@ -2000,6 +2217,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P7-06] Prepare deployment and demonstrate backup restoration
 
+Published: [GitHub #59](https://github.com/Haadiyah-Zafar/InSyncc/issues/59)
+
 <!-- insync-plan-id: P7-06; plan-version: 0.2 -->
 **Outcome:** Prepare deployment and demonstrate backup restoration
 **Milestone:** P7 — Evaluation, operations, and pilot release
@@ -2034,6 +2253,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 ---
 
 ### [P7-07] Synchronize approved report, diagrams, and developer documentation
+
+Published: [GitHub #60](https://github.com/Haadiyah-Zafar/InSyncc/issues/60)
 
 <!-- insync-plan-id: P7-07; plan-version: 0.2 -->
 **Outcome:** Synchronize approved report, diagrams, and developer documentation
@@ -2070,6 +2291,8 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P7-08] Accept the pilot release and finalize the handoff
 
+Published: [GitHub #61](https://github.com/Haadiyah-Zafar/InSyncc/issues/61)
+
 <!-- insync-plan-id: P7-08; plan-version: 0.2 -->
 **Outcome:** Accept the pilot release and finalize the handoff
 **Milestone:** P7 — Evaluation, operations, and pilot release
@@ -2100,4 +2323,19 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+<!-- insync-demo-fallback: v1 -->
+
+**Approved demo fallback requirement — 9 October 2026**
+
+The human requested an explicit 10–15-model fallback chain for testing and demonstrations. This amendment authorizes that requirement; exact models, providers, and numerical budgets still require the service-choice decision in #8.
+
+**Additional scope:** Make verified multi-model fallback readiness a required pilot/demo acceptance gate.
+
+**Additional acceptance checks**
+
+- [ ] The exact ranked 10–15-model registry, selected platform/provider arrangement, eligible-operation matrix, credentialed candidate checks, and failover/exhaustion test evidence are available before accepting demo readiness.
+- [ ] Demonstrate a primary failure followed by a successful eligible fallback, plus controlled all-routes-unavailable behavior that respects the deadline and preserves saved work.
+- [ ] Known missing credentials, shared exhausted quotas, untested candidates, or failed quality checks remain explicit blockers; model count alone is not accepted as proof of availability.
+
+<!-- /insync-demo-fallback -->
 ---

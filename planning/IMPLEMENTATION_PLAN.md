@@ -1,12 +1,12 @@
 # InSync implementation plan
 
-**Version 0.2 — proposed for human approval. Updated 9 October 2026, Asia/Karachi.**
+**Version 0.2 — plan and backlog publication approved by the human on 9 October 2026, Asia/Karachi.**
 
-This plan prepares the existing InSync design for implementation by three contributors. It contains eight phases and 60 issue drafts. No implementation has started and no GitHub issues, labels, milestones, assignments, or project boards have been created by this planning task.
+This plan prepares the existing InSync design for implementation by three contributors. It contains eight phases and 60 issue drafts. Application implementation has not started. All 60 GitHub issues, eight phase milestones, and phase/type/workstream/status labels are now published and verified. Real-person assignments remain open; no separate project board was created.
 
 **Revision 0.2:** the human clarified that the shared workspace uses Yjs. The plan now names Yjs explicitly, adds an early compatibility/control proof (P1-10), and expands the workspace implementation and verification issues. This clarification selects the synchronization technology; remaining controlled-editing semantics in Q11 still require their specific decisions.
 
-The approval requested now covers the phase structure, scope breakdown, collaboration method, and creation of this backlog in `Haadiyah-Zafar/InSyncc`. It does **not** silently approve unresolved product, algorithm, schema, provider, or access decisions. Phase 0 turns those decisions into reviewable records before their dependent implementation starts.
+The recorded approval covers the phase structure, scope breakdown, collaboration method, and creation of this backlog in `Haadiyah-Zafar/InSyncc`. It does **not** silently approve unresolved product, algorithm, schema, provider, or access decisions. Phase 0 turns those decisions into reviewable records before their dependent implementation starts.
 
 Read the [detailed issue backlog](ISSUE_BACKLOG.md) for each issue's scope, dependencies, approval boundary, and acceptance checks. [GITHUB_ISSUES.json](GITHUB_ISSUES.json) contains the same drafts in a structured form for publication after approval. IDs such as `P4-04` are planning IDs, not GitHub issue numbers.
 
@@ -24,6 +24,8 @@ Primary planning sources:
 The handoff's confirmed decisions take precedence over conflicting report examples. Unresolved questions retain their status until the human approves a specific resolution and its affected dependencies.
 
 ## 2. Target and scope
+
+**Provider decision, 9 October 2026:** OpenRouter is selected as the initial text-generation gateway. Exact model IDs and underlying provider routes, 10–15-model qualification, quotas/budgets, and embedding model/hosting remain pending. A second runtime gateway is not required by this decision.
 
 The target is a Programming Fundamentals web pilot for school and university audiences, in English, on modern laptop/desktop browsers. Preserve all five agents: Tutor Agent, Quiz Agent, Progress Agent, Teacher Assistant Agent, and Discussion Agent. Preserve all four logical subsystems within the selected architecture.
 
@@ -44,6 +46,20 @@ The complete pilot journey is:
 Phase 5 is an intermediate demonstration of the individual learning cycle. Phase 6 completes the collaboration scope; it is not optional merely because it appears later. Phase 7 makes the full pilot evaluable and operable.
 
 Mobile applications, additional subjects, external student-information-system integration, emotion/sensor monitoring, model fine-tuning, and additional agent frameworks are outside the recovered current scope. Prototype-only controls such as weekly emails, quiz hints, personalization opt-out, calendars, and global search stay pending in P0-01. They are not silently included or removed.
+
+### Required 10–15-model fallback chain for testing and demos
+
+**User-approved amendment, 9 October 2026.** The pilot must have an explicit, ranked chain of **10–15 distinct text-generation models total: one primary and 9–14 alternatives**. This replaces the earlier provider-wrapper-only treatment of failover. The precise model IDs, licenses, provider routes, underlying OpenRouter provider routing, and numerical budgets remain decisions in [GitHub #8](https://github.com/Haadiyah-Zafar/InSyncc/issues/8); OpenRouter has subsequently been selected as the initial gateway, but the model candidates have not yet been selected or tested.
+
+- Each candidate needs verified account access and dated live tests for its eligible agent operations, structured-output/content requirements, context limits, latency, cost, and usable quota where observable. Duplicate aliases/routes do not inflate the model count.
+- The selection must identify shared limits at model, underlying-provider, account, and platform level. Ten models behind the same exhausted account may all be unavailable; candidate count is not an availability guarantee.
+- The implementation honors approved transient-failure handling, Retry-After/cooldowns, route health, total request deadline, maximum attempts, and aggregate cost/retry/regeneration budgets. It must not blindly attempt all 15 models at 20 seconds plus two retries each. Exact budget values are approved in #8.
+- Each operation uses its quality/capability-eligible subset. All candidates retain output validation, educational constraints, and teacher-review gates. Retries and switches preserve logical request identity and prevent duplicate side effects.
+- All-routes-unavailable behavior is explicit, bounded, and preserves saved work. No silent fabricated/canned success is used to conceal an outage.
+- Embeddings are a separate dependency: preserve the approved model/version and embedding space. Equal vector dimensions alone do not permit swapping embedding models; changes require the approved re-embedding/index migration.
+- Before a demo, verify candidate availability and representative calls, and exercise simulated primary/multiple-route failure and complete exhaustion. Fault injection must not deliberately consume real service quotas.
+
+This requirement is tracked in six existing issues: **#8** selection and budgets; **#18** registry/runtime failover; **#55** operational visibility/pre-demo checks; **#56** failure/recovery tests; **#57** per-model educational evaluation; **#61** final demo acceptance. The backlog remains 60 issues and eight milestones. The initial fallback tests belong in #18; they are not postponed until the release phase. A proposed demonstration earlier than Phase 7 must run the same relevant pre-demo checks.
 
 ## 3. Phases and acceptance gates
 
@@ -246,14 +262,14 @@ Proposed publication target: `Haadiyah-Zafar/InSyncc`.
 6. A project board can show the same statuses if access permits; lack of Projects access does not prevent useful issue tracking. Do not create a separate project or broaden permissions merely to publish the backlog.
 7. Verify issue titles, bodies, milestones, links, labels, and count. Persist actual issue URLs and publication progress so interrupted publication can resume without duplicates. Report partial success explicitly if any request fails.
 
-**Current access evidence:** Git HTTPS reading/fetching the repository works. The GitHub REST and GraphQL API probes returned `Forbidden`; an independent API request reported a proxy tunnel `403`. A `GH_TOKEN` binding is present, but its value was not inspected and API authorization cannot yet be verified. This is not evidence that a replacement token is needed.
+**Current access evidence:** GitHub API access now works with existing authentication after saving the `api.github.com` network-domain addition. The earlier proxy `403` is resolved in the running environment. Repository reads and creation of 60 issues/eight milestones have succeeded; no credential value was inspected or replaced.
 
 Issue creation needs permitted access to `api.github.com`, followed by a successful authenticated repository/issues read and issue-write permission. If the proxy still denies the endpoint after plan approval, preserve the existing network policy and request/add only the required API destination through environment settings. Retry the API after the change. If a later authenticated response shows insufficient permission, use the supported secure GitHub connection/settings flow; do not request a credential in chat. Plan drafting and review can finish while this publishing prerequisite remains unresolved.
 
-## 10. Requested approval
+## 10. Recorded approval
 
-Approve or revise the eight phases, 60-issue breakdown, three-workstream approach, and the issue-publication scope above. A concise approval such as **“Approve plan v0.2 and create the issues”** authorizes publishing this backlog when API access permits.
+The human approved plan v0.2 with **“okay i approve of the implementation plan”** on 9 October 2026. This authorizes the eight phases, 60-issue breakdown, three-workstream approach, and issue publication described above. GitHub issue publication has completed and been verified. The issue index is available in [PUBLISHED_ISSUES.md](PUBLISHED_ISSUES.md).
 
-After publication, the first concurrent tasks are **P0-01 (scope), P0-03 (access), and P0-02 (state)**. Each owner prepares the concrete decisions for review. Product choices still pending in the handoff remain pending until those specific decisions are approved.
+The first concurrent tasks are **P0-01 (scope), P0-03 (access), and P0-02 (state)**. Each owner prepares the concrete decisions for review. Product choices still pending in the handoff remain pending until those specific decisions are approved.
 
 Implementation scheduling, real-person assignments, and exact completion dates can be refined after the first review and sprint; they do not prevent reviewing or publishing this concrete backlog.
