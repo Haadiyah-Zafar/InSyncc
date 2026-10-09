@@ -10,6 +10,7 @@ These instructions apply throughout this repository. Use them at the start of ev
    - [Open decisions and review requirements](INSYNC_REVIEW_REQUIRED.md)
    - [Candidate schema inventory](INSYNC_SCHEMA_INVENTORY.md)
    - [Implementation plan and subsequent amendments](planning/IMPLEMENTATION_PLAN.md)
+   - [Decision records and approval status](planning/decisions/README.md)
 3. Find the assigned issue in [the published issue index](planning/PUBLISHED_ISSUES.md) and read its section in [the detailed backlog](planning/ISSUE_BACKLOG.md). Read relevant report sections or diagrams when needed; do not assume the PDF overrides later decisions.
 4. Inspect the actual checkout: branch, `git status`, relevant source, manifests, lockfiles, tests, CI, and any more specific `AGENTS.md` instructions. Plans and report prose are not proof that a feature or command exists.
 5. Briefly state the issue's intended outcome, applicable decisions, dependencies, and validation approach before editing. Continue authorized work without asking for a second approval of an already settled choice.
@@ -39,7 +40,7 @@ If GitHub is unavailable, use the local issue snapshot to continue independent i
 
 ## Product and architecture boundaries
 
-- Product name: **InSync**. Pilot: **Programming Fundamentals**, retaining school and university audiences, English web use on laptop/desktop browsers. Do not silently add mobile apps, other subjects, external student-information integrations, or emotion/sensor collection.
+- Product name: **InSync**. Pilot: **Programming Fundamentals with broader foundational CS content**, including data structures and database concepts, retaining school and university audiences and English web use on laptop/desktop browsers. The exact first-demo syllabus remains proposed in the issue #2 decision package. Do not silently add mobile apps, unrelated non-CS subjects, external student-information integrations, or emotion/sensor collection.
 - Selected structure: React/TypeScript in `frontend/`; one Python/FastAPI backend in `backend/`; LangGraph agent modules in `backend/agents/`. These are planned paths: check what actually exists before using commands.
 - Selected foundations: SQLAlchemy/Pydantic; Supabase PostgreSQL and pgvector; Supabase Authentication; FastAPI WebSockets; Redis for temporary real-time state; Yjs for shared-document synchronization.
 - Preserve five agents and their ownership:
@@ -64,7 +65,8 @@ If GitHub is unavailable, use the local issue snapshot to continue independent i
 ## Yjs and controlled editing
 
 - Yjs synchronizes shared documents; backend permission checks enforce who may edit. Yjs convergence alone is not controlled editing.
-- Follow the approved editable-object, editor-binding, control-grant/transfer/expiry, offline/reconnect, and persistence contracts. Do not assume one active editor or section-level locking merely because Yjs is selected.
+- Confirmed surfaces are a shared **Python editor with execution and displayed output**, and a **shared whiteboard**, with a separate editing-control holder for each surface. Exact board tools, bindings, grant/transfer/expiry, offline/reconnect, and persistence contracts remain in #7/#9/#10. Do not collapse both surfaces into one shared control grant.
+- Python runtime/provider, isolation limits, package/file/network policies, and run permissions remain in #4/#7/#8. See the proposed dedicated runtime issue in the issue #2 decision package; it has not yet been published. Do not execute learner code inside the FastAPI application process.
 - Verify provider/protocol compatibility with FastAPI WebSockets. Generic JSON chat messages are not a Yjs synchronization protocol; the early compatibility proof is issue #20.
 - Reject unauthorized or stale-control updates before authoritative application, broadcast, or persistence. Browser read-only state complements server enforcement.
 - Redis holds temporary presence/control state; durable Yjs document reconstruction uses the approved persistence design. Test convergence, revoked control, reconnect, and restart. Main implementation issues: #50 and #52.
