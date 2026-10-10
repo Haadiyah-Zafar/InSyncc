@@ -18,7 +18,12 @@
     "format:python:check": "uv run --project backend --locked ruff format --config backend/pyproject.toml --check backend scripts",
     "check": "npm run check:toolchain && npm run format:check && npm run lint:python && npm run format:python:check",
     "dev:backend": "uv run --project backend --locked uvicorn app.main:create_app --factory --app-dir backend --host 127.0.0.1 --port 8000 --no-access-log",
-    "test:backend": "uv run --project backend --locked pytest -c backend/pyproject.toml backend/tests"
+    "test:backend": "uv run --project backend --locked pytest -c backend/pyproject.toml backend/tests",
+    "dev:frontend": "npm run dev --workspace @insync/frontend",
+    "build:frontend": "npm run build --workspace @insync/frontend",
+    "typecheck:frontend": "npm run typecheck --workspace @insync/frontend",
+    "test:frontend": "npm run test --workspace @insync/frontend",
+    "test:frontend:e2e": "npm run test:e2e --workspace @insync/frontend"
   },
   "devDependencies": {
     "prettier": "3.9.10"

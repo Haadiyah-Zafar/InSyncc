@@ -4,15 +4,15 @@ InSync is a planned learning platform connecting tutoring, quizzes, progress evi
 teacher review, and group collaboration. The approved pilot includes a shared Python
 editor with execution/output and a whiteboard with independent editing control.
 
-This checkout provides repository tooling and a tested FastAPI application foundation.
-See [backend setup and endpoints](backend/README.md). The React shell remains in
-[#13](https://github.com/Haadiyah-Zafar/InSyncc/issues/13); CI is issue #15.
+This checkout provides repository tooling, a tested FastAPI foundation, and a
+React/TypeScript application shell. See [backend setup](backend/README.md) and
+[frontend setup](frontend/README.md). CI remains in issue #15.
 
 ## Repository layout
 
 | Path              | Purpose                                                                              |
 | ----------------- | ------------------------------------------------------------------------------------ |
-| `frontend/`       | React/TypeScript workspace; shell follows in #13                                     |
+| `frontend/`       | React/TypeScript shell, shared controls, API client, and tests                       |
 | `backend/`        | Single FastAPI application, configuration, operational endpoints, and tests          |
 | `backend/agents/` | Agent/LangGraph modules within that backend; contracts remain in their owning issues |
 | `scripts/`        | Repository development checks                                                        |
@@ -39,7 +39,8 @@ npm run check
 
 `npm run check` verifies exact executable versions, Prettier formatting, and Ruff
 lint/format checks. It is a tooling check, not an application test or build. Run `npm run test:backend` for the backend test suite and `npm run dev:backend`
-after configuring `backend/.env` to start the API. Frontend build/tests remain in #13.
+after configuring `backend/.env` to start the API. Use `npm run dev:frontend`, `npm run build:frontend`, and `npm run test:frontend`
+for the frontend. See its README for browser integration checks.
 Future feature PRs must add meaningful tests; a zero-test run is not acceptance evidence.
 
 In restricted cloud shells where the default cache directories are not writable,

@@ -13,3 +13,7 @@ build/
 .env.*
 !.env.example
 .DS_Store
+
+# Browser test artifacts
+frontend/test-results/
+frontend/playwright-report/
