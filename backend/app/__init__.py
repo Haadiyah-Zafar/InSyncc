@@ -1,0 +1,1 @@
+"""Single InSync application backend."""
