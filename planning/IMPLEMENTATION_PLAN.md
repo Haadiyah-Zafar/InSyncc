@@ -1,8 +1,8 @@
 # InSync implementation plan
 
-**Version 0.2 — plan and backlog publication approved by the human on 9 October 2026, Asia/Karachi.**
+**Version 0.3 — issue #2 decisions and runtime/backlog amendment approved on 10 October 2026, Asia/Karachi. Original v0.2 approved on 9 October 2026.**
 
-This plan prepares the existing InSync design for implementation by three contributors. It contains eight phases and 60 issue drafts. Application implementation has not started. All 60 GitHub issues, eight phase milestones, and phase/type/workstream/status labels are now published and verified. Real-person assignments remain open; no separate project board was created.
+This plan prepares the existing InSync design for implementation by three contributors. It contains eight phases and 61 issues. Application implementation has not started. All 61 GitHub issues, eight phase milestones, and phase/type/workstream/status labels are now published and verified. Real-person assignments remain open; no separate project board was created.
 
 **Revision 0.2:** the human clarified that the shared workspace uses Yjs. The plan now names Yjs explicitly, adds an early compatibility/control proof (P1-10), and expands the workspace implementation and verification issues. This clarification selects the synchronization technology; remaining controlled-editing semantics in Q11 still require their specific decisions.
 
@@ -25,7 +25,7 @@ The handoff's confirmed decisions take precedence over conflicting report exampl
 
 ## 2. Target and scope
 
-**Confirmed scope clarification, 9 October 2026:** Programming Fundamentals includes broader foundational CS content, including data structures and database concepts. The first demo includes a shared Python editor with execution and displayed output, plus a shared whiteboard, with a separate editing-control holder for each surface. The exact syllabus, runner, board tools, and handover policies are not settled by these choices. [Issue #2’s decision package](decisions/P0-01-pilot-scope.md) proposes the syllabus, screen inventory, evaluation baseline, and an additional Python-runtime issue with affected backlog updates. That package awaits review; the additional issue is not yet published. See [decision status](decisions/README.md).
+**Confirmed scope clarification, 9 October 2026:** Programming Fundamentals includes broader foundational CS content, including data structures and database concepts. The first demo includes a shared Python editor with execution and displayed output, plus a shared whiteboard, with a separate editing-control holder for each surface. [Issue #2’s decision package](decisions/P0-01-pilot-scope.md), D1–D5 and §9.1, was approved on 10 October 2026: twelve syllabus areas, screen inventory, evaluation baseline, limited report corrections, and Python-runtime issue #64 with affected backlog updates. Runner technology/limits, board tools, and handover policies remain with their owning decisions. See [decision status](decisions/README.md).
 
 **Provider decision, 9 October 2026:** OpenRouter is selected as the initial text-generation gateway. Exact model IDs and underlying provider routes, 10–15-model qualification, quotas/budgets, and embedding model/hosting remain pending. A second runtime gateway is not required by this decision.
 
@@ -47,7 +47,7 @@ The complete pilot journey is:
 
 Phase 5 is an intermediate demonstration of the individual learning cycle. Phase 6 completes the collaboration scope; it is not optional merely because it appears later. Phase 7 makes the full pilot evaluable and operable.
 
-Mobile applications, unrelated non-CS subjects, external student-information-system integration, emotion/sensor monitoring, model fine-tuning, and additional agent frameworks are outside the recovered current scope. Prototype-only controls such as weekly emails, quiz hints, personalization opt-out, calendars, and global search stay pending in P0-01. They are not silently included or removed.
+Mobile applications, unrelated non-CS subjects, external student-information-system integration, emotion/sensor monitoring, model fine-tuning, and additional agent frameworks are outside the recovered current scope. Prototype-only controls follow the approved required/deferred/illustrative inventory in issue #2. Weekly emails, quiz hints, calendars, and global search are deferred; required data controls still follow #8.
 
 ### Required 10–15-model fallback chain for testing and demos
 
@@ -61,7 +61,7 @@ Mobile applications, unrelated non-CS subjects, external student-information-sys
 - Embeddings are a separate dependency: preserve the approved model/version and embedding space. Equal vector dimensions alone do not permit swapping embedding models; changes require the approved re-embedding/index migration.
 - Before a demo, verify candidate availability and representative calls, and exercise simulated primary/multiple-route failure and complete exhaustion. Fault injection must not deliberately consume real service quotas.
 
-This requirement is tracked in six existing issues: **#8** selection and budgets; **#18** registry/runtime failover; **#55** operational visibility/pre-demo checks; **#56** failure/recovery tests; **#57** per-model educational evaluation; **#61** final demo acceptance. The backlog remains 60 issues and eight milestones. The initial fallback tests belong in #18; they are not postponed until the release phase. A proposed demonstration earlier than Phase 7 must run the same relevant pre-demo checks.
+This requirement is tracked in six existing issues: **#8** selection and budgets; **#18** registry/runtime failover; **#55** operational visibility/pre-demo checks; **#56** failure/recovery tests; **#57** per-model educational evaluation; **#61** final demo acceptance. The backlog now contains 61 issues and eight milestones, including the separately approved runtime issue. The initial fallback tests belong in #18; they are not postponed until the release phase. A proposed demonstration earlier than Phase 7 must run the same relevant pre-demo checks.
 
 ## 3. Phases and acceptance gates
 
@@ -73,9 +73,9 @@ This requirement is tracked in six existing issues: **#8** selection and budgets
 | P3 — Learning materials and tutoring | Upload/storage; ingestion/embeddings; authorized retrieval; Tutor Agent; teacher material UI; student tutoring UI | 6 | An uploaded Programming Fundamentals material supports a persisted, source-grounded tutoring interaction with failure handling. |
 | P4 — Approved adaptive assessment | Manual quiz authoring/review; deterministic adaptation/scoring; Quiz Agent drafting; durable attempts; teacher/student quiz UI | 6 | A teacher-approved quiz adapts correctly, stores results, and obeys additional approval when new questions are needed. |
 | P5 — Progress and teacher review | Progress Agent; Teacher Assistant recommendations; teacher decision/resume; dashboards; integrated evidence loop | 6 | Quiz/tutoring evidence changes later support; pending/dismissed recommendations do nothing; approved actions produce follow-up evidence. |
-| P6 — Collaboration | Both group algorithms; proposal/manual group review; discussion problems; chat/presence; Yjs controlled editing and document persistence; Discussion Agent; evidence attribution | 9 | Multiple students collaborate only in an approved group, editing permissions are enforced, and hints contribute traceable evidence to later analysis. |
+| P6 — Collaboration | Both group algorithms; proposal/manual group review; discussion problems; chat/presence; Yjs code/whiteboard controlled editing and persistence; isolated Python execution/output; Discussion Agent; evidence attribution | 10 | Multiple students collaborate only in an approved group, editing permissions are enforced, and hints contribute traceable evidence to later analysis. |
 | P7 — Evaluation and release | Content reporting/data controls; operations/cost visibility; isolation/recovery tests; educational evaluation; accessibility/browser/load checks; deployment/restore; documentation | 8 | Demonstrated pilot meets the agreed measures, limitations are recorded, and the human accepts the release. |
-| **Total** | **Full recovered pilot scope plus explicit Yjs clarification** | **60** | **Eight milestone gates; one accountable owner per issue.** |
+| **Total** | **Approved pilot scope, Yjs surfaces, and Python runtime** | **61** | **Eight milestone gates; one accountable owner per issue.** |
 
 Phases describe deliverable maturity, not a rule that all contributors must wait for every issue in the preceding phase. An issue may start as soon as its own start dependencies and relevant design approvals are satisfied. Phase acceptance records the demonstrated outcome; it does not by itself approve a change to an agreed requirement.
 
@@ -196,7 +196,7 @@ Backend/agent contributors follow the same principle at approved service interfa
 
 ## 6. Issue size, workflow, and definition of done
 
-Each of the 60 drafts includes outcome, milestone, suggested stream, size, source references, review questions, start dependencies, integration dependencies, scope, testable acceptance checks, and an approval boundary.
+Each of the 61 issues includes outcome, milestone, suggested stream, size, source references, review questions, start dependencies, integration dependencies, scope, testable acceptance checks, and an approval boundary.
 
 Sizes are provisional effort bands for one contributor: **S** roughly up to one focused day; **M** roughly one to three; **L** roughly three to five or a complex review/integration task. These are not deadlines. Availability, familiarity, provider access, and human decision turnaround are unknown. Split an L issue into independently reviewable children before starting if its refined estimate or PR scope is too large. Preserve parent acceptance and dependency links.
 
@@ -257,7 +257,7 @@ The report says sixteen use cases but lists fifteen. P0-01/P0-09 retain this as 
 Proposed publication target: `Haadiyah-Zafar/InSyncc`.
 
 1. Confirm the approved plan revision and any requested changes. Read existing issues/milestones/labels before creating anything to avoid duplicating existing work.
-2. Create or reuse eight phase milestones and labels for phase, issue type, workstream, and workflow status. Create 60 issue records from the reviewed manifest; no extra phase-epic issues are necessary because milestones group the work.
+2. Create or reuse eight phase milestones and labels for phase, issue type, workstream, and workflow status. Maintain 61 issue records from the reviewed manifest; no extra phase-epic issues are necessary because milestones group the work.
 3. Create issues in dependency order, recording each planning ID → real GitHub number/URL. Each body contains a stable `insync-plan-id` marker for retry/deduplication.
 4. Replace planning dependency references with real issue links and record both start blockers and integration/closure blockers. Use native GitHub dependency relationships if available; linked dependency lists are required regardless of API capability.
 5. Apply Ready/Blocked based on current approvals and completed prerequisites. Assign an actual contributor only after their GitHub username and allocation are known. The proposed A/B/C streams remain usable without invented assignees.
@@ -272,6 +272,6 @@ Issue creation needs permitted access to `api.github.com`, followed by a success
 
 The human approved plan v0.2 with **“okay i approve of the implementation plan”** on 9 October 2026. This authorizes the eight phases, 60-issue breakdown, three-workstream approach, and issue publication described above. GitHub issue publication has completed and been verified. The issue index is available in [PUBLISHED_ISSUES.md](PUBLISHED_ISSUES.md).
 
-The first concurrent tasks are **P0-01 (scope), P0-03 (access), and P0-02 (state)**. Each owner prepares the concrete decisions for review. Product choices still pending in the handoff remain pending until those specific decisions are approved.
+P0-01 (scope) is approved on 10 October 2026. After closure, **P1-01 (#11, tooling)** can start alongside **P0-03 (#4, access)** and **P0-02 (#3, state)**. Each P0 owner prepares the remaining concrete decisions for review. Product choices still pending in the handoff remain pending until those specific decisions are approved.
 
 Implementation scheduling, real-person assignments, and exact completion dates can be refined after the first review and sprint; they do not prevent reviewing or publishing this concrete backlog.

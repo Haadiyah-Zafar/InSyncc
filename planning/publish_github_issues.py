@@ -64,8 +64,8 @@ def validate(data):
     if data.get('repository') != REPO or data.get('approval_status') != 'approved':
         raise ValueError('Expected the approved InSyncc backlog.')
     issues = data['issues']
-    if len(issues) != 60 or data.get('version') != '0.2':
-        raise ValueError('Expected approved plan v0.2 with 60 issues.')
+    if len(issues) != 61 or data.get('issue_count') != 61 or data.get('version') != '0.3':
+        raise ValueError('Expected approved plan v0.3 with 61 issues.')
     by_id = {i['id']: i for i in issues}
     if len(by_id) != len(issues):
         raise ValueError('Duplicate planning IDs.')
@@ -182,7 +182,7 @@ def publish(data, ordered, remote, remote_labels, remote_milestones):
         item = mapping[key]
         issue['github_number'] = item['number']
         issue['github_url'] = item['html_url']
-        state['issues'][key] = {'number': item['number'], 'url': item['html_url']}
+        state['issues'].setdefault(key, {}).update({'number': item['number'], 'url': item['html_url']})
         state['status'] = 'publishing'
         save(STATE, state)
         save(MANIFEST, data)
@@ -262,7 +262,7 @@ def main():
     args = parser.parse_args()
     data = json.loads(MANIFEST.read_text())
     ordered = validate(data)
-    print(f'Validated approved plan v0.2: {len(ordered)} issues; dependency graph is acyclic.', flush=True)
+    print(f'Validated approved plan v{data["version"]}: {len(ordered)} issues; dependency graph is acyclic.', flush=True)
     if not (args.check_access or args.publish or args.link_dependencies):
         print('Local validation only. Use --check-access or --publish for GitHub operations.')
         return
