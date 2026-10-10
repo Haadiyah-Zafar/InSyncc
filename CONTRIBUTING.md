@@ -39,7 +39,8 @@ for this tooling issue; development services are #14.
   `uv run --project backend --locked ruff format --config backend/pyproject.toml backend scripts`. Review the diff.
   Historical handoff/planning files are excluded from Prettier to avoid rewriting
   approved records; validate their links, identifiers, and whitespace separately.
-- Application test/build commands will be added by #12/#13 and CI by #15. Each
+- Run backend tests from the root with `npm run test:backend`. Frontend test/build
+  commands will be added by #13 and CI by #15. Each
   feature must run its relevant real tests, including failure/access/recovery cases
   where applicable. Report actual counts and failures; do not claim that tooling
   checks prove application behavior. Use deterministic provider doubles for routine

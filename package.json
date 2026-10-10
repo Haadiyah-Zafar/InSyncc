@@ -16,7 +16,9 @@
     "format": "prettier --write .",
     "lint:python": "uv run --project backend --locked ruff check --config backend/pyproject.toml backend scripts",
     "format:python:check": "uv run --project backend --locked ruff format --config backend/pyproject.toml --check backend scripts",
-    "check": "npm run check:toolchain && npm run format:check && npm run lint:python && npm run format:python:check"
+    "check": "npm run check:toolchain && npm run format:check && npm run lint:python && npm run format:python:check",
+    "dev:backend": "uv run --project backend --locked uvicorn app.main:create_app --factory --app-dir backend --host 127.0.0.1 --port 8000 --no-access-log",
+    "test:backend": "uv run --project backend --locked pytest -c backend/pyproject.toml backend/tests"
   },
   "devDependencies": {
     "prettier": "3.9.10"

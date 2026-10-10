@@ -4,9 +4,8 @@ InSync is a planned learning platform connecting tutoring, quizzes, progress evi
 teacher review, and group collaboration. The approved pilot includes a shared Python
 editor with execution/output and a whiteboard with independent editing control.
 
-This checkout currently provides repository tooling and planning documents. Application
-entry points, React/FastAPI dependencies, and application tests arrive in issues
-[#12](https://github.com/Haadiyah-Zafar/InSyncc/issues/12) and
+This checkout provides repository tooling and a tested FastAPI application foundation.
+See [backend setup and endpoints](backend/README.md). The React shell remains in
 [#13](https://github.com/Haadiyah-Zafar/InSyncc/issues/13); CI is issue #15.
 
 ## Repository layout
@@ -14,7 +13,7 @@ entry points, React/FastAPI dependencies, and application tests arrive in issues
 | Path              | Purpose                                                                              |
 | ----------------- | ------------------------------------------------------------------------------------ |
 | `frontend/`       | React/TypeScript workspace; shell follows in #13                                     |
-| `backend/`        | Python environment for the single FastAPI backend; foundation follows in #12         |
+| `backend/`        | Single FastAPI application, configuration, operational endpoints, and tests          |
 | `backend/agents/` | Agent/LangGraph modules within that backend; contracts remain in their owning issues |
 | `scripts/`        | Repository development checks                                                        |
 | `planning/`       | Approved scope, open decisions, issue/dependency records                             |
@@ -39,9 +38,9 @@ npm run check
 ```
 
 `npm run check` verifies exact executable versions, Prettier formatting, and Ruff
-lint/format checks. It is a tooling check, not an application test or build. No
-application server or application test suite exists yet. Future feature PRs must add
-and document meaningful tests; a zero-test run is not acceptance evidence.
+lint/format checks. It is a tooling check, not an application test or build. Run `npm run test:backend` for the backend test suite and `npm run dev:backend`
+after configuring `backend/.env` to start the API. Frontend build/tests remain in #13.
+Future feature PRs must add meaningful tests; a zero-test run is not acceptance evidence.
 
 In restricted cloud shells where the default cache directories are not writable,
 set these before installing/checking (no credentials are needed):
