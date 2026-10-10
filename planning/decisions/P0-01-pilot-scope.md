@@ -1,25 +1,25 @@
 # P0-01: pilot scope, screen inventory, and evaluation baseline
 
-**Issue:** [#2](https://github.com/Haadiyah-Zafar/InSyncc/issues/2)  
-**Prepared:** 9 October 2026, Asia/Karachi  
-**Status:** Proposed decision package — awaiting explicit human approval.  
+**Issue:** [#2](https://github.com/Haadiyah-Zafar/InSyncc/issues/2)
+**Prepared:** 9 October 2026, Asia/Karachi
+**Status:** D1–D5 and §9.1 approved on 10 October 2026 (Asia/Karachi).
 **Branch:** `docs/issue-2-pilot-scope`
 
-This package completes the preparation work for issue #2. It does not claim that its recommendations, numerical targets, or sample counts have been approved or implemented. The existing plan approval and the subsequent Yjs/OpenRouter/fallback decisions remain valid.
+This package records the approved scope, screen classifications, evaluation targets, fixture counts, documentation correction authorization, and runtime task breakdown for issue #2. Approval is not evidence of implementation or measured results. The existing plan approval and the subsequent Yjs/OpenRouter/fallback decisions remain valid.
 
-**Human clarification, 9 October 2026:** the subject will include foundational CS topics such as variables, loops, file handling, data structures, and some database concepts. Initially the shared code editor supports **Python**, and learners will also use a **shared whiteboard**. The human then confirmed **Python execution with displayed output**, **a separate control holder for each surface**, and **a broader first-demo syllabus**. These choices supersede the older narrow-topic proposal and database-content exclusion. Exact syllabus depth, runner technology/limits, board tools, and control handover rules remain pending. Database learning content does not by itself authorize a separate SQL execution interface.
+**Human clarification, 9 October 2026:** the subject will include foundational CS topics such as variables, loops, file handling, data structures, and some database concepts. Initially the shared code editor supports **Python**, and learners will also use a **shared whiteboard**. The human then confirmed **Python execution with displayed output**, **a separate control holder for each surface**, and **a broader first-demo syllabus**. These choices supersede the older narrow-topic proposal and database-content exclusion. The twelve-area syllabus and concept units were subsequently approved on 10 October 2026; runner technology/limits, board tools, and control handover rules remain pending. Database learning content does not by itself authorize a separate SQL execution interface.
 
-## 1. Decisions requested
+## 1. Approved decisions
 
 | Decision | Recommendation for approval | What approval permits |
 |---|---|---|
 | D1 — Source coverage | Use the available repository handoff/report, recorded approvals in this project, and current GitHub issues as the working baseline; acknowledge that earlier conversation history is incomplete. | Proceed with the documented scope without claiming an exhaustive reconstruction of all past agreements. Later supplied evidence is reviewed explicitly. |
-| D2 — Pilot scope and fixtures | Retain all five agents and the full learning cycle. Honor the human's broader foundational CS content, Python-only initial shared code editor, and shared whiteboard. Python execution/output and separate code/whiteboard control holders are also confirmed. A concrete broader twelve-area syllabus is proposed in §4 for approval. | Define pilot content and fixtures; it does not settle runner implementation/limits, control handover mechanics, quiz length, schema, grouping rules, or real-participant recruitment. |
+| D2 — Pilot scope and fixtures | Retain all five agents and the full learning cycle. Honor the human's broader foundational CS content, Python-only initial shared code editor, and shared whiteboard. Python execution/output and separate code/whiteboard control holders are also confirmed. A concrete broader twelve-area syllabus is approved in §4. | Define pilot content and fixtures; it does not settle runner implementation/limits, control handover mechanics, quiz length, schema, grouping rules, or real-participant recruitment. |
 | D3 — Screens and prototype controls | Adopt the required/deferred/illustrative classifications in §5. | Build the required pilot journeys and omit the specifically deferred extras from this pilot; detailed behavior remains subject to the linked decision issues. |
 | D4 — Evaluation baseline | Adopt the procedure, proposed numerical targets, and explicit later-budget gate in §7. | Use these criteria to evaluate the pilot. It does not authorize spending, claim results, or approve unrelated operational choices in #8. |
 | D5 — Documentation alignment | Authorize the limited correction set in §8, using an editable correction pack until the report source is supplied. | Align terminology, ownership, examples, captions, and implementation claims; preserve Q01–Q03 and unresolved schema/access/interface decisions. |
 
-The user may approve D1–D5 together, approve individual rows, or request changes. Silence, starting this issue, or committing this draft is not approval. Record the exact response in §10 before closing #2.
+The human explicitly approved all five rows and §9.1 on 10 October 2026 (Asia/Karachi). Proposal/recommendation wording below describes the reviewed package; those proposals are now accepted within their stated boundaries. Explicitly excluded decisions remain pending in their owning issues.
 
 ## 2. Sources and current approved baseline
 
@@ -59,16 +59,16 @@ The intermediate individual-learning demo at P5 does not remove P6 collaboration
 
 Keep the current exclusions: mobile app, unrelated non-CS subject evaluation, external student-information-system integration, emotion/sensor monitoring, and model training/fine-tuning on course files. The current clarification expands learning content into foundational CS, including database concepts. Python execution/output and the whiteboard are included, with one control holder per surface. A separate SQL runtime, additional executable languages, unrestricted editing by everyone, or arbitrary host/network access are not implied.
 
-## 4. Proposed topic and synthetic-data plan
+## 4. Approved topic and synthetic-data plan
 
-**All counts below are proposed development/evaluation fixtures, not actual participants or completed outcomes.** The human selected Python as the only initially editable code language and broadened the learning content. The user chose a broader first-demo syllabus. The following twelve-area proposal makes that request concrete for review; it is not an approved exhaustive definition of “every fundamental CS subject.”
+**All counts below are approved development/evaluation fixtures, not actual participants or completed outcomes.** The human selected Python as the only initially editable code language and broadened the learning content. The user chose a broader first-demo syllabus. The following twelve-area first-demo syllabus is approved; it is not an exhaustive definition of “every fundamental CS subject.”
 
 | Pilot topic | Two proposed concept units | Representative exercises |
 |---|---|---|
 | Variables | Assignment/value updates; basic types/operators | Trace Python variable changes and explain type/value mistakes. |
 | Loops | Iteration/state updates; termination/bounds | Trace Python iterations and identify an off-by-one error. |
 | File handling | Reading/writing; modes and resource handling | Explain Python file operations and trace an example using synthetic files. Run approved examples against isolated per-run synthetic files; do not expose the application host filesystem. |
-| Introductory data structures | Lists/sequences; dictionaries/key-value lookup | Compare storage choices and trace Python access/update examples. Exact depth is pending. |
+| Introductory data structures | Lists/sequences; dictionaries/key-value lookup | Compare storage choices and trace Python access/update examples. Use the two concept units listed here for the initial fixtures. |
 | Basic database concepts | Tables/rows/keys; relationships and simple query concepts | Explain data organization and sketch a relationship on the whiteboard. No SQL execution interface is selected. |
 | Conditionals | Boolean logic; branch selection | Run Python branches and reason about boundary values. |
 | Functions and modularity | Parameters/return values; decomposition | Edit/run Python functions and discuss interfaces on the board. |
@@ -78,7 +78,7 @@ Keep the current exclusions: mobile app, unrelated non-CS subject evaluation, ex
 | Sets and mappings | Membership/uniqueness; key-value operations | Choose between Python list/set/dictionary representations. |
 | Relational querying and design | Simple queries/joins; introductory normalization | Discuss read-only query examples and diagram relationships; no separate SQL runtime is inferred. |
 
-The twelve areas are a proposed broader first-demo syllabus, not a hard-coded limit on teacher-created topics. Confirm the desired depth and whether operating systems, networking, or computer architecture must also be included in the first demo. Those subjects have not been silently added or excluded from the final syllabus; the exact list needs D2 approval.
+The twelve areas are the approved first-demo syllabus, not a hard-coded limit on teacher-created topics. Operating systems, networking, and computer architecture are outside these required fixtures; adding them to the required demo is a later scope change. Detailed content authoring must stay within the concept units above.
 
 Recommended fixtures after the relevant schema/content decisions:
 
@@ -207,7 +207,7 @@ Shared Python editing and whiteboard behavior are verified within UC06/UC07 and 
 | Accessibility/browser behavior | Required journeys work in Chrome, Edge, and Firefox with keyboard operation, visible focus, labels, readable contrast, and no color-only essential meaning | #58; record actual versions and checks; do not claim certification. |
 | Recovery | All selected duplicate/restart/reconnect/control-revocation scenarios preserve records and match the recovery contract approved in #3/#7/#8 | #56/#59; do not promise zero data loss without that demonstrated contract. |
 
-The timing/load values are recommendations for a modest demo, not facts from the original report. If the human prefers different targets, replace them explicitly before closing #2. Long material-ingestion/batch-analysis deadlines and deployment resource targets remain in #8; ordinary requests must remain usable during those jobs. If the 60-second interactive budget conflicts with the report's 20-second/two-retry language, #8 must approve the precise combined policy rather than multiplying retries across 15 models.
+The timing/load values are recommendations for a modest demo, not facts from the original report. These targets were accepted through D4; later changes need a recorded amendment. Long material-ingestion/batch-analysis deadlines and deployment resource targets remain in #8; ordinary requests must remain usable during those jobs. If the 60-second interactive budget conflicts with the report's 20-second/two-retry language, #8 must approve the precise combined policy rather than multiplying retries across 15 models.
 
 Quality rubric per applicable output: **0 = unacceptable**, **1 = usable with a substantive correction**, **2 = meets the expected answer/behavior**. Score correctness, support from supplied material/evidence, task relevance, explanation usefulness, and operation-specific constraints. Mark genuinely inapplicable dimensions with a reason, not an automatic pass. Use a second team reviewer for a critical failure or disputed score; report that these are internal educational judgments. A refusal/unavailable result is not scored as a successful answer and its frequency is reported separately.
 
@@ -232,9 +232,9 @@ Approval of D5 authorizes C1–C6 within these limits. It does not approve editi
 
 | Issue #2 acceptance requirement | Prepared evidence | Remaining requirement |
 |---|---|---|
-| Approved scope checklist and available-source coverage | D1–D3; §§2–5 | Human acceptance of coverage, exact broader syllabus/fixtures, and remaining control classifications; Python and per-surface control-holder choices are already confirmed. |
-| Approved measures distinguishing usability, quality, time, cost, and coordination | D4; §7 | Human approval/revision of proposed targets and explicit recognition of the later numeric budget gate in #8; no runtime results are claimed. |
-| Fifteen-use-case mapping including teacher delay and shared evidence | §6 and paired-scenario/delay measures in §7 | Human review of the mapping; implementation/testing occurs in linked issues. |
+| Approved scope checklist and available-source coverage | D1–D3; §§2–5 | Approved on 10 October 2026 (Asia/Karachi). Implementation remains in the linked issues. |
+| Approved measures distinguishing usability, quality, time, cost, and coordination | D4; §7 | Approved on 10 October 2026 (Asia/Karachi); the later numeric budget gate in #8 remains. No runtime results are claimed. |
+| Fifteen-use-case mapping including teacher delay and shared evidence | §6 and paired-scenario/delay measures in §7 | Mapping approved on 10 October 2026 (Asia/Karachi); implementation/testing occurs in linked issues. |
 
 After approval, record the decision and update the issue/plan's scope references. #11 can then begin once issue #2's acceptance/closure is recorded. Approving this issue alone does not unblock canonical schema/API work waiting on #3–#8, or authorize implementing disputed requirements.
 
@@ -244,7 +244,7 @@ Still pending elsewhere: learner/workflow state (#3), identity/access/enrollment
 
 The user-approved changes affect #7 (surface/control behavior), #8 (runner infrastructure and limits), #9 (surface/run persistence), #10 (editor/board/run contracts), #20 (two-surface compatibility proof), #50/#52 (backend/frontend), #51/#53 (agent inputs and collaboration tests), and #56–#59 (isolation, content, performance, and deployment). Existing shared-state/access decision work in #3/#4 must account for these surfaces without reopening unrelated decisions.
 
-Propose adding **P6-10 — Implement isolated Python execution and run results** as a distinct backend/runtime issue. It has no GitHub number yet; do not mistake this proposal for a published or completed task.
+Added **[P6-10 / #64 — Implement isolated Python execution and run results](https://github.com/Haadiyah-Zafar/InSyncc/issues/64)** as the approved distinct backend/runtime issue. Published on 10 October 2026; implementation has not started.
 
 - **Owner:** backend/runtime workstream B; A owns Run/output integration in #52; C reviews learning-event attribution and fault tests.
 - **Start prerequisites:** approved runner/control/access/API decisions in #4/#7/#8/#9/#10; backend/service/job foundations #12/#14/#19; group/problem authorization #47 and document identity/version contract #50. The implementation must not wait for the completed frontend it will unblock.
@@ -255,20 +255,26 @@ Propose adding **P6-10 — Implement isolated Python execution and run results**
 - **Acceptance:** valid Python displays correct output; syntax/runtime errors display appropriately; infinite-loop/excessive-output/resource cases terminate within approved limits; a foreign group and a revoked permission cannot access source/results; no host credentials/files or unintended network access are exposed; reruns/retries cannot duplicate learning records; output is tied to the exact source revision.
 - **Whiteboard acceptance additions:** each surface enforces its own control holder; two different learners can control the two surfaces concurrently; neither control grant authorizes editing the other surface; edits synchronize/persist/reconstruct; stale/revoked grants and reconnect are tested. Board tool set and grant/transfer/expiry/teacher-override policy remain #7 decisions.
 
-Approval of this propagation proposal permits the additive issue and those updates to existing issue descriptions. It does not select the runtime or settle the pending permission/resource policies. The existing 60-issue count remains accurate until the additional issue is actually published.
+Approval of this propagation proposal permits the additive issue and those updates to existing issue descriptions. It does not select the runtime or settle the pending permission/resource policies. The published backlog now contains 61 issues across eight milestones.
 
 ## 10. Approval record
 
+**Exact human approval, 10 October 2026 (Asia/Karachi):**
+
+> Approve D1–D5 and the runtime issue/backlog updates in §9.1 for issue #2
+
+This approval was received in the Codex chat and recorded by the agent. It approves D1–D5 and the additive task breakdown, not the remaining runner, access, state, or control-policy decisions.
+
 | Item | Status | Exact human decision / date |
 |---|---|---|
-| D1 — available-source coverage | Awaiting approval | — |
+| D1 — available-source coverage | Approved | 10 October 2026 (Asia/Karachi); exact response above. |
 | Broader foundational CS content, Python editor, shared whiteboard | Confirmed clarification | Human statement, 9 October 2026: include variables, loops, file handling, data structures and some DB concepts; initial code editor access only for Python, with shared code and whiteboard editing. |
-| D2 — exact broader syllabus and synthetic fixtures | Awaiting approval | The human chose a broader syllabus; the twelve-area list and counts are recommendations awaiting approval. |
+| D2 — exact broader syllabus and synthetic fixtures | Approved | 10 October 2026 (Asia/Karachi); twelve-area list and synthetic fixture counts accepted. |
 | Python execution and displayed output | Confirmed | Human answer, 9 October 2026: “Execute Python and display output.” |
 | Editing control across code and whiteboard | Confirmed | Human answer, 9 October 2026: “Separate control holder for each surface.” |
-| D3 — screen/control classification | Awaiting approval | — |
-| D4 — evaluation design/targets and later #8 budget gate | Awaiting approval | — |
-| D5 — limited correction-pack authorization | Awaiting approval | — |
-| Additive runtime issue and affected backlog updates (§9.1) | Awaiting approval | Python execution is already required; this row reviews its concrete task breakdown and propagation. |
+| D3 — screen/control classification | Approved | 10 October 2026 (Asia/Karachi); exact response above. |
+| D4 — evaluation design/targets and later #8 budget gate | Approved | 10 October 2026 (Asia/Karachi); exact response above. |
+| D5 — limited correction-pack authorization | Approved | 10 October 2026 (Asia/Karachi); exact response above. |
+| Additive runtime issue and affected backlog updates (§9.1) | Approved | 10 October 2026 (Asia/Karachi); publish the runtime issue and propagate its dependencies and acceptance checks. |
 
-Suggested response: “Approve D1–D5 and the runtime issue/backlog updates in §9.1 for issue #2,” or list the specific changes/rows to keep pending. A broad approval of this package does not override the explicitly excluded decisions above. Do not close #2 or label dependent work Ready until the required decisions are recorded.
+Remaining implementation decisions stay with #3–#10. Numerical evaluation targets are accepted criteria, not observed performance or permission to spend; the later numeric budget approval in #8 remains required.

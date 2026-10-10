@@ -1,18 +1,16 @@
 # Published InSync implementation backlog
 
-Plan v0.2 approved and published on 9 October 2026 (Asia/Karachi).
+Plan v0.2 was approved/published on 9 October 2026. The v0.3 scope/runtime amendment was approved and published on 10 October 2026 (Asia/Karachi).
 
-[All issues](https://github.com/Haadiyah-Zafar/InSyncc/issues) · [Phase milestones](https://github.com/Haadiyah-Zafar/InSyncc/milestones)
+[All issues](https://github.com/Haadiyah-Zafar/InSyncc/issues) · [Phase milestones](https://github.com/Haadiyah-Zafar/InSyncc/milestones) · [Approved scope record](decisions/P0-01-pilot-scope.md)
 
-60 issues; eight milestones. A/B/C are suggested workstreams, not assigned GitHub users. Claim one Ready issue at a time. Specific P0 design approvals remain pending.
+61 planned issues; eight milestones; 196 verified native dependency relationships. Other repository issues are outside this count. A/B/C are suggested streams, not assigned users. Status is a snapshot; check live prerequisites before starting. Native blockers include both start and closure dependencies.
 
-All 181 native GitHub dependency relationships are published and verified; each issue also contains linked start and integration/closure prerequisites. Native blockers include both kinds; read the body to distinguish when work can begin from when it can close. Ready/Blocked labels are an initial snapshot and should be maintained as prerequisites and approvals change.
+Issue #2 is approved and closed; #11 is Ready. Runtime issue #64 is Blocked on its approved contracts/foundations. Other P0 design decisions remain pending. OpenRouter and the verified 10–15-model chain remain required; exact routes/models/budgets and live qualification remain pending.
 
-User-approved demo amendment (9 October 2026): a verified 10–15-model generation fallback chain is required. Issues #8, #18, #55, #56, #57, and #61 were updated; OpenRouter is now selected as the initial text-generation gateway; exact models/routes and live qualification remain pending.
-
-| Plan ID | GitHub issue | Phase | Suggested stream | Initial status |
+| Plan ID | GitHub issue | Phase | Suggested stream | Recorded status |
 |---|---|---|---|---|
-| P0-01 | [#2 — Approve pilot scope, screen inventory, and evaluation baseline](https://github.com/Haadiyah-Zafar/InSyncc/issues/2) | P0 | A | Ready |
+| P0-01 | [#2 — Approve pilot scope, screen inventory, and evaluation baseline](https://github.com/Haadiyah-Zafar/InSyncc/issues/2) | P0 | A | Done |
 | P0-02 | [#3 — Approve learner state, graph ownership, and recovery contracts](https://github.com/Haadiyah-Zafar/InSyncc/issues/3) | P0 | C | Ready |
 | P0-03 | [#4 — Approve identity, access, enrollment, and teacher verification](https://github.com/Haadiyah-Zafar/InSyncc/issues/4) | P0 | B | Ready |
 | P0-04 | [#5 — Approve quiz lifecycle, adaptation edge cases, and in-attempt review](https://github.com/Haadiyah-Zafar/InSyncc/issues/5) | P0 | C | Ready |
@@ -21,7 +19,7 @@ User-approved demo amendment (9 October 2026): a verified 10–15-model generati
 | P0-07 | [#8 — Approve service choices, background execution, and operations](https://github.com/Haadiyah-Zafar/InSyncc/issues/8) | P0 | B | Ready |
 | P0-08 | [#9 — Approve the canonical schema and domain model](https://github.com/Haadiyah-Zafar/InSyncc/issues/9) | P0 | B | Blocked |
 | P0-09 | [#10 — Approve API, event, agent, and screen contracts](https://github.com/Haadiyah-Zafar/InSyncc/issues/10) | P0 | A | Blocked |
-| P1-01 | [#11 — Establish repository tooling and contribution workflow](https://github.com/Haadiyah-Zafar/InSyncc/issues/11) | P1 | B | Blocked |
+| P1-01 | [#11 — Establish repository tooling and contribution workflow](https://github.com/Haadiyah-Zafar/InSyncc/issues/11) | P1 | B | Ready |
 | P1-02 | [#12 — Create the FastAPI application foundation](https://github.com/Haadiyah-Zafar/InSyncc/issues/12) | P1 | B | Blocked |
 | P1-03 | [#13 — Create the React/TypeScript application shell](https://github.com/Haadiyah-Zafar/InSyncc/issues/13) | P1 | A | Blocked |
 | P1-04 | [#14 — Provide reproducible development and test services](https://github.com/Haadiyah-Zafar/InSyncc/issues/14) | P1 | C | Blocked |
@@ -64,6 +62,7 @@ User-approved demo amendment (9 October 2026): a verified 10–15-model generati
 | P6-07 | [#52 — Build the Yjs shared editor, student workspace, and teacher monitoring](https://github.com/Haadiyah-Zafar/InSyncc/issues/52) | P6 | A | Blocked |
 | P6-08 | [#51 — Implement Discussion Agent hints and trigger coordination](https://github.com/Haadiyah-Zafar/InSyncc/issues/51) | P6 | C | Blocked |
 | P6-09 | [#53 — Verify collaboration and its evidence-to-progress loop](https://github.com/Haadiyah-Zafar/InSyncc/issues/53) | P6 | C | Blocked |
+| P6-10 | [#64 — Implement isolated Python execution and run results](https://github.com/Haadiyah-Zafar/InSyncc/issues/64) | P6 | B | Blocked |
 | P7-01 | [#54 — Implement content reporting and approved data controls](https://github.com/Haadiyah-Zafar/InSyncc/issues/54) | P7 | A | Blocked |
 | P7-02 | [#55 — Integrate operational visibility and pilot cost tracking](https://github.com/Haadiyah-Zafar/InSyncc/issues/55) | P7 | B | Blocked |
 | P7-03 | [#56 — Run authorization, isolation, and recovery regression tests](https://github.com/Haadiyah-Zafar/InSyncc/issues/56) | P7 | B | Blocked |
@@ -73,8 +72,8 @@ User-approved demo amendment (9 October 2026): a verified 10–15-model generati
 | P7-07 | [#60 — Synchronize approved report, diagrams, and developer documentation](https://github.com/Haadiyah-Zafar/InSyncc/issues/60) | P7 | A | Blocked |
 | P7-08 | [#61 — Accept the pilot release and finalize the handoff](https://github.com/Haadiyah-Zafar/InSyncc/issues/61) | P7 | C | Blocked |
 
-Suggested first parallel issues: A → #2 (scope), B → #4 (identity/access), C → #3 (state/recovery).
+Suggested parallel tasks: #11 (tooling), #4 (identity/access), and #3 (state/recovery). Streams are suggestions; distribute these three tasks across available contributors without assuming account assignments.
 
-Publication helpers: `python planning/publish_github_issues.py` validates locally; `--check-access` reads GitHub; `--publish` reconciles/publishes issues; `--link-dependencies` reconciles native blockers. Existing markers prevent duplicate creation. `PUBLICATION_STATE.json` records actual IDs and verified publication progress.
+Publication helpers: `python planning/publish_github_issues.py` validates locally; `--check-access` reads GitHub; `--publish` reconciles issue bodies; `--link-dependencies` reconciles native blockers. `PUBLICATION_STATE.json` records publication evidence. Review live changes before publishing.
 
-The environment draft includes the added `api.github.com` destination. Review/save and publish that environment change for reuse; successful current-instance API access does not itself confirm environment publication.
+Current-instance GitHub access is verified. The previously saved environment draft is separate from environment publication.

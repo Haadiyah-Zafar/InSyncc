@@ -1,16 +1,14 @@
-# InSync implementation issue drafts
+# InSync implementation issue backlog
 
-**Status: plan/backlog approved and all 60 GitHub issues published on 9 October 2026. See [the live issue index](PUBLISHED_ISSUES.md).**
+**Status: plan v0.3 approved; 61 GitHub issues published. Issue #2 approved and closed on 10 October 2026 (Asia/Karachi).**
 
-Read [the implementation plan](IMPLEMENTATION_PLAN.md) first. IDs below are local planning IDs, not GitHub issue numbers. The live GitHub bodies contain linked dependencies. Planning IDs remain stable here for reference.
-
-60 issues across eight phase milestones. Start dependencies permit coding; close dependencies permit parallel mock/contract work but require real integration before completion.
+Read [the implementation plan](IMPLEMENTATION_PLAN.md), [decision records](decisions/README.md), and [the live issue index](PUBLISHED_ISSUES.md). Planning IDs stay stable. Start dependencies permit work; close dependencies require real integration.
 
 ## P0 — Decisions and contracts
 
 ### [P0-01] Approve pilot scope, screen inventory, and evaluation baseline
 
-Published: [GitHub #2](https://github.com/Haadiyah-Zafar/InSyncc/issues/2)
+Published: [GitHub #2](https://github.com/Haadiyah-Zafar/InSyncc/issues/2) · Recorded status: **Done**
 
 <!-- insync-plan-id: P0-01; plan-version: 0.2 -->
 **Outcome:** Approve pilot scope, screen inventory, and evaluation baseline
@@ -29,9 +27,9 @@ Published: [GitHub #2](https://github.com/Haadiyah-Zafar/InSyncc/issues/2)
 
 **Acceptance checks**
 
-- [ ] The human approves the scope checklist and coverage limit; disputed features remain explicitly pending.
-- [ ] Approved acceptance measures distinguish usability, learning-support quality, response time, cost, and coordination; no invented participant numbers or outcome claims.
-- [ ] A traceability map connects the fifteen use cases to implementation and verification issues; evaluation includes teacher-review delay and the value of shared evidence.
+- [x] The human approves the scope checklist and coverage limit; disputed features remain explicitly pending.
+- [x] Approved acceptance measures distinguish usability, learning-support quality, response time, cost, and coordination; no invented participant numbers or outcome claims.
+- [x] A traceability map connects the fifteen use cases to implementation and verification issues; evaluation includes teacher-review delay and the value of shared evidence.
 
 **Approval boundary**
 
@@ -43,11 +41,17 @@ Requires explicit human approval of the listed decision and affected downstream 
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved decision record — 10 October 2026**
+
+The user explicitly approved in the Codex chat: “Approve D1–D5 and the runtime issue/backlog updates in §9.1 for issue #2”. Approval was recorded by the agent. The full record below makes the decision available before the local documentation commit is pushed. This closes the scope decision only, not application implementation.
+
+Full approved record: [D1–D5 and §9.1](decisions/P0-01-pilot-scope.md).
+
 ---
 
 ### [P0-02] Approve learner state, graph ownership, and recovery contracts
 
-Published: [GitHub #3](https://github.com/Haadiyah-Zafar/InSyncc/issues/3)
+Published: [GitHub #3](https://github.com/Haadiyah-Zafar/InSyncc/issues/3) · Recorded status: **Ready**
 
 <!-- insync-plan-id: P0-02; plan-version: 0.2 -->
 **Outcome:** Approve learner state, graph ownership, and recovery contracts
@@ -80,11 +84,17 @@ Requires explicit human approval of the listed decision and affected downstream 
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Account for code/whiteboard surface identities and execution-result provenance in the state ownership/recovery matrix. Run output is not automatically individual learning evidence; approve attribution and duplicate-event handling.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
 ---
 
 ### [P0-03] Approve identity, access, enrollment, and teacher verification
 
-Published: [GitHub #4](https://github.com/Haadiyah-Zafar/InSyncc/issues/4)
+Published: [GitHub #4](https://github.com/Haadiyah-Zafar/InSyncc/issues/4) · Recorded status: **Ready**
 
 <!-- insync-plan-id: P0-03; plan-version: 0.2 -->
 **Outcome:** Approve identity, access, enrollment, and teacher verification
@@ -117,11 +127,17 @@ Requires explicit human approval of the listed decision and affected downstream 
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Extend the access matrix to Python source snapshots, run/cancel/result access, shared whiteboard objects, separate surface-control grants, removed membership, and teacher observation. Define run permissions separately from editing control.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
 ---
 
 ### [P0-04] Approve quiz lifecycle, adaptation edge cases, and in-attempt review
 
-Published: [GitHub #5](https://github.com/Haadiyah-Zafar/InSyncc/issues/5)
+Published: [GitHub #5](https://github.com/Haadiyah-Zafar/InSyncc/issues/5) · Recorded status: **Ready**
 
 <!-- insync-plan-id: P0-04; plan-version: 0.2 -->
 **Outcome:** Approve quiz lifecycle, adaptation edge cases, and in-attempt review
@@ -158,7 +174,7 @@ Requires explicit human approval of the listed decision and affected downstream 
 
 ### [P0-05] Approve tutor, progress, and recommendation semantics
 
-Published: [GitHub #6](https://github.com/Haadiyah-Zafar/InSyncc/issues/6)
+Published: [GitHub #6](https://github.com/Haadiyah-Zafar/InSyncc/issues/6) · Recorded status: **Ready**
 
 <!-- insync-plan-id: P0-05; plan-version: 0.2 -->
 **Outcome:** Approve tutor, progress, and recommendation semantics
@@ -197,7 +213,7 @@ Requires explicit human approval of the listed decision and affected downstream 
 
 ### [P0-06] Approve grouping, discussion, and shared workspace behavior
 
-Published: [GitHub #7](https://github.com/Haadiyah-Zafar/InSyncc/issues/7)
+Published: [GitHub #7](https://github.com/Haadiyah-Zafar/InSyncc/issues/7) · Recorded status: **Ready**
 
 <!-- insync-plan-id: P0-06; plan-version: 0.2 -->
 **Outcome:** Approve grouping, discussion, and shared workspace behavior
@@ -233,11 +249,17 @@ Requires explicit human approval of the listed decision and affected downstream 
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+The workspace has a shared Python editor with execution/output and a shared whiteboard, each with a separate control holder. Decide grant/transfer/expiry, teacher powers, board tools, run/cancel/view permissions, concurrent runs, and in-flight control changes; two learners may control different surfaces simultaneously.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
 ---
 
 ### [P0-07] Approve service choices, background execution, and operations
 
-Published: [GitHub #8](https://github.com/Haadiyah-Zafar/InSyncc/issues/8)
+Published: [GitHub #8](https://github.com/Haadiyah-Zafar/InSyncc/issues/8) · Recorded status: **Ready**
 
 <!-- insync-plan-id: P0-07; plan-version: 0.2 -->
 **Outcome:** Approve service choices, background execution, and operations
@@ -300,11 +322,17 @@ The human selected **OpenRouter as the initial text-generation gateway** to star
 
 <!-- /insync-openrouter-choice -->
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Select isolated Python runtime infrastructure/version/packages and approved input/file handling, CPU/memory/time/process/output/storage limits, network policy, cleanup, cancellation, retention, and deployment cost. Learner code must not execute in the FastAPI application process. Apply the approved #2 evaluation baseline while retaining the later numeric spending-budget gate.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
 ---
 
 ### [P0-08] Approve the canonical schema and domain model
 
-Published: [GitHub #9](https://github.com/Haadiyah-Zafar/InSyncc/issues/9)
+Published: [GitHub #9](https://github.com/Haadiyah-Zafar/InSyncc/issues/9) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P0-08; plan-version: 0.2 -->
 **Outcome:** Approve the canonical schema and domain model
@@ -337,11 +365,17 @@ Requires explicit human approval of the listed decision and affected downstream 
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Include identities and persistence relationships for separate code/whiteboard surfaces, per-surface control grants, immutable Python source revisions, run status/results, and retention after the owning decisions. Do not infer individual learner evidence from group output.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
 ---
 
 ### [P0-09] Approve API, event, agent, and screen contracts
 
-Published: [GitHub #10](https://github.com/Haadiyah-Zafar/InSyncc/issues/10)
+Published: [GitHub #10](https://github.com/Haadiyah-Zafar/InSyncc/issues/10) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P0-09; plan-version: 0.2 -->
 **Outcome:** Approve API, event, agent, and screen contracts
@@ -375,13 +409,19 @@ Requires explicit human approval of the listed decision and affected downstream 
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Specify separate code/whiteboard synchronization and control contracts, Run/cancel/output APIs/events, source-revision identity, stale-control/reconnect errors, output visibility, and navigation. Frontend may start against these approved contracts before runtime integration.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
 ---
 
 ## P1 — Development foundation
 
 ### [P1-01] Establish repository tooling and contribution workflow
 
-Published: [GitHub #11](https://github.com/Haadiyah-Zafar/InSyncc/issues/11)
+Published: [GitHub #11](https://github.com/Haadiyah-Zafar/InSyncc/issues/11) · Recorded status: **Ready**
 
 <!-- insync-plan-id: P1-01; plan-version: 0.2 -->
 **Outcome:** Establish repository tooling and contribution workflow
@@ -417,7 +457,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-02] Create the FastAPI application foundation
 
-Published: [GitHub #12](https://github.com/Haadiyah-Zafar/InSyncc/issues/12)
+Published: [GitHub #12](https://github.com/Haadiyah-Zafar/InSyncc/issues/12) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-02; plan-version: 0.2 -->
 **Outcome:** Create the FastAPI application foundation
@@ -453,7 +493,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-03] Create the React/TypeScript application shell
 
-Published: [GitHub #13](https://github.com/Haadiyah-Zafar/InSyncc/issues/13)
+Published: [GitHub #13](https://github.com/Haadiyah-Zafar/InSyncc/issues/13) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-03; plan-version: 0.2 -->
 **Outcome:** Create the React/TypeScript application shell
@@ -489,7 +529,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-04] Provide reproducible development and test services
 
-Published: [GitHub #14](https://github.com/Haadiyah-Zafar/InSyncc/issues/14)
+Published: [GitHub #14](https://github.com/Haadiyah-Zafar/InSyncc/issues/14) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-04; plan-version: 0.2 -->
 **Outcome:** Provide reproducible development and test services
@@ -526,7 +566,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-05] Run build and tests in pull-request CI
 
-Published: [GitHub #15](https://github.com/Haadiyah-Zafar/InSyncc/issues/15)
+Published: [GitHub #15](https://github.com/Haadiyah-Zafar/InSyncc/issues/15) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-05; plan-version: 0.2 -->
 **Outcome:** Run build and tests in pull-request CI
@@ -562,7 +602,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-06] Implement core database migrations and access-policy foundation
 
-Published: [GitHub #16](https://github.com/Haadiyah-Zafar/InSyncc/issues/16)
+Published: [GitHub #16](https://github.com/Haadiyah-Zafar/InSyncc/issues/16) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-06; plan-version: 0.2 -->
 **Outcome:** Implement core database migrations and access-policy foundation
@@ -598,7 +638,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-07] Implement LangGraph state, routing, and review infrastructure
 
-Published: [GitHub #17](https://github.com/Haadiyah-Zafar/InSyncc/issues/17)
+Published: [GitHub #17](https://github.com/Haadiyah-Zafar/InSyncc/issues/17) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-07; plan-version: 0.2 -->
 **Outcome:** Implement LangGraph state, routing, and review infrastructure
@@ -634,7 +674,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-08] Implement model-provider wrappers and validated outputs
 
-Published: [GitHub #18](https://github.com/Haadiyah-Zafar/InSyncc/issues/18)
+Published: [GitHub #18](https://github.com/Haadiyah-Zafar/InSyncc/issues/18) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-08; plan-version: 0.2 -->
 **Outcome:** Implement model-provider wrappers and validated outputs
@@ -698,7 +738,7 @@ The human selected **OpenRouter as the initial text-generation gateway** to star
 
 ### [P1-09] Implement background execution and recovery
 
-Published: [GitHub #19](https://github.com/Haadiyah-Zafar/InSyncc/issues/19)
+Published: [GitHub #19](https://github.com/Haadiyah-Zafar/InSyncc/issues/19) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-09; plan-version: 0.2 -->
 **Outcome:** Implement background execution and recovery
@@ -734,7 +774,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P1-10] Verify Yjs synchronization and controlled editing with FastAPI
 
-Published: [GitHub #20](https://github.com/Haadiyah-Zafar/InSyncc/issues/20)
+Published: [GitHub #20](https://github.com/Haadiyah-Zafar/InSyncc/issues/20) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P1-10; plan-version: 0.2 -->
 **Outcome:** Verify Yjs synchronization and controlled editing with FastAPI
@@ -768,13 +808,21 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Prove both Python editor and whiteboard synchronization with separate server-enforced control holders. Demonstrate simultaneous control of different surfaces, rejection of cross-surface/stale grants, and reconnect/reconstruction; do not treat Yjs convergence as authorization.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
+- [ ] Verify the approved issue #2 scope amendment above with the relevant integration/evaluation evidence; document failures and remaining prerequisites.
+
 ---
 
 ## P2 — Identity, classes, and sessions
 
 ### [P2-01] Implement backend authentication and authorization
 
-Published: [GitHub #21](https://github.com/Haadiyah-Zafar/InSyncc/issues/21)
+Published: [GitHub #21](https://github.com/Haadiyah-Zafar/InSyncc/issues/21) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P2-01; plan-version: 0.2 -->
 **Outcome:** Implement backend authentication and authorization
@@ -810,7 +858,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P2-02] Build login, account recovery, and role-aware navigation
 
-Published: [GitHub #22](https://github.com/Haadiyah-Zafar/InSyncc/issues/22)
+Published: [GitHub #22](https://github.com/Haadiyah-Zafar/InSyncc/issues/22) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P2-02; plan-version: 0.2 -->
 **Outcome:** Build login, account recovery, and role-aware navigation
@@ -846,7 +894,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P2-03] Implement classes, enrollment, topics, and concepts
 
-Published: [GitHub #23](https://github.com/Haadiyah-Zafar/InSyncc/issues/23)
+Published: [GitHub #23](https://github.com/Haadiyah-Zafar/InSyncc/issues/23) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P2-03; plan-version: 0.2 -->
 **Outcome:** Implement classes, enrollment, topics, and concepts
@@ -882,7 +930,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P2-04] Implement class learning sessions and lifecycle events
 
-Published: [GitHub #24](https://github.com/Haadiyah-Zafar/InSyncc/issues/24)
+Published: [GitHub #24](https://github.com/Haadiyah-Zafar/InSyncc/issues/24) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P2-04; plan-version: 0.2 -->
 **Outcome:** Implement class learning sessions and lifecycle events
@@ -918,7 +966,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P2-05] Build class, enrollment, and session screens
 
-Published: [GitHub #25](https://github.com/Haadiyah-Zafar/InSyncc/issues/25)
+Published: [GitHub #25](https://github.com/Haadiyah-Zafar/InSyncc/issues/25) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P2-05; plan-version: 0.2 -->
 **Outcome:** Build class, enrollment, and session screens
@@ -954,7 +1002,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P2-06] Verify the core teacher/student journey with pilot fixtures
 
-Published: [GitHub #26](https://github.com/Haadiyah-Zafar/InSyncc/issues/26)
+Published: [GitHub #26](https://github.com/Haadiyah-Zafar/InSyncc/issues/26) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P2-06; plan-version: 0.2 -->
 **Outcome:** Verify the core teacher/student journey with pilot fixtures
@@ -992,7 +1040,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-01] Implement learning-material upload and access
 
-Published: [GitHub #27](https://github.com/Haadiyah-Zafar/InSyncc/issues/27)
+Published: [GitHub #27](https://github.com/Haadiyah-Zafar/InSyncc/issues/27) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P3-01; plan-version: 0.2 -->
 **Outcome:** Implement learning-material upload and access
@@ -1028,7 +1076,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-02] Implement extraction, chunking, and embeddings
 
-Published: [GitHub #28](https://github.com/Haadiyah-Zafar/InSyncc/issues/28)
+Published: [GitHub #28](https://github.com/Haadiyah-Zafar/InSyncc/issues/28) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P3-02; plan-version: 0.2 -->
 **Outcome:** Implement extraction, chunking, and embeddings
@@ -1064,7 +1112,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-03] Implement authorized top-three material retrieval
 
-Published: [GitHub #29](https://github.com/Haadiyah-Zafar/InSyncc/issues/29)
+Published: [GitHub #29](https://github.com/Haadiyah-Zafar/InSyncc/issues/29) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P3-03; plan-version: 0.2 -->
 **Outcome:** Implement authorized top-three material retrieval
@@ -1100,7 +1148,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-04] Implement the Tutor Agent and tutoring persistence
 
-Published: [GitHub #30](https://github.com/Haadiyah-Zafar/InSyncc/issues/30)
+Published: [GitHub #30](https://github.com/Haadiyah-Zafar/InSyncc/issues/30) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P3-04; plan-version: 0.2 -->
 **Outcome:** Implement the Tutor Agent and tutoring persistence
@@ -1138,7 +1186,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-05] Build teacher material management screens
 
-Published: [GitHub #31](https://github.com/Haadiyah-Zafar/InSyncc/issues/31)
+Published: [GitHub #31](https://github.com/Haadiyah-Zafar/InSyncc/issues/31) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P3-05; plan-version: 0.2 -->
 **Outcome:** Build teacher material management screens
@@ -1173,7 +1221,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P3-06] Build and integrate student tutoring screens
 
-Published: [GitHub #32](https://github.com/Haadiyah-Zafar/InSyncc/issues/32)
+Published: [GitHub #32](https://github.com/Haadiyah-Zafar/InSyncc/issues/32) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P3-06; plan-version: 0.2 -->
 **Outcome:** Build and integrate student tutoring screens
@@ -1211,7 +1259,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-01] Implement manual quiz authoring, review, and assignment
 
-Published: [GitHub #33](https://github.com/Haadiyah-Zafar/InSyncc/issues/33)
+Published: [GitHub #33](https://github.com/Haadiyah-Zafar/InSyncc/issues/33) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P4-01; plan-version: 0.2 -->
 **Outcome:** Implement manual quiz authoring, review, and assignment
@@ -1247,7 +1295,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-02] Implement adaptive difficulty, question selection, and scoring
 
-Published: [GitHub #34](https://github.com/Haadiyah-Zafar/InSyncc/issues/34)
+Published: [GitHub #34](https://github.com/Haadiyah-Zafar/InSyncc/issues/34) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P4-02; plan-version: 0.2 -->
 **Outcome:** Implement adaptive difficulty, question selection, and scoring
@@ -1283,7 +1331,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-03] Implement Quiz Agent draft generation and question review requests
 
-Published: [GitHub #35](https://github.com/Haadiyah-Zafar/InSyncc/issues/35)
+Published: [GitHub #35](https://github.com/Haadiyah-Zafar/InSyncc/issues/35) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P4-03; plan-version: 0.2 -->
 **Outcome:** Implement Quiz Agent draft generation and question review requests
@@ -1319,7 +1367,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-04] Implement durable adaptive quiz attempts
 
-Published: [GitHub #36](https://github.com/Haadiyah-Zafar/InSyncc/issues/36)
+Published: [GitHub #36](https://github.com/Haadiyah-Zafar/InSyncc/issues/36) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P4-04; plan-version: 0.2 -->
 **Outcome:** Implement durable adaptive quiz attempts
@@ -1356,7 +1404,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-05] Build teacher quiz authoring and review screens
 
-Published: [GitHub #37](https://github.com/Haadiyah-Zafar/InSyncc/issues/37)
+Published: [GitHub #37](https://github.com/Haadiyah-Zafar/InSyncc/issues/37) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P4-05; plan-version: 0.2 -->
 **Outcome:** Build teacher quiz authoring and review screens
@@ -1392,7 +1440,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P4-06] Build and integrate adaptive student quiz screens
 
-Published: [GitHub #38](https://github.com/Haadiyah-Zafar/InSyncc/issues/38)
+Published: [GitHub #38](https://github.com/Haadiyah-Zafar/InSyncc/issues/38) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P4-06; plan-version: 0.2 -->
 **Outcome:** Build and integrate adaptive student quiz screens
@@ -1430,7 +1478,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-01] Implement the Progress Agent and evidence analysis
 
-Published: [GitHub #39](https://github.com/Haadiyah-Zafar/InSyncc/issues/39)
+Published: [GitHub #39](https://github.com/Haadiyah-Zafar/InSyncc/issues/39) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P5-01; plan-version: 0.2 -->
 **Outcome:** Implement the Progress Agent and evidence analysis
@@ -1469,7 +1517,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-02] Implement Teacher Assistant recommendations and group-performance inputs
 
-Published: [GitHub #40](https://github.com/Haadiyah-Zafar/InSyncc/issues/40)
+Published: [GitHub #40](https://github.com/Haadiyah-Zafar/InSyncc/issues/40) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P5-02; plan-version: 0.2 -->
 **Outcome:** Implement Teacher Assistant recommendations and group-performance inputs
@@ -1505,7 +1553,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-03] Implement teacher decisions and approved-action execution
 
-Published: [GitHub #41](https://github.com/Haadiyah-Zafar/InSyncc/issues/41)
+Published: [GitHub #41](https://github.com/Haadiyah-Zafar/InSyncc/issues/41) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P5-03; plan-version: 0.2 -->
 **Outcome:** Implement teacher decisions and approved-action execution
@@ -1541,7 +1589,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-04] Build learner progress and teacher performance dashboards
 
-Published: [GitHub #42](https://github.com/Haadiyah-Zafar/InSyncc/issues/42)
+Published: [GitHub #42](https://github.com/Haadiyah-Zafar/InSyncc/issues/42) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P5-04; plan-version: 0.2 -->
 **Outcome:** Build learner progress and teacher performance dashboards
@@ -1577,7 +1625,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-05] Build recommendation evidence and teacher review screens
 
-Published: [GitHub #43](https://github.com/Haadiyah-Zafar/InSyncc/issues/43)
+Published: [GitHub #43](https://github.com/Haadiyah-Zafar/InSyncc/issues/43) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P5-05; plan-version: 0.2 -->
 **Outcome:** Build recommendation evidence and teacher review screens
@@ -1613,7 +1661,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P5-06] Verify the complete tutoring-to-teacher-review learning cycle
 
-Published: [GitHub #44](https://github.com/Haadiyah-Zafar/InSyncc/issues/44)
+Published: [GitHub #44](https://github.com/Haadiyah-Zafar/InSyncc/issues/44) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P5-06; plan-version: 0.2 -->
 **Outcome:** Verify the complete tutoring-to-teacher-review learning cycle
@@ -1652,7 +1700,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-01] Implement balanced group formation
 
-Published: [GitHub #45](https://github.com/Haadiyah-Zafar/InSyncc/issues/45)
+Published: [GitHub #45](https://github.com/Haadiyah-Zafar/InSyncc/issues/45) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-01; plan-version: 0.2 -->
 **Outcome:** Implement balanced group formation
@@ -1688,7 +1736,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-02] Implement strength-based group formation
 
-Published: [GitHub #46](https://github.com/Haadiyah-Zafar/InSyncc/issues/46)
+Published: [GitHub #46](https://github.com/Haadiyah-Zafar/InSyncc/issues/46) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-02; plan-version: 0.2 -->
 **Outcome:** Implement strength-based group formation
@@ -1724,7 +1772,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-03] Implement group proposals, manual groups, approval, and problems
 
-Published: [GitHub #47](https://github.com/Haadiyah-Zafar/InSyncc/issues/47)
+Published: [GitHub #47](https://github.com/Haadiyah-Zafar/InSyncc/issues/47) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-03; plan-version: 0.2 -->
 **Outcome:** Implement group proposals, manual groups, approval, and problems
@@ -1762,7 +1810,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-04] Build teacher group and problem management screens
 
-Published: [GitHub #48](https://github.com/Haadiyah-Zafar/InSyncc/issues/48)
+Published: [GitHub #48](https://github.com/Haadiyah-Zafar/InSyncc/issues/48) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-04; plan-version: 0.2 -->
 **Outcome:** Build teacher group and problem management screens
@@ -1798,7 +1846,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-05] Implement authenticated group chat and presence
 
-Published: [GitHub #49](https://github.com/Haadiyah-Zafar/InSyncc/issues/49)
+Published: [GitHub #49](https://github.com/Haadiyah-Zafar/InSyncc/issues/49) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-05; plan-version: 0.2 -->
 **Outcome:** Implement authenticated group chat and presence
@@ -1834,7 +1882,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P6-06] Implement Yjs workspace synchronization, controlled editing, and recovery
 
-Published: [GitHub #50](https://github.com/Haadiyah-Zafar/InSyncc/issues/50)
+Published: [GitHub #50](https://github.com/Haadiyah-Zafar/InSyncc/issues/50) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-06; plan-version: 0.2 -->
 **Outcome:** Implement Yjs workspace synchronization, controlled editing, and recovery
@@ -1869,18 +1917,26 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Implement separate code and whiteboard document/control identities. Enforce each surface grant before application, broadcast, or persistence; support concurrent holders on different surfaces, revoked/stale-grant rejection, reconnect and durable reconstruction. Expose an authorized immutable code-revision contract for P6-10.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
+- [ ] Verify the approved issue #2 scope amendment above with the relevant integration/evaluation evidence; document failures and remaining prerequisites.
+
 ---
 
 ### [P6-07] Build the Yjs shared editor, student workspace, and teacher monitoring
 
-Published: [GitHub #52](https://github.com/Haadiyah-Zafar/InSyncc/issues/52)
+Published: [GitHub #52](https://github.com/Haadiyah-Zafar/InSyncc/issues/52) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-07; plan-version: 0.2 -->
 **Outcome:** Build the Yjs shared editor, student workspace, and teacher monitoring
 **Milestone:** P6 — Groups, shared workspace, and Discussion Agent
 **Suggested workstream:** A; **Size:** L; one accountable owner, a different reviewer.
 **Start after:** P2-05, P0-09, P1-10.
-**Integrate/close after:** P6-05, P6-06, P6-08 (in addition to start dependencies).
+**Integrate/close after:** P6-05, P6-06, P6-08, P6-10 (in addition to start dependencies).
 **Review references:** Q10, Q11.
 **Source:** Context §§7, 8.2, 12.
 
@@ -1907,11 +1963,19 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Integrate Python edit/Run/cancel/output and shared whiteboard UI with independent control indicators. Use approved contract fixtures to start; close only after real P6-10 execution integration and per-surface control/reconnect verification.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
+- [ ] Verify the approved issue #2 scope amendment above with the relevant integration/evaluation evidence; document failures and remaining prerequisites.
+
 ---
 
 ### [P6-08] Implement Discussion Agent hints and trigger coordination
 
-Published: [GitHub #51](https://github.com/Haadiyah-Zafar/InSyncc/issues/51)
+Published: [GitHub #51](https://github.com/Haadiyah-Zafar/InSyncc/issues/51) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-08; plan-version: 0.2 -->
 **Outcome:** Implement Discussion Agent hints and trigger coordination
@@ -1945,18 +2009,24 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Use only authorized code/whiteboard snapshots and, if allowed by the approved contract, revision-linked run output for hints. Keep hidden reference solutions/private evidence inaccessible and preserve approved group-to-learner attribution boundaries.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
 ---
 
 ### [P6-09] Verify collaboration and its evidence-to-progress loop
 
-Published: [GitHub #53](https://github.com/Haadiyah-Zafar/InSyncc/issues/53)
+Published: [GitHub #53](https://github.com/Haadiyah-Zafar/InSyncc/issues/53) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P6-09; plan-version: 0.2 -->
 **Outcome:** Verify collaboration and its evidence-to-progress loop
 **Milestone:** P6 — Groups, shared workspace, and Discussion Agent
 **Suggested workstream:** C; **Size:** M; one accountable owner, a different reviewer.
 **Start after:** P6-04, P6-07, P5-01, P5-06.
-**Integrate/close after:** None (in addition to start dependencies).
+**Integrate/close after:** P6-10 (in addition to start dependencies).
 **Review references:** Q10, Q11.
 **Source:** Context §§5.2, 6.3, 6.6, 14.
 
@@ -1982,13 +2052,59 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Verify the joint chat/code/whiteboard journey, two simultaneous holders on different surfaces, transfer/revocation/reconnect/reconstruction, Python success/errors/timeout, and exact source-to-output revision identity against P6-10.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
+- [ ] Verify the approved issue #2 scope amendment above with the relevant integration/evaluation evidence; document failures and remaining prerequisites.
+
+---
+
+### [P6-10] Implement isolated Python execution and run results
+
+Published: [GitHub #64](https://github.com/Haadiyah-Zafar/InSyncc/issues/64) · Recorded status: **Blocked**
+
+<!-- insync-plan-id: P6-10; plan-version: 0.3 -->
+**Outcome:** Implement isolated Python execution and run results
+**Milestone:** P6 — Groups, shared workspace, and Discussion Agent
+**Suggested workstream:** B; **Size:** L; A integrates UI and C reviews attribution/fault tests.
+**Start after:** P0-03, P0-06, P0-07, P0-08, P0-09, P1-02, P1-04, P1-09, P6-03, P6-06.
+**Integrate/close after:** None (in addition to start dependencies).
+**Source:** Approved issue #2 decision package §9.1; runner/access/control decisions in #4/#7/#8.
+
+**Scope**
+
+- Take an authorized Python source snapshot tied to a group/problem/document revision and execute it in the approved isolated runtime. Return bounded stdout/stderr/status with timeout, cancellation, and duplicate-request handling.
+- Keep learner code outside the FastAPI application process. Enforce approved CPU/memory/wall-time/process/output/storage/network limits, credential/file separation, cleanup, and cross-run/group isolation.
+- Support file-handling exercises with isolated synthetic files and approved input/output rules. Python version, packages, interactive input, runtime provider, and run-history retention are approved in P0-07 before implementation.
+- Apply P0-03/P0-06 run/cancel/view permissions, concurrency policy and in-flight control-change rules. Separate editing-control holders do not independently define run permissions.
+- Coordinate backend/runtime workstream B with A for Run/output integration in P6-07 and C for attribution/fault tests. Do not depend on completed frontend integration.
+
+**Acceptance checks**
+
+- [ ] Valid Python displays the expected output tied to the exact source revision; syntax/runtime errors are understandable and authorized viewers receive the correct status.
+- [ ] Infinite loops, excessive output, resource exhaustion, cancellation, and concurrent/duplicate requests obey the approved limits and lifecycle.
+- [ ] Foreign-group and revoked permissions cannot access source/results; code cannot access host credentials/files or unintended network destinations.
+- [ ] Isolated file exercises work; cleanup and cross-run/group separation pass service-backed integration checks.
+- [ ] Retries/reruns do not duplicate learning records; output attribution and retention match approved contracts.
+
+**Approval boundary**
+
+Task breakdown approved on 10 October 2026 (Asia/Karachi). Runtime technology, resource limits, permission policies, and API/schema contracts remain with the listed P0 decisions.
+
+**Completion evidence**
+
+Link code review and service-backed functional, isolation, cancellation and cleanup checks. P6-07, P6-09, P7-03, P7-05 and P7-06 must integrate/verify this runtime before closing.
+
 ---
 
 ## P7 — Evaluation, operations, and pilot release
 
 ### [P7-01] Implement content reporting and approved data controls
 
-Published: [GitHub #54](https://github.com/Haadiyah-Zafar/InSyncc/issues/54)
+Published: [GitHub #54](https://github.com/Haadiyah-Zafar/InSyncc/issues/54) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P7-01; plan-version: 0.2 -->
 **Outcome:** Implement content reporting and approved data controls
@@ -2024,7 +2140,7 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 
 ### [P7-02] Integrate operational visibility and pilot cost tracking
 
-Published: [GitHub #55](https://github.com/Haadiyah-Zafar/InSyncc/issues/55)
+Published: [GitHub #55](https://github.com/Haadiyah-Zafar/InSyncc/issues/55) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P7-02; plan-version: 0.2 -->
 **Outcome:** Integrate operational visibility and pilot cost tracking
@@ -2071,18 +2187,19 @@ The human requested an explicit 10–15-model fallback chain for testing and dem
 - [ ] Demonstrate that a shared quota outage is visible as one affected domain and that cost/deadline limits apply across the entire chain, not independently per retry. Label synthetic checks separately from live provider evidence.
 
 <!-- /insync-demo-fallback -->
+
 ---
 
 ### [P7-03] Run authorization, isolation, and recovery regression tests
 
-Published: [GitHub #56](https://github.com/Haadiyah-Zafar/InSyncc/issues/56)
+Published: [GitHub #56](https://github.com/Haadiyah-Zafar/InSyncc/issues/56) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P7-03; plan-version: 0.2 -->
 **Outcome:** Run authorization, isolation, and recovery regression tests
 **Milestone:** P7 — Evaluation, operations, and pilot release
 **Suggested workstream:** B; **Size:** M; one accountable owner, a different reviewer.
 **Start after:** P7-01, P7-02, P6-09, P1-05.
-**Integrate/close after:** None (in addition to start dependencies).
+**Integrate/close after:** P6-10 (in addition to start dependencies).
 **Review references:** None.
 **Source:** Context §§12, 14; approved permission/recovery matrix.
 
@@ -2123,11 +2240,20 @@ The human requested an explicit 10–15-model fallback chain for testing and dem
 - [ ] A text-model fallback must not silently change the embedding space or corrupt retrieval; incompatible embedding changes fail clearly.
 
 <!-- /insync-demo-fallback -->
+
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Add Python runtime isolation, resource limits, cross-group source/result denial, revoked access, stale grants, duplicate requests, credential/file/network isolation, and output bounds. Test separate code/board grants and reconstruction using P6-10.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
+- [ ] Verify the approved issue #2 scope amendment above with the relevant integration/evaluation evidence; document failures and remaining prerequisites.
+
 ---
 
 ### [P7-04] Run educational quality and pilot evaluation
 
-Published: [GitHub #57](https://github.com/Haadiyah-Zafar/InSyncc/issues/57)
+Published: [GitHub #57](https://github.com/Haadiyah-Zafar/InSyncc/issues/57) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P7-04; plan-version: 0.2 -->
 **Outcome:** Run educational quality and pilot evaluation
@@ -2176,18 +2302,27 @@ The human requested an explicit 10–15-model fallback chain for testing and dem
 - [ ] Recheck access and representative calls before the scheduled demo because provider availability and free-tier quotas can change. Record remaining shared-provider/platform risks and the tested exhausted-chain behavior.
 
 <!-- /insync-demo-fallback -->
+
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Use the approved twelve-area syllabus, 24 concept units, 144 reviewed bank questions, 12 discussion problems, and evaluation targets in the #2 decision record. Test Python execution and whiteboard cases; report synthetic/internal sample limits and actual costs, not learning-efficacy claims.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
+- [ ] Verify the approved issue #2 scope amendment above with the relevant integration/evaluation evidence; document failures and remaining prerequisites.
+
 ---
 
 ### [P7-05] Verify accessibility, browser compatibility, and performance
 
-Published: [GitHub #58](https://github.com/Haadiyah-Zafar/InSyncc/issues/58)
+Published: [GitHub #58](https://github.com/Haadiyah-Zafar/InSyncc/issues/58) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P7-05; plan-version: 0.2 -->
 **Outcome:** Verify accessibility, browser compatibility, and performance
 **Milestone:** P7 — Evaluation, operations, and pilot release
 **Suggested workstream:** A; **Size:** M; one accountable owner, a different reviewer.
 **Start after:** P5-06, P6-09, P7-01, P7-02, P0-01.
-**Integrate/close after:** None (in addition to start dependencies).
+**Integrate/close after:** P6-10 (in addition to start dependencies).
 **Review references:** Q18.
 **Source:** Context §§3, 12, 14; report §§4.3–4.4.
 
@@ -2213,18 +2348,26 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Include Run/output/error/timeout/cancel, board tools, independent control holders, reconnect, and revision feedback in browser/accessibility/performance checks. Apply the approved #2 timing targets and integrate P6-10.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
+- [ ] Verify the approved issue #2 scope amendment above with the relevant integration/evaluation evidence; document failures and remaining prerequisites.
+
 ---
 
 ### [P7-06] Prepare deployment and demonstrate backup restoration
 
-Published: [GitHub #59](https://github.com/Haadiyah-Zafar/InSyncc/issues/59)
+Published: [GitHub #59](https://github.com/Haadiyah-Zafar/InSyncc/issues/59) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P7-06; plan-version: 0.2 -->
 **Outcome:** Prepare deployment and demonstrate backup restoration
 **Milestone:** P7 — Evaluation, operations, and pilot release
 **Suggested workstream:** B; **Size:** M; one accountable owner, a different reviewer.
 **Start after:** P7-02, P7-03, P7-05, P0-07.
-**Integrate/close after:** None (in addition to start dependencies).
+**Integrate/close after:** P6-10 (in addition to start dependencies).
 **Review references:** Q18.
 **Source:** Context §§8, 14; approved hosting/backup plan.
 
@@ -2250,11 +2393,19 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+Deploy the approved isolated Python runtime for P6-10, including resource/network/credential boundaries, cleanup, observability and recovery. Validate Python file-handling exercises and code/board persistence without exposing application host files.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
+- [ ] Verify the approved issue #2 scope amendment above with the relevant integration/evaluation evidence; document failures and remaining prerequisites.
+
 ---
 
 ### [P7-07] Synchronize approved report, diagrams, and developer documentation
 
-Published: [GitHub #60](https://github.com/Haadiyah-Zafar/InSyncc/issues/60)
+Published: [GitHub #60](https://github.com/Haadiyah-Zafar/InSyncc/issues/60) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P7-07; plan-version: 0.2 -->
 **Outcome:** Synchronize approved report, diagrams, and developer documentation
@@ -2287,11 +2438,17 @@ Requires the approved design/contracts cited below. Plan approval authorizes tra
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+**Approved issue #2 scope amendment — 10 October 2026 (Asia/Karachi)**
+
+D5 now authorizes only correction sets C1–C6 in the #2 decision record. Prepare the Markdown replacement-text/figure correction pack and apply it to the editable report source when available; preserve all unresolved state/access/schema/method decisions and tie implementation claims to evidence.
+
+Authority: D1–D5 and §9.1, `planning/decisions/P0-01-pilot-scope.md`; recorded approval and complete decision package in #2. Other design decisions remain pending in their owning P0 issues.
+
 ---
 
 ### [P7-08] Accept the pilot release and finalize the handoff
 
-Published: [GitHub #61](https://github.com/Haadiyah-Zafar/InSyncc/issues/61)
+Published: [GitHub #61](https://github.com/Haadiyah-Zafar/InSyncc/issues/61) · Recorded status: **Blocked**
 
 <!-- insync-plan-id: P7-08; plan-version: 0.2 -->
 **Outcome:** Accept the pilot release and finalize the handoff
@@ -2338,4 +2495,5 @@ The human requested an explicit 10–15-model fallback chain for testing and dem
 - [ ] Known missing credentials, shared exhausted quotas, untested candidates, or failed quality checks remain explicit blockers; model count alone is not accepted as proof of availability.
 
 <!-- /insync-demo-fallback -->
+
 ---
