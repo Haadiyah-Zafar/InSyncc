@@ -27,6 +27,11 @@ If GitHub is unavailable, use the local issue snapshot to continue independent i
 - Resolve routine implementation details within approved contracts using engineering judgment. Do not repeatedly reopen settled choices or ask for blanket permission to proceed.
 - Record new approvals and affected scope in the relevant issue or decision document when that update is authorized. Keep approved changes consistent across code, contracts, tests, planning artifacts, and authorized report edits. Never describe missing historical conversations as reviewed.
 
+## Active module workflow
+
+- Current user priority is parent #68, the personal tutor-led whiteboard. Follow [the sequential workflow](planning/PERSONAL_TUTOR_WORKFLOW.md): one issue/scope slice, verify, provide commit/push and PR text, then verify the user’s merge before continuing from main. The user retains commit/push/PR/merge steps.
+- Every tutor-proposed change to the personal whiteboard needs explicit learner approval before application. The confirmed help trigger is Ask tool + circle; first-phase inputs are structured text/code/board objects (tldraw-like), with images/handwriting interpretation later. SDK selection is not inferred from the object-model reference. See [the scoped decision record](planning/decisions/P0-05-personal-tutor-interaction.md) for exact decisions and pending alternatives. This does not alter shared-group controls or teacher-review rules.
+
 ## Work one issue at a time
 
 - Own one active issue and keep the change focused. A/B/C are suggested workstreams, not named people or permission to assign accounts.
