@@ -209,6 +209,17 @@ Requires explicit human approval of the listed decision and affected downstream 
 - Document contract/schema changes and notify dependent issue owners through the issue/PR.
 - Resolve all dependencies before closing; mock-only UI or infrastructure-only agent tests do not prove real feature integration.
 
+<!-- insync-personal-tutor-approval-policy: 2026-10-11 -->
+
+## Recorded personal-board decision — 11 October 2026
+
+The human answered: **“Ask for approval before every board change”** when asked whether the Tutor may place new activities/explanation cards automatically. Every tutor-proposed addition, inline explanation, replacement or deletion therefore requires explicit learner approval before application. Requesting tutoring help or starting a session is not itself approval to mutate the board. Learner input is separate. The human also confirmed **Ask tool + circle** as the deliberate help trigger and **structured text/code/board objects first, images later**, with tldraw-like objects as the reference. Exact answer: “for the selection ask tool + cirrcle and in the start use structured objects as in tldrraw then we will move to adding the images”. Ordinary drawing outside Ask mode does not request tutoring. The initial phase extracts structured object content and relationships; image/raw-handwriting interpretation is deferred. Asking for help does not approve inserting the response onto the board.
+
+The approval-preview/action/revision mechanics remain with the relevant contracts. SDK selection/deployment licensing remains open; the object-model reference does not itself select the tldraw SDK. These confirmed choices supersede earlier pending text only for tutor board-write approval, the help trigger and initial content modalities, not other decisions or shared-group permissions.
+
+The user requested one issue at a time, followed by relevant verification and commit/push/PR instructions. The user will create/review/merge PRs; the next task must verify the merge and continue from latest main. Partial decision/UI slices must not use a closing keyword for the whole issue.
+
+
 ---
 
 ### [P0-06] Approve grouping, discussion, and shared workspace behavior
