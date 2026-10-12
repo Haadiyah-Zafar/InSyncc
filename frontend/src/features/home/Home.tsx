@@ -15,8 +15,8 @@ export function Home() {
             A space for understanding new ideas, reflecting on progress, and
             learning with others.
           </p>
-          <Link className="text-link" to="/status">
-            Check service status
+          <Link className="text-link" to="/whiteboard-preview">
+            Try the whiteboard preview →
           </Link>
         </div>
         <aside className="welcome-card">
@@ -35,9 +35,10 @@ export function Home() {
           <span className="badge">Early development</span>
         </aside>
       </section>
-      <EmptyState title="Your learning space is on its way">
-        There are no learning activities available in this version. Come back
-        when account access is ready.
+      <EmptyState title="Try a little of what’s next">
+        The interactive whiteboard preview supports notes, code, shapes, and a
+        sample tutor conversation. Live tutoring and account access are still
+        being built. Preview work is not saved after you leave the page.
       </EmptyState>
     </div>
   );

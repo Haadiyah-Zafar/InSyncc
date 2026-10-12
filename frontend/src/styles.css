@@ -80,6 +80,7 @@ main:focus {
 }
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 nav a {
