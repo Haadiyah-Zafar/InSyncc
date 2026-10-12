@@ -5,7 +5,8 @@ teacher review, and group collaboration. The approved pilot includes a shared Py
 editor with execution/output and a whiteboard with independent editing control.
 
 This checkout provides repository tooling, a tested FastAPI foundation, and a
-React/TypeScript application shell. See [backend setup](backend/README.md) and
+React/TypeScript application shell with an interactive whiteboard preview and sample
+tutor interactions. See [backend setup](backend/README.md) and
 [frontend setup](frontend/README.md). CI remains in issue #15.
 
 ## Repository layout

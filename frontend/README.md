@@ -2,7 +2,9 @@
 
 This workspace contains the application bootstrap, navigation, accessible shared
 controls, API boundary, and a provisional workspace layout. `/` is a public welcome
-page; `/status` checks the real backend's application readiness. Unknown routes show
+page; `/status` checks the real backend's application readiness.
+`/whiteboard-preview` is a public, interactive board with explicitly labeled sample
+tutor content and no authenticated session. Unknown routes show
 an honest not-found page. No user, role, session, class, or learning activity is mocked
 as authenticated behavior. Sign-in and role authorization remain in #4/#21/#22.
 
@@ -27,6 +29,25 @@ The development server proxies `/api/*` to `http://127.0.0.1:8000/*`. No CORS or
 authentication policy has been invented for this shell. Without the backend, the
 status page displays an error and retry action. Readiness only covers application
 startup; it does not prove authentication, database, or AI-service availability.
+
+## Whiteboard preview
+
+Open **Whiteboard preview** in navigation. This page works without a backend or API
+key: it is an interactive frontend preview with sample tutor responses.
+
+- Add/edit text, Python-code cards, rectangles and ellipses. Drag object headers or
+  focus them and use arrow keys to move. Delete, undo and redo are available.
+- Start the sample activity and approve its proposed addition. Use **Ask + circle**
+  around an object's center to request a sample explanation. The object list and
+  **Ask about selection** button provide a keyboard alternative.
+- Every sample tutor addition needs approval. Dismiss leaves the board unchanged;
+  editing the board invalidates pending additions so old proposals cannot silently
+  apply to newer work.
+
+Work is kept only while the page is open; reload or navigation clears it. The board
+uses native React/HTML objects and an SVG selection overlay, with no new SDK. Live
+tutoring/RAG, account access, durable history and final production contracts remain
+separate work. See [the scoped PR record](../docs/issue-69-whiteboard-pr.md).
 
 ## Build and test
 
@@ -65,6 +86,8 @@ configuration. Restricted cloud shells may also need the writable npm/uv caches
 from the root README. Browser reports/screenshots stay in ignored output folders.
 Unit tests use controlled API doubles; browser tests verify the real `/ready`
 response, keyboard navigation, deep-link reload, offline/retry, and narrow layout.
+The whiteboard tests cover pointer circling, editing/dragging, approval/dismissal,
+stale proposals, selected-content snapshots, undo/redo and keyboard alternatives.
 
 ## Extension boundaries
 

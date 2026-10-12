@@ -2,13 +2,19 @@ import { useEffect, useRef } from "react";
 import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { Home } from "../features/home/Home";
 import { ServiceStatus } from "../features/status/ServiceStatus";
+import { WhiteboardPreview } from "../features/whiteboard/WhiteboardPreview";
 
 export function App() {
   const { pathname } = useLocation();
   const previous = useRef(pathname);
   const content = useRef<HTMLElement>(null);
   useEffect(() => {
-    document.title = `${pathname === "/" ? "Welcome" : pathname === "/status" ? "Service status" : "Page not found"} | InSync`;
+    const titles: Record<string, string> = {
+      "/": "Welcome",
+      "/status": "Service status",
+      "/whiteboard-preview": "Whiteboard preview",
+    };
+    document.title = `${titles[pathname] ?? "Page not found"} | InSync`;
     if (previous.current !== pathname) content.current?.focus();
     previous.current = pathname;
   }, [pathname]);
@@ -29,12 +35,14 @@ export function App() {
             Home
           </NavLink>
           <NavLink to="/status">Service status</NavLink>
+          <NavLink to="/whiteboard-preview">Whiteboard preview</NavLink>
         </nav>
       </header>
       <main ref={content} tabIndex={-1} id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/status" element={<ServiceStatus />} />
+          <Route path="/whiteboard-preview" element={<WhiteboardPreview />} />
           <Route
             path="*"
             element={

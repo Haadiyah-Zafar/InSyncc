@@ -1,0 +1,438 @@
+.whiteboard-page {
+  max-width: 1600px;
+  margin: auto;
+  padding: 2rem;
+}
+.whiteboard-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.whiteboard-heading h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0.5rem 0;
+}
+.whiteboard-heading p {
+  margin: 0.4rem 0;
+}
+.preview-tag {
+  border: 1px solid #b5c6af;
+  background: #e8efdf;
+  border-radius: 2rem;
+  padding: 0.4rem 0.9rem;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+.preview-notice {
+  background: #f3eedf;
+  color: #635027;
+  padding: 0.7rem 1rem;
+  border: 1px solid #dbcfaa;
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
+  margin: 1.4rem 0;
+}
+.learning-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 1.2rem;
+  align-items: start;
+}
+.board-workspace,
+.tutor-panel {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #d8ded3;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.board-toolbar {
+  padding: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e1e6dc;
+}
+.tool-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.board-toolbar button {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.65rem;
+  color: #284e44;
+  background: #f5f7f1;
+  border: 1px solid #d2dccb;
+  border-radius: 0.4rem;
+}
+.board-toolbar button[aria-pressed="true"] {
+  background: #244c40;
+  color: #fff;
+  border-color: #244c40;
+}
+.whiteboard-page button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.board-help {
+  padding: 0.6rem 1rem;
+  margin: 0;
+  color: #53685c;
+  font-size: 0.75rem;
+  background: #fafbf7;
+}
+.board-scroll {
+  overflow: auto;
+  height: 570px;
+  border-block: 1px solid #d8ded3;
+  overscroll-behavior: contain;
+}
+.board-surface {
+  position: relative;
+  background-color: #f9faf5;
+  background-image: radial-gradient(#cdd7c7 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.board-surface.asking {
+  touch-action: none;
+}
+.board-empty {
+  position: absolute;
+  left: 60px;
+  top: 110px;
+  width: 390px;
+  color: #566e60;
+  pointer-events: none;
+}
+.board-empty > span {
+  font-size: 3rem;
+  color: #8ba17c;
+}
+.board-empty h2 {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+.board-object {
+  position: absolute;
+  background: #fffdf0;
+  border: 1px solid #cfccae;
+  border-radius: 0.7rem;
+  box-shadow: 0 5px 12px #203d3010;
+  overflow: hidden;
+}
+.board-object.is-selected {
+  outline: 3px solid #387c69;
+  outline-offset: 3px;
+}
+.board-object.sample-object {
+  background: #edf5e9;
+  border-color: #b8cdaf;
+}
+.board-object.object-code {
+  background: #fff;
+  border-color: #c6d0c6;
+}
+.board-object.object-rectangle {
+  background: #ebf0fb;
+  border: 2px solid #98accd;
+}
+.board-object.object-ellipse {
+  border-radius: 42%;
+  background: #f5eefa;
+  border: 2px solid #c2a6cf;
+}
+.object-ellipse .object-handle {
+  padding-inline: 3.5rem;
+}
+.object-ellipse .object-text {
+  padding-inline: 3rem;
+  text-align: center;
+}
+.object-handle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border: 0;
+  border-bottom: 1px solid #203d3018;
+  background: #203d3008;
+  color: #355247;
+  border-radius: 0;
+  padding: 0.65rem 1rem;
+  font-size: 0.7rem;
+  cursor: grab;
+  touch-action: none;
+}
+.object-handle:active {
+  cursor: grabbing;
+}
+.object-handle:focus-visible {
+  outline-offset: -4px;
+}
+.board-object pre,
+.board-object .object-text {
+  padding: 1rem;
+  margin: 0;
+  overflow: auto;
+  max-height: 192px;
+}
+.object-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+}
+.board-object pre {
+  font:
+    0.8rem/1.65 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+}
+.anchor-label {
+  display: block;
+  padding: 0.3rem 1rem 0;
+  font-size: 0.65rem;
+  color: #53685c;
+}
+.anchor-label + .object-text {
+  max-height: 165px;
+  padding-top: 0.4rem;
+}
+.ask-overlay {
+  position: absolute;
+  inset: 0;
+  cursor: crosshair;
+  z-index: 2;
+}
+.circle-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.circle-overlay polyline {
+  fill: #387c6914;
+  stroke: #387c69;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.board-status {
+  padding: 0.7rem 1rem;
+  margin: 0;
+  min-height: 3rem;
+  font-size: 0.8rem;
+  background: #f2f6ee;
+}
+.board-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.2rem;
+}
+.object-list h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+.object-list h2 span {
+  font-size: 0.75rem;
+  background: #eef2e7;
+  border-radius: 1rem;
+  padding: 0.1rem 0.5rem;
+}
+.object-list p {
+  font-size: 0.8rem;
+}
+.object-list label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: start;
+  font-size: 0.8rem;
+  padding-block: 0.3rem;
+  overflow-wrap: anywhere;
+}
+.object-list input {
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+  accent-color: #244c40;
+}
+.object-editor {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+}
+.object-editor label,
+.ask-form label {
+  font-weight: 650;
+  font-size: 0.85rem;
+}
+.whiteboard-page textarea {
+  width: 100%;
+  min-width: 0;
+  resize: vertical;
+  border: 1px solid #94a792;
+  border-radius: 0.45rem;
+  padding: 0.65rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-family: inherit;
+  color: #173c36;
+  background: #fff;
+}
+.object-editor button {
+  justify-self: start;
+  font-size: 0.8rem;
+  padding: 0.45rem 0.8rem;
+}
+.tutor-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  border-bottom: 1px solid #d8ded3;
+}
+.tutor-mark {
+  display: grid;
+  place-items: center;
+  background: #244c40;
+  color: #eaf3db;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.5rem;
+}
+.tutor-heading h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+.tutor-heading p {
+  font-size: 0.75rem;
+  color: #53685c;
+  margin: 0.1rem 0 0;
+}
+.tutor-intro {
+  padding: 1.2rem;
+  background: #f5f7f0;
+}
+.tutor-intro h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+.tutor-intro p,
+.tutor-message {
+  font-size: 0.85rem;
+}
+.tutor-intro button,
+.ask-form button {
+  font-size: 0.8rem;
+}
+.tutor-messages {
+  max-height: 620px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+.tutor-message {
+  padding: 1.2rem;
+  border-bottom: 1px solid #e1e6dc;
+}
+.tutor-message.message-you {
+  background: #f5f4ef;
+}
+.message-author {
+  font-size: 0.7rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0;
+}
+.tutor-message details {
+  font-size: 0.75rem;
+}
+.tutor-message summary {
+  cursor: pointer;
+}
+.tutor-message pre,
+.proposal pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    0.75rem/1.6 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+}
+.proposal {
+  background: #f7f9f3;
+  border: 1px solid #cfdbc7;
+  border-radius: 0.6rem;
+  padding: 0.8rem;
+  margin-top: 1rem;
+}
+.proposal-label {
+  font-size: 0.7rem;
+  font-weight: 750;
+  margin-top: 0;
+}
+.proposal .object-text {
+  font-size: 0.8rem;
+}
+.proposal-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.proposal-actions button {
+  font-size: 0.75rem;
+  padding: 0.45rem 0.6rem;
+}
+.secondary-button {
+  background: transparent;
+  color: #244c40;
+  border: 1px solid #94a792;
+}
+.proposal-result {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.ask-form {
+  padding: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.ask-form label span {
+  font-weight: 400;
+}
+.ask-form p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #53685c;
+}
+@media (max-width: 1000px) {
+  .learning-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tutor-messages {
+    max-height: none;
+  }
+}
+@media (max-width: 600px) {
+  .whiteboard-page {
+    padding: 1rem;
+  }
+  .whiteboard-heading {
+    flex-wrap: wrap;
+  }
+  .board-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .board-empty {
+    width: 240px;
+    left: 24px;
+  }
+  .board-scroll {
+    height: 470px;
+  }
+}
