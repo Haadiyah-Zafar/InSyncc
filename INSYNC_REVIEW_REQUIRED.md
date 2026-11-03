@@ -156,7 +156,7 @@ R Figures 4.1–4.17 include extra controls not fully specified elsewhere: role 
 
 ## Q14 — Providers, storage, retrieval configuration and upload limits
 
-**Status: pending.**
+**Status: decided for #8 items on 3 Nov 2026** (see planning/decisions/P0-07-service-choices.md): Supabase Storage; free embedding model nvidia/nemotron-3-embed-1b:free at 2048 dimensions, no vector index for the pilot; PDF, DOCX, Markdown and TXT up to 10 MB; about 500-token chunks with 50 overlap; top 3 chunks. Extraction libraries and re-upload/versioning detail remain open.
 
 PostgreSQL/Supabase and pgvector are selected. The report alternatively specifies Supabase Storage or compatible storage, and no concrete LLM/embedding model. The dictionary gives 1536 embedding dimensions. Upload validation requires file-size/type limits without values. Retrieval specifies three chunks without chunking/relevance details.
 
@@ -166,7 +166,7 @@ PostgreSQL/Supabase and pgvector are selected. The report alternatively specifie
 
 ## Q15 — Background execution, timeouts, recovery and checkpoints
 
-**Status: pending implementation dependencies.**
+**Status: decided for #8 on 3 Nov 2026** (see planning/decisions/P0-07-service-choices.md): Postgres job table with a worker process; 20 s per attempt, 2 retries on the same route for transient errors, then the next model, max 3 models per operation; total deadlines of 45 s (interactive) and 5 min (background); one validation regeneration inside the same cap; job lease with expiry and idempotency key for cancellation and recovery. Checkpoint frequency and the link to #3 remain open.
 
 The report adopts asynchronous work but defers the mechanism. §5.9 supplies a 20-second LLM timeout and two retries; §6.4.6 discusses broader external AI/embedding failures with a configured timeout. Tutor/hint validation separately permits one regeneration. Checkpoint guarantees/frequency vary in text and diagrams.
 
@@ -209,7 +209,7 @@ The latest accessible review flags:
 
 ## Q18 — Evaluation, reporting, monitoring and operational details
 
-**Status: pending details, not license to invent targets.**
+**Status: decided for #8 items on 3 Nov 2026** (see planning/decisions/P0-07-service-choices.md): 1 teacher and up to 12 learners; 95% of tutor replies under 20 s; 99.9% uptime per month; 95% answer-quality pass rate against uploaded material; zero budget with free hosting (Render wake-up of 30 s to 2 min accepted); class-dissolve deletion; weekly encrypted backups kept 7 days. The evaluation protocol, restore test and uptime measurement remain with #57 and #59.
 
 The report commits to usability checks, response-time testing, failure/coordination tests, API cost monitoring, content reporting/teacher monitoring, periodic backups and a feasible limited pilot. It does not establish numerical success criteria, participant counts, a complete evaluation protocol, a content-report data flow, retention/deletion policy, deployment topology or backup schedule.
 

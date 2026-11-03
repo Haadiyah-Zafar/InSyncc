@@ -82,9 +82,9 @@ Class association is obtainable through topic; uploader attribution, file type/s
 | material_id | uuid | No | FK to LEARNING_MATERIAL |
 | chunk_index | integer | No | Chunk position in source |
 | chunk_text | text | No | Extracted chunk text |
-| embedding | vector(1536) | No | Retrieval vector |
+| embedding | vector(2048) | No | Retrieval vector. Approved 3 Nov 2026 for nvidia/nemotron-3-embed-1b:free; no vector index for the pilot. |
 
-1536 is a stored-vector dimension in the candidate dictionary, not approval of a particular embedding model. Chunk length/overlap, index strategy, model/version tracking and uniqueness of chunk position require decisions.
+2048 is the approved stored-vector dimension for the pilot embedding model (see planning/decisions/P0-07-service-choices.md). Chunking (about 500 tokens, 50 overlap) and the no-index choice are approved. Model/version tracking and uniqueness of chunk position still require decisions in #9.
 
 ## 8. LEARNING_SESSION
 

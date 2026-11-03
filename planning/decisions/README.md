@@ -5,6 +5,7 @@ Read each record’s approval table before implementing it. Later explicit user 
 | Issue | Record | Status |
 |---|---|---|
 | #2 / P0-01 | [Pilot scope, screens, evaluation, and runtime work breakdown](P0-01-pilot-scope.md) | D1–D5 and §9.1 approved on 10 October 2026 (Asia/Karachi). |
+| #8 / P0-07 | [Service choices, background execution, and operations](P0-07-service-choices.md) | Approved by Anum on 3 Nov 2026 (rows in §1). The 10-model fallback minimum is not yet met: 8 of 10 working. |
 
 The twelve-area syllabus, synthetic fixtures, screen classifications, evaluation targets, and limited documentation correction authorization are approved. They are not measured results. Runtime issue #64 is published. Runtime technology/limits, run permissions, whiteboard tools, and handover rules remain with #4/#7/#8; other P0 decisions retain their existing status.
 
