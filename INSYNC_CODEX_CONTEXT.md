@@ -251,8 +251,8 @@ The narrative says sixteen use cases but lists fifteen. This is a report consist
 | Authentication | Supabase Authentication; FastAPI validates requests and enforces authorization |
 | ORM and validation | SQLAlchemy; Pydantic for request/response/AI-output schemas |
 | Temporary real-time state | Redis for presence, locks, short-lived collaboration state and applicable caching |
-| Material files | Supabase Storage / compatible object storage; exact final selection is Q14 |
-| AI services | External LLM and embedding APIs/models through provider-independent interfaces; exact providers/models are not established |
+| Material files | Supabase Storage (free tier), approved 3 Nov 2026; see planning/decisions/P0-07-service-choices.md |
+| AI services | OpenRouter free text models (8 of the 10 required working on 3 Nov 2026) and the embedding model nvidia/nemotron-3-embed-1b:free, through provider-independent interfaces; see planning/decisions/P0-07-service-choices.md |
 | Development | GitHub, Docker, Visual Studio Code |
 
 [R §§4.7.2, 6.2–6.4]

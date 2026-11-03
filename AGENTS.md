@@ -79,12 +79,12 @@ If GitHub is unavailable, use the local issue snapshot to continue independent i
 ## OpenRouter and model failover
 
 - **OpenRouter is the selected initial text-generation gateway.** Preserve a provider-independent adapter boundary. A second gateway such as Hugging Face is not required by this choice.
-- The demo requires **10–15 distinct generation models total**, one primary plus 9–14 alternatives, with ranked and verified routes. Exact models, licenses, underlying providers, per-operation eligibility, and numerical budgets remain decisions in #8; implementation is #18.
+- The demo requires **10–15 distinct generation models total**, one primary plus 9–14 alternatives, with ranked and verified routes. Exact models, licenses, underlying providers, per-operation eligibility, and numerical budgets are recorded in planning/decisions/P0-07-service-choices.md (free-only pool; 8 of the 10 required models working on 3 Nov 2026); implementation is #18.
 - Do not count aliases or multiple routes for one model as additional models. Verify live access, output compatibility, quality, latency, and cost; distinguish open-source from open-weight licensing.
 - Track shared model/provider/account/platform limits. A list of models on one exhausted OpenRouter account does not provide independent availability.
 - Failover must honor approved Retry-After/cooldowns, total deadline, maximum attempts, aggregate cost/retry/regeneration budget, and cancellation. Account for provider routing retries as well as application retries; do not blindly apply 20 seconds and two retries to every candidate.
 - Every fallback preserves output validation, educational constraints, teacher-review gates, and logical request identity. Prevent duplicate persisted side effects. Exhaustion produces an explicit bounded unavailable state while preserving saved work.
-- Embeddings are separate: model/hosting selection remains pending. Equal vector dimensions do not make embedding spaces interchangeable. A model/version change requires the approved compatibility or re-embedding/index migration.
+- Embeddings are separate: the pilot embedding model is nvidia/nemotron-3-embed-1b:free, 2048 dimensions, no vector index for the pilot (approved 3 Nov 2026; see planning/decisions/P0-07-service-choices.md). Equal vector dimensions do not make embedding spaces interchangeable. A model/version change requires the approved compatibility or re-embedding/index migration.
 - Use controlled fault injection for rate-limit/outage tests, not deliberate exhaustion of real quotas. Live model checks and pre-demo qualification are separate from deterministic doubles. Follow #55, #56, #57, and #61 for operational and acceptance evidence.
 
 ## Implementation and validation
