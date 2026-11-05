@@ -17,7 +17,7 @@
 | **Class dissolved** | Everything tied to the class is deleted. The teacher's account stays. |
 | **Backups** | Encrypted, **weekly**, kept 7 days, stored privately, free. |
 | **Embedding** | 2048 dimensions, no index for the pilot (approved). |
-| **Still open** | Daily request cap on free OpenRouter models (50/day), pool size (8 of 10 needed), sleeping backend vs reply time |
+| **Still open** | Pool size: 9 of 10 working on 5 Nov 2026 (§4.6). The 10th needs `google/gemma-4-31b-it:free` or `google/gemma-4-26b-a4b-it:free` to recover from upstream 429. Sleeping backend vs reply time. |
 
 ---
 
@@ -26,7 +26,7 @@
 | ID | Topic | Recommendation | Status |
 |---|---|---|---|
 | S1 | Text gateway | OpenRouter free models only, behind an adapter | **Anum: approved (3 Nov 2026).** |
-| S2 | Fallback pool (10–15 models) | Free models only. 8 working now, 3 busy, 2 removed (§4). Below the 10-model minimum until the busy ones recover. Free cap of 50 requests a day kept. | **Anum: approved (3 Nov 2026).** Free models only; 50-a-day cap accepted. The 10-model minimum still applies: the pool must reach 10 working models before the demo. |
+| S2 | Fallback pool (10–15 models) | Free models only. 9 working now (§4.6), 2 busy, 2 removed (§4). Below the 10-model minimum until a busy model recovers. Free cap of 50 requests a day kept. | **Anum: approved (3 Nov 2026).** Free models only; 50-a-day cap accepted. The 10-model minimum still applies: the pool must reach 10 working models before the demo. |
 | S3 | Embedding model | `nvidia/nemotron-3-embed-1b:free`. **Dimension 2048** (live check). **No index for the pilot** (§7, option B). | **Anum: model and option B confirmed** |
 | S4 | File storage | Supabase Storage, free tier | **Anum: approved (3 Nov 2026).** |
 | S5 | Upload formats and size | PDF, DOCX, Markdown, TXT; 10 MB max | **Anum: approved (3 Nov 2026).** |
@@ -142,9 +142,21 @@ The teacher's own account stays. Backups age out within 7 days (S16).
 
 ### 4.5 Pool size: a problem
 
-- **Working now: 8.** The requirement is 10 to 15 distinct models.
-- **If the 3 busy models recover: 11.** That meets the requirement.
-- **No other free text models exist** in the catalogue to add.
+- **Working now: 8 (3 Nov) → 9 (5 Nov, see §4.6).** The requirement is 10 to 15 distinct models.
+- **If both busy Gemma models recover: 11.** That meets the requirement.
+- **No other free text models exist** in the catalogue to add (checked 5 Nov 2026 against the public model list: 12 free models, of which 9 are working or recovered, 2 busy, 1 excluded classifier; the 2 `thinkingmachines` models are no longer listed).
+
+### 4.6 Re-test on 5 Nov 2026
+
+Same kind of test as §4 (one JSON request per model, plus one retry where noted). About 9 of the 50 daily requests used.
+
+| Model | Result | Outcome |
+|---|---|---|
+| `recursive/flint-v1.0:free` | First try: reply correct but JSON repeated twice. Second try: clean single JSON `{"ok": true, "answer": 4}` | **Working.** Moves to the working list (9th). Quality still to check. |
+| `google/gemma-4-31b-it:free` | Error 429, provider rate-limited (two tries, 20 s apart) | Still busy |
+| `google/gemma-4-26b-a4b-it:free` | Error 429, provider rate-limited (two tries, 20 s apart) | Still busy |
+
+**Result:** 9 working models. The 10-model minimum is **not met**. It becomes met only if one of the two Gemma models recovers. Free-only budget means no paid route to add models. Options unchanged: wait and re-test, or change the requirement (Anum's decision).
 
 **Decision needed (see §2):** accept the pool as it stands until the busy models recover, or change the requirement.
 
