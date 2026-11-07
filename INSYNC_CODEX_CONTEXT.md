@@ -265,6 +265,8 @@ Selected organization: `frontend/` for React/TypeScript; `backend/` for FastAPI 
 
 Use FastAPI WebSockets for chat messages, Discussion Agent hints, workspace events, presence and live teacher monitoring. Redis holds temporary collaboration state and controlled-editing locks. PostgreSQL persists group/message/application records. These are distinct storage responsibilities. Real-time access is authenticated and the backend checks student group membership or teacher ownership of the class. A client-supplied group identifier is not authorization. [R §§6.3.1, 6.4.7, 6.7.4]
 
+Approved 7 Nov 2026 (P0-03): when a teacher observes a group's live activity, students in that group see a visible notice. Group membership is frozen while a session is running. A student removed from a class loses access immediately, including open WebSocket connections.
+
 The actual editing model, workspace document persistence, event contracts, lock ownership/lifetime, disconnect recovery and synchronization semantics remain Q11. The report names locks but does not establish a complete collaborative-editor implementation.
 
 ### 8.3 Retrieval and material processing
