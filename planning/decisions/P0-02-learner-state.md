@@ -1,7 +1,7 @@
 # P0-02: Learner state, graph ownership, recovery
 
 **Issue:** [#3](https://github.com/Haadiyah-Zafar/InSyncc/issues/3) · **Prepared:** 5 Nov 2026 · **Start after:** none
-**Status:** Options and recommendation for review. **Not approved.** No decision below is recorded as approved until Anum records it.
+**Status:** Decisions A, B, C, D and the teacher review timeout confirmed by Anum on 5 Nov 2026 (§9). **Q01 (overall) remains pending.** Open sub-items are listed in §9.
 
 **Review references:** Q01 (explicitly kept pending by the human), Q15 (checkpoint link).
 
@@ -139,9 +139,9 @@ Proposed matrix. Owners are the single writer for each field. Evidence is append
 
 | Decision | Recommendation | Approved by | Date | Notes |
 |---|---|---|---|---|
-| A — Scope | A2 (student × topic), per Anum's answer 5 Nov 2026 | | | Confirm |
-| B — Owners and merge rules | Matrix in §3 | Anum (answer 5 Nov 2026: approved as drafted) | 5 Nov 2026 | Confirm in record |
-| C — Checkpoints and store | C1 (after every step), Postgres | Anum (answer 5 Nov 2026) | 5 Nov 2026 | Confirm in record |
-| D — Attribution | D1 (group level only) | Anum (answer 5 Nov 2026) | 5 Nov 2026 | Confirm in record |
-| Teacher review timeout | Wait; remind after a set period (answer 5 Nov 2026) | Anum (answer 5 Nov 2026) | 5 Nov 2026 | Reminder period and method still open |
+| A — Scope | A2 (student × topic) | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Topic-to-topic transfer still open |
+| B — Owners and merge rules | Matrix in §3, approved as drafted | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | |
+| C — Checkpoints and store | C1 (after every step), Postgres | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | |
+| D — Attribution | D1 (group level only) | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Attribution rule for individuals still needs a later decision |
+| Teacher review timeout | Wait; remind after a set period | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Reminder period and method still open |
 | Q01 (overall) | Remains explicitly pending until Anum records approval | | | |
