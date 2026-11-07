@@ -33,7 +33,7 @@ Unless marked otherwise, Sections 4–15 contain **recovered current design**. A
 
 1. Where the old local report conflicts with the latest conversation decisions, use the latest conversation decisions and flag conflicts for approval.
 2. **Programming Fundamentals is the confirmed pilot subject. Retain both school and university audiences now.** This does not claim evaluation across both populations has occurred.
-3. Keep all three proposed clarifications **pending review**: `LearnerContext` versus `InSyncState`; limiting prompt-template claims to operations using an LLM; and reconciling personal-record access with authorized class/group access. Do not adopt these as approved resolutions.
+3. Keep the proposed clarifications **pending review**: `LearnerContext` versus `InSyncState`, and limiting prompt-template claims to operations using an LLM. Reconciling personal-record access with authorized class/group access was resolved on 7 Nov 2026 by P0-03 (see §11). Do not adopt the pending items as approved resolutions.
 4. Preserve the data dictionary as a **candidate schema**, with conflicting details blocked until human review.
 5. **New questions generated during a quiz may be used only after additional teacher approval.** The wait/resume and fallback mechanics remain undecided; this approval requirement itself is settled.
 
@@ -265,6 +265,8 @@ Selected organization: `frontend/` for React/TypeScript; `backend/` for FastAPI 
 
 Use FastAPI WebSockets for chat messages, Discussion Agent hints, workspace events, presence and live teacher monitoring. Redis holds temporary collaboration state and controlled-editing locks. PostgreSQL persists group/message/application records. These are distinct storage responsibilities. Real-time access is authenticated and the backend checks student group membership or teacher ownership of the class. A client-supplied group identifier is not authorization. [R §§6.3.1, 6.4.7, 6.7.4]
 
+Approved 7 Nov 2026 (P0-03): when a teacher observes a group's live activity, students in that group see a visible notice. Group membership is frozen while a session is running. A student removed from a class loses access immediately, including open WebSocket connections.
+
 The actual editing model, workspace document persistence, event contracts, lock ownership/lifetime, disconnect recovery and synchronization semantics remain Q11. The report names locks but does not establish a complete collaborative-editor implementation.
 
 ### 8.3 Retrieval and material processing
@@ -317,19 +319,19 @@ The router, five agent nodes and Teacher Review Node/interrupt are described exp
 
 Preserve producer ownership: Quiz Agent owns quiz outputs; Tutor Agent owns tutoring outputs; Progress Agent owns analysis; Teacher Assistant Agent owns recommendation/group-proposal outputs and approved grouping information; Discussion Agent owns hint logs. Shared evidence such as weak concepts must retain source-tagged contributions without one agent overwriting another's evidence. Precise field-level write permissions and merge/persistence rules are pending Q01/Q04/Q07. [R §§5.2, 5.9]
 
-## 11. Three clarifications expressly pending human review
+## 11. Clarifications expressly pending human review
 
-**The human chose to keep every item in this section pending. Do not interpret nearby report quotations as approval to resolve them.**
+**The human chose to keep items 1 and 2 pending. Item 3 was resolved on 7 Nov 2026 by P0-03. Do not interpret nearby report quotations as approval to resolve pending items.**
 
 1. **`LearnerContext` versus `InSyncState` (Q01).** §6.6.1 explicitly describes persistent learner information loaded into agent workflows; §6.6.2 describes shared state through `InSyncState`. Other sections use learner context and workflow state interchangeably. Keep both identifiers and their source descriptions, but do not finalize a unified field model, scope, loading, persistence or checkpoint contract.
 2. **LLM use and prompt templates (Q02).** §6.7.5 says each of five agents uses a reusable prompt template; Chapters 5–6 also specify arithmetic and heuristics. Whether every agent invokes an LLM, which operations do so, and whether to adopt the review's narrower wording remain unresolved. Preserve explicit formulas without assuming all analysis is performed by an LLM or that an entire agent is LLM-free.
-3. **Student access scope (Q03).** §6.7.4 restricts students to their own records; §6.4.9 and group workflows allow necessary shared group information. Preserve authenticated membership checks and privacy requirements, but do not implement a reconciled RLS matrix or broaden access from an inferred clarification.
+3. **Student access scope (Q03), resolved 7 Nov 2026 by P0-03.** Students read their own records. Group members see shared group work. Answer keys and hidden solutions are server-only. Students cannot read group-derived performance evidence. Enforcement is backend plus row-level security, and the backend enforces the matrix itself because its service key bypasses RLS. Implement the matrix in P0-03 §4; do not broaden access from any other inference.
 
 ## 12. Privacy, safety, and interface requirements
 
 Use internal learning activity only; do not collect emotional-state/sensor data or external learner records. Explain collection, purpose and use of learning data to students and teachers; consent is an operating assumption. Send external AI services only the learner information required for the task. Keep private learner information out of other students' access and out of group hint wording. [R §§4.4, 4.5, 5.8, 6.4.9]
 
-Application database operations run through the backend. Database changes use migrations. Secrets, API keys, connection strings and privileged Supabase service-role credentials are server-side and stored through environment variables, never committed or exposed to the client. Protect hidden quiz answers and discussion reference solutions from student-facing disclosure. Exact RLS, hidden-field serialization and service-role policy are pending Q03/Q04. [R §§4.9, 6.7.3–4]
+Application database operations run through the backend. Database changes use migrations. Secrets, API keys, connection strings and privileged Supabase service-role credentials are server-side and stored through environment variables, never committed or exposed to the client. Protect hidden quiz answers and discussion reference solutions from student-facing disclosure. RLS and service-role use follow the P0-03 matrix (7 Nov 2026). Hidden-field serialization is an allowlist per role under that matrix. Exact schema-level policies remain pending Q04. [R §§4.9, 6.7.3–4]
 
 AI outputs need appropriate structural/content validation and educational boundaries. Tutoring must protect ongoing quiz answers. Hints must be checked against the hidden solution. AI-generated user-facing content must be distinguishable from teacher/student content; breadth of labeling for deterministic outputs remains Q02. Conclusions with insufficient evidence must be presented as uncertain. Provide ways to report wrong content and for teachers to monitor inappropriate output; detailed workflows/storage are Q18. [R §§4.4.6, 4.10.1–4]
 

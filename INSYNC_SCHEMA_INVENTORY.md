@@ -39,10 +39,10 @@ Archiving retains records and requires user confirmation in the use case. Deleti
 |---|---|---|---|
 | class_id | uuid | No | Composite PK component; FK to CLASS |
 | student_id | uuid | No | Composite PK component; FK to USER |
-| status | enum(pending, enrolled) | No | Join request state |
+| status | enum(pending, enrolled, declined) | No | Membership state: `pending` = teacher's email invitation not yet accepted; `enrolled` = student accepted; `declined` = student declined the invitation |
 | joined_at | timestamptz | Yes | Set once enrolled |
 
-The entry implies join requests, but their approval/rejection workflow is not fully described. Do not invent rejected/removed states or a surrogate key (Q04/Q12).
+Approved 7 Nov 2026 (P0-03, Decision B): the teacher adds students by email, the student accepts or declines, and a declined invitation is kept with `declined`. Removing an enrolled student deletes the row, so no `removed` state is added. Group membership is frozen while a session is running (P0-03, mid-activity rule). Do not add a surrogate key without review (Q04/Q12).
 
 ## 4. TOPIC
 
