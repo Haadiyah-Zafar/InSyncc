@@ -1,7 +1,7 @@
 # P0-03: Identity, access, enrollment and teacher verification
 
 **Issue:** [#4](https://github.com/Haadiyah-Zafar/InSyncc/issues/4) · **Prepared:** 7 Nov 2026 · **Start after:** none
-**Status:** Anum's answers to Decisions A–E recorded on 7 Nov 2026. **Not yet confirmed as approved.** Each answer must be confirmed in §9. Q03 (group-derived evidence is answered in C) and the mid-activity group change (Q12) remain open.
+**Status:** Decisions A–E and the mid-activity group rule confirmed by Anum on 7 Nov 2026 (§9). Still open: the schema review for the new `declined` status (#9), and any design for the notice shown to students.
 
 **Review references:** Q03 (explicitly kept pending by the human), Q12 (enrollment and session flows), Q13 (UI-only details).
 
@@ -53,7 +53,7 @@
 
 **Human decision:** choose B1, B2 or B3. Confirm that rejection deletes the pending row, or ask for a `rejected` state (which needs review first).
 
-**Mid-activity changes (Q12):** a student removed from a group or class loses access immediately. Whether group membership may change while a group activity is running is open. Options: (a) freeze membership while a session is active; (b) allow changes and end that student's live access at once. Recommendation: (b), with the teacher informed.
+**Mid-activity changes (Q12), decided 7 Nov 2026:** group membership is frozen while a session is running (option a). A student removed from a class still loses access immediately, as §6 states.
 
 ---
 
@@ -135,12 +135,12 @@ Recommended matrix. "Teacher" means the teacher who owns the class. "Member" mea
 
 | Decision | Recommendation | Approved by | Date | Notes |
 |---|---|---|---|---|
-| A — Teacher role verification | A1 (seeded accounts for pilot) | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
-| B — Enrollment lifecycle | B3 chosen (teacher adds students by email; student accepts). Pending = invitation. A declined invitation is kept with a **declined** status. This adds a status to CLASS_MEMBER, so #9 must review the schema change. | Anum (answer 7 Nov 2026) | 7 Nov 2026 | New `declined` status needs schema review in #9 |
+| A — Teacher role verification | A1 (seeded accounts for pilot) | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
+| B — Enrollment lifecycle | B3 chosen (teacher adds students by email; student accepts). Pending = invitation. A declined invitation is kept with a **declined** status. This adds a status to CLASS_MEMBER, so #9 must review the schema change. | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | New `declined` status needs schema review in #9 |
 | B — Mid-activity group change | (b), teacher informed | | | |
-| C — Read and write matrix | §4 as drafted | Anum (answer 7 Nov 2026) | 7 Nov 2026 | |
-| C — Group-derived evidence | No student access (part of §4) | Anum (answer 7 Nov 2026) | 7 Nov 2026 | |
-| D — Enforcement | D2 (backend plus row-level security) | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
-| E — Expiry and removal | §6 as drafted | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
-| E — Student notice of observation | Visible notice to students while a teacher observes | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Notice design for implementation |
-| Mid-activity group change (Q12) | Open | | | Not yet decided; §3 options (a)/(b) |
+| C — Read and write matrix | §4 as drafted | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | |
+| C — Group-derived evidence | No student access (part of §4) | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | |
+| D — Enforcement | D2 (backend plus row-level security) | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
+| E — Expiry and removal | §6 as drafted | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
+| E — Student notice of observation | Visible notice to students while a teacher observes | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Notice design for implementation |
+| Mid-activity group change (Q12) | Group membership is frozen while a session is running (option a) | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | |
