@@ -66,7 +66,7 @@ The schema also lacks clear representations for selected student/group quiz assi
 
 ## Q05 — Additional teacher approval for questions generated during an attempt
 
-**Status: approval requirement resolved by the human; dependent implementation choices pending.**
+**Status: resolved 7 Nov 2026 by P0-04 (Decisions A, B, E, F, confirmed by Anum).** Exhausted bank: use the nearest approved question first, then wait for the teacher (reminder after 1 day). Approval is per question version. Streaks count the level of the question served. Interruption and resume follow P0-04 §7. The original evidence below is kept for reference.
 
 Human decision: **new questions may be used only after additional teacher approval**. R §5.4 allows generation when no suitable unanswered question exists; R §§4.2.2, 4.6.12 and 6.4.4 require question review before assignment. The human's decision now governs that boundary.
 
