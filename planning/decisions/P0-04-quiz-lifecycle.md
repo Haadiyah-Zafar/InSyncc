@@ -1,7 +1,7 @@
 # P0-04: Quiz lifecycle, adaptation edge cases and in-attempt review
 
 **Issue:** [#5](https://github.com/Haadiyah-Zafar/InSyncc/issues/5) · **Prepared:** 7 Nov 2026 · **Start after:** none
-**Status:** Anum's answers to Decisions A–E recorded on 7 Nov 2026 (§12). **Not yet confirmed as approved.** Decisions F and G, and the open Q05, Q08 and Q12 items, remain for Anum.
+**Status:** Decisions A–G confirmed by Anum on 7 Nov 2026 (§12). The open Q05 mechanics, Q08 bookkeeping and Q12 quiz assignment items remain pending.
 
 **Review references:** Q05 (approval requirement resolved; mechanics pending), Q08 (bookkeeping pending), Q12 (quiz assignment pending).
 
@@ -162,13 +162,13 @@ Rule as written: two correct answers at the current level raise it; two wrong lo
 
 | Decision | Recommendation | Approved by | Date | Notes |
 |---|---|---|---|---|
-| A — Exhausted bank | A2 then A1: nearest approved question first, then wait for teacher | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
-| B — Approval per version | B1: each edit creates a version that needs approval | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
-| C — Attempt length | C1: teacher sets a fixed number per quiz | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
-| D — Repeat attempts | D1: one attempt; teacher can reopen | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Reopen rule for implementation |
-| E — Streak with fallback | E1: count the level served | Anum (answer 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
-| F — Interruption and duplicates | §7 as drafted | | | |
-| G — Numbers and zero attempts | §8 as drafted | | | |
+| A — Exhausted bank | A2 then A1: nearest approved question first, then wait for teacher | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
+| B — Approval per version | B1: each edit creates a version that needs approval | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
+| C — Attempt length | C1: teacher sets a fixed number per quiz | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
+| D — Repeat attempts | D1: one attempt; teacher can reopen | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Reopen rule for implementation |
+| E — Streak with fallback | E1: count the level served | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Confirm in record |
+| F — Interruption and duplicates | §7 as drafted | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | |
+| G — Numbers and zero attempts | §8 as drafted | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | |
 | Q05 mechanics | Pending until A–B confirmed | | | |
 | Q08 bookkeeping | Pending | | | |
 | Q12 quiz assignment | Pending | | | |
