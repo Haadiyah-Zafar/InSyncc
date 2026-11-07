@@ -1,7 +1,7 @@
 # P0-02: Learner state, graph ownership, recovery
 
 **Issue:** [#3](https://github.com/Haadiyah-Zafar/InSyncc/issues/3) · **Prepared:** 5 Nov 2026 · **Start after:** none
-**Status:** Decisions A, B, C, D and the teacher review timeout confirmed by Anum on 5 Nov 2026 (§9). **Q01 (overall) remains pending.** Open sub-items are listed in §9.
+**Status:** Decisions A, B, C and D and the teacher review timeout confirmed by Anum on 5 Nov 2026 (§9). **Q01 (overall) remains pending.**
 
 **Review references:** Q01 (explicitly kept pending by the human), Q15 (checkpoint link).
 
@@ -131,7 +131,7 @@ Proposed matrix. Owners are the single writer for each field. Evidence is append
 2. Approve the owner and merge matrix (Decision B).
 3. Approve checkpoint frequency and store (Decision C).
 4. Approve D1 for run output and group hints (Decision D).
-5. Answered 5 Nov 2026: a teacher review that goes unanswered stays waiting, and the teacher is reminded after a set period. Still open: the reminder period and method.
+5. Answered 5 Nov 2026: a teacher review that goes unanswered stays waiting. The teacher is reminded after **1 day**, by a notification (pop-up or alert sound also acceptable). Pending confirmation.
 
 ---
 
@@ -139,9 +139,9 @@ Proposed matrix. Owners are the single writer for each field. Evidence is append
 
 | Decision | Recommendation | Approved by | Date | Notes |
 |---|---|---|---|---|
-| A — Scope | A2 (student × topic) | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Topic-to-topic transfer still open |
+| A — Scope | One record per student per topic, shared across the student's classes (student × topic) | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Topic-to-topic transfer is not decided; separate decision if wanted |
 | B — Owners and merge rules | Matrix in §3, approved as drafted | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | |
 | C — Checkpoints and store | C1 (after every step), Postgres | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | |
 | D — Attribution | D1 (group level only) | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Attribution rule for individuals still needs a later decision |
-| Teacher review timeout | Wait; remind after a set period | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Reminder period and method still open |
+| Teacher review timeout | Wait. Remind the teacher after **1 day**. Method: a notification to the teacher. A pop-up or alert sound is an acceptable form of that notification. | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Exact notification design is for later implementation |
 | Q01 (overall) | Remains explicitly pending until Anum records approval | | | |
