@@ -44,7 +44,7 @@ Evidence: R §1.3 defines an agent using an LLM; §6.7.5 says all five agents us
 
 ## Q03 — Student shared access and hidden data
 
-**Status: explicitly kept pending by the human.**
+**Status: resolved 7 Nov 2026 by P0-03 (Decisions A, C, D and E, confirmed by Anum).** Read/write matrix approved as drafted; group-derived evidence not readable by students; enforcement is backend plus row-level security; teacher role by seeded accounts only; removed members lose access at once. The original evidence below is kept for reference.
 
 Evidence: R §6.7.4 says students access only their own records. R §6.4.9 and collaborative use cases describe necessary group data. The text also describes the discussion-problem table as not visible to clients, while students need its problem text; hidden solutions and correct quiz answers must remain protected. Privileged backend updates and RLS coexist in the design without a final enforcement contract.
 
@@ -136,7 +136,7 @@ The architecture names real-time collaborative workspace events, presence, contr
 
 ## Q12 — Session, enrollment, quiz assignment and student feedback flows
 
-**Status: pending.**
+**Status: partly resolved 7 Nov 2026 (P0-03, Decision B and mid-activity rule).** Resolved: enrollment approval (teacher adds students by email; the student accepts or declines; a declined invitation is kept as `declined`) and group membership frozen while a session runs. Still pending: tutoring-session versus class-session identity and lifecycle; mapping manual quizzes to sessions; quiz availability and assignment scope; ownership and approval of personal study suggestions.
 
 R §4.6.2 lets a student start/end tutoring, while teachers start/end `LearningSession` and ending it triggers a draft quiz. Membership includes pending/enrolled states without a complete join-review flow. Quiz assignment to selected learners/groups is described but not modeled. Student-facing study suggestions are described separately from teacher-reviewed recommendations without a clear generating owner/review boundary.
 
