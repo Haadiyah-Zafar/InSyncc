@@ -1,7 +1,7 @@
 # P0-06: Grouping, discussion and shared workspace
 
 **Issue:** [#7](https://github.com/Haadiyah-Zafar/InSyncc/issues/7) · **Prepared:** 7 Nov 2026 · **Start after:** none
-**Status:** Decisions A–G, J and K confirmed by Anum on 7 Nov 2026 (§7). Decisions H and I are deferred to Haadiyah Zafar, who owns the whiteboard issues. Q06, Q10 and Q11 stay pending until H and I are decided.
+**Status:** Decisions A–G, J and K confirmed by Anum on 7 Nov 2026 (§7). Decision H (H1, teacher can always take control) and I (as drafted) recorded 9 Nov 2026 from answers given in chat on Haadiyah Zafar's behalf. Q06, Q10 and Q11 now await Anum's approval of #7.
 
 **Review references:** Q06 (group construction), Q10 (discussion triggers and attribution), Q11 (workspace and controlled editing).
 
@@ -212,9 +212,9 @@ Group hints stay at group level, as approved in P0-02 (Decision D). No individua
 | E — Topic-score scope | E1: student's topic score across all classes | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Consistent with P0-02 Decision A |
 | F — Manual groups, duplicates, edits | Approved as drafted (Part 1, F) | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | |
 | G — Surfaces | G1: shared Python editor and whiteboard, each with its own holder | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | |
-| H — Control grant and take-over | **Deferred to Haadiyah Zafar**, who owns the whiteboard issues (Anum, 7 Nov 2026). Not decided here. | Deferred | | Options H1–H3 kept for her decision |
-| I — Rejected and offline edits | **Deferred to Haadiyah Zafar** (Anum, 7 Nov 2026). Not decided here. | Deferred | | Options kept for her decision |
+| H — Control grant and take-over | **Deferred to Haadiyah Zafar**, who owns the whiteboard issues (Anum, 7 Nov 2026). Not decided here. | H1 (holder passes control; released on disconnect), with the teacher able to always take control | Given on Haadiyah's behalf in chat | 9 Nov 2026 | Not yet confirmed by Haadiyah directly |
+| I — Rejected and offline edits | **Deferred to Haadiyah Zafar** (Anum, 7 Nov 2026). Not decided here. | I approved as drafted | Given on Haadiyah's behalf in chat | 9 Nov 2026 | Not yet confirmed by Haadiyah directly |
 | J — Trigger messages | J1: only student messages reset the silence timer | Anum (answer 7 Nov 2026, re-answered) | 7 Nov 2026 | |
 | K — Requested-hint limits | K2: a requested hint starts a five-minute cooldown, same as proactive | Anum (confirmed 7 Nov 2026) | 7 Nov 2026 | Length taken from Anum's answer; not in the source document |
-| Q06, Q10, Q11 overall | Pending until A–K confirmed | | | |
+| Q06, Q10, Q11 overall | Resolved by the approved A–K above | Anum (chat) | 9 Nov 2026 | Approval of the whole record, given in chat |
 
