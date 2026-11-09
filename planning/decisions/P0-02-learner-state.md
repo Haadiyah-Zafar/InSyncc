@@ -1,7 +1,7 @@
 # P0-02: Learner state, graph ownership, recovery
 
 **Issue:** [#3](https://github.com/Haadiyah-Zafar/InSyncc/issues/3) · **Prepared:** 5 Nov 2026 · **Start after:** none
-**Status:** Decisions A, B, C and D and the teacher review timeout confirmed by Anum on 5 Nov 2026 (§9). **Q01 (overall) remains pending.**
+**Status:** Decisions A, B, C and D and the teacher review timeout confirmed by Anum on 5 Nov 2026 (§9). **Q01 (overall) approved by Anum in chat on 9 Nov 2026: scope A3, checkpoints C1.**
 
 **Review references:** Q01 (explicitly kept pending by the human), Q15 (checkpoint link).
 
@@ -144,4 +144,4 @@ Proposed matrix. Owners are the single writer for each field. Evidence is append
 | C — Checkpoints and store | C1 (after every step), Postgres | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | |
 | D — Attribution | D1 (group level only) | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Attribution rule for individuals still needs a later decision |
 | Teacher review timeout | Wait. Remind the teacher after **1 day**. Method: a notification to the teacher. A pop-up or alert sound is an acceptable form of that notification. | Anum (confirmed 5 Nov 2026) | 5 Nov 2026 | Exact notification design is for later implementation |
-| Q01 (overall) | Remains explicitly pending until Anum records approval | | | |
+| Q01 (overall) | Scope A3 (student × topic × class); checkpoints C1 (after every graph step) | Anum (chat) | 9 Nov 2026 | Reverses the 5 Nov scope answer (A2). Chosen in chat on 9 Nov. |
