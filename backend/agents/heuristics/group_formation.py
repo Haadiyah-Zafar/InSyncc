@@ -1,41 +1,57 @@
-"""Balanced group formation for the Teacher Assistant Agent (issue #45, P6-01).
+"""Group formation for the Teacher Assistant Agent (issues #45 and #46, P6-01/02).
 
 Source rules: report section 5.7 and ``INSYNC_CODEX_CONTEXT.md`` section 6.5.
 Approved edge cases: ``planning/decisions/P0-06-grouping-workspace.md`` section 7.
 
+Shared by both strategies:
+
 - Overall score is pooled: total correct answers / total attempted answers
   (report 5.7.1). It is never an average of per-topic or per-quiz accuracies.
 - Topics with no attempts are left out and are not treated as weaknesses.
-- Learners are sorted from highest to lowest overall score. Each learner goes
-  into the non-full group with the lowest current total score (report 5.7.2).
-- Tie on the total score: the group with fewer members (report 5.7.4). Remaining
-  tie: the lower group number, so every run gives the same result (P0-06 C).
+- Learners are sorted from highest to lowest overall score. Learners with equal
+  overall scores are ordered by student_id.
 - Group count and leftovers follow P0-06 A2, which replaces the report's single
   smaller remainder group: the fewest groups that respect the maximum size, with
   sizes that differ by at most one (10 learners, size 3: 3, 3, 2, 2). When the
   learners do not divide evenly, the lower-numbered groups have the one extra
   place.
-- Two separate orderings: learners with equal overall scores are ordered by
-  student_id; groups with equal totals and sizes are chosen by group number.
+- Tie on the selection score: the group with fewer members (report 5.7.4).
+  Remaining tie: the lower group number (P0-06 C).
 - A group of one is kept and flagged for teacher review (P0-06 B1).
 - Learners with no attempted answers are not placed. They are returned as
   "no data" for the teacher to place (P0-06 C1).
 - The result is only a proposal. Nothing here saves, approves or activates a
   group or gives a student access; that belongs to #47 and teacher approval.
 
-Which attempts are counted (one class, or all of a student's classes) is chosen
-by the caller that builds the input. This module only applies the rules to the
-counts it receives.
+Balanced (#45): each learner goes into the non-full group with the lowest
+current total score (report 5.7.2).
+
+Strength-based (#46, P0-06 D1): a topic is strong at accuracy 0.70 or above and
+weak at 0.50 or below; values in between are neither (report 5.7.3). The
+complementarity of two learners counts the topics where one is strong and the
+other is weak. A group's complementarity is the sum over all pairs in it. Each
+learner, in the shared order, goes into the non-full group where it adds the
+most complementarity with the current members.
+
+Which attempts are counted is chosen by the caller that builds the input. For
+grouping, the 12 Nov 2026 choice is P0-06 E1: a student's topic results across
+all of their classes. This module only applies the rules to the counts it
+receives.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 from fractions import Fraction
-from typing import Iterable, Literal
+from itertools import combinations
+from typing import Callable, Iterable, Literal
 
 BALANCED_STRATEGY: Literal["balanced"] = "balanced"
+STRENGTH_BASED_STRATEGY: Literal["strength_based"] = "strength_based"
 PROPOSED_STATUS: Literal["proposed"] = "proposed"
+
+STRONG_AT_OR_ABOVE = Fraction(70, 100)
+WEAK_AT_OR_BELOW = Fraction(50, 100)
 
 
 def _require_count(value: object, name: str) -> int:
@@ -61,6 +77,13 @@ class TopicResult:
         _require_count(self.attempted, "attempted")
         if self.correct > self.attempted:
             raise ValueError("correct must not be greater than attempted")
+
+    @property
+    def accuracy(self) -> Fraction | None:
+        """Topic accuracy, or None when the topic has no attempts."""
+        if self.attempted == 0:
+            return None
+        return Fraction(self.correct, self.attempted)
 
 
 @dataclass(frozen=True)
@@ -102,6 +125,24 @@ class LearnerPerformance:
             return None
         return Fraction(self.total_correct, self.total_attempted)
 
+    @property
+    def strong_topics(self) -> frozenset[str]:
+        """Topics with accuracy of 0.70 or above (report 5.7.3)."""
+        return frozenset(
+            result.topic_id
+            for result in self.topic_results
+            if result.accuracy is not None and result.accuracy >= STRONG_AT_OR_ABOVE
+        )
+
+    @property
+    def weak_topics(self) -> frozenset[str]:
+        """Topics with accuracy of 0.50 or below; unassessed topics are excluded."""
+        return frozenset(
+            result.topic_id
+            for result in self.topic_results
+            if result.accuracy is not None and result.accuracy <= WEAK_AT_OR_BELOW
+        )
+
 
 @dataclass(frozen=True)
 class PlacedLearner:
@@ -109,6 +150,16 @@ class PlacedLearner:
     overall_score: Fraction
     total_correct: int
     total_attempted: int
+    strong_topics: frozenset[str] = frozenset()
+    weak_topics: frozenset[str] = frozenset()
+
+
+def complementarity(first: PlacedLearner, second: PlacedLearner) -> int:
+    """Topics where one learner is strong and the other is weak (report 5.7.3)."""
+    return len(
+        (first.strong_topics & second.weak_topics)
+        | (second.strong_topics & first.weak_topics)
+    )
 
 
 @dataclass(frozen=True)
@@ -136,6 +187,14 @@ class ProposedGroup:
         return self.total_score / self.size
 
     @property
+    def complementarity_score(self) -> int:
+        """Sum of pairwise complementarity over every pair in the group."""
+        return sum(
+            complementarity(first, second)
+            for first, second in combinations(self.members, 2)
+        )
+
+    @property
     def is_singleton(self) -> bool:
         return self.size == 1
 
@@ -148,7 +207,7 @@ class ProposedGroup:
 class GroupProposal:
     """Inactive proposal for the Teacher Assistant Agent and teacher review."""
 
-    strategy: Literal["balanced"]
+    strategy: Literal["balanced", "strength_based"]
     status: Literal["proposed"]
     max_group_size: int
     groups: tuple[ProposedGroup, ...]
@@ -163,6 +222,10 @@ class GroupProposal:
         return max(means) - min(means)
 
     @property
+    def total_complementarity(self) -> int:
+        return sum(group.complementarity_score for group in self.groups)
+
+    @property
     def singleton_group_numbers(self) -> tuple[int, ...]:
         return tuple(group.group_number for group in self.groups if group.is_singleton)
 
@@ -173,46 +236,15 @@ class GroupProposal:
 
 
 class GroupFormationHeuristic:
-    """Group rules used by the Teacher Assistant Agent. Balanced strategy only."""
+    """Group rules used by the Teacher Assistant Agent."""
 
     def propose_balanced(
         self,
         learners: Iterable[LearnerPerformance],
         max_group_size: int,
     ) -> GroupProposal:
-        if isinstance(max_group_size, bool) or not isinstance(max_group_size, int):
-            raise TypeError("max_group_size must be an int")
-        if max_group_size < 1:
-            raise ValueError("max_group_size must be at least 1")
-
-        learner_list = list(learners)
-        seen: set[str] = set()
-        for learner in learner_list:
-            if not isinstance(learner, LearnerPerformance):
-                raise TypeError("learners must contain LearnerPerformance items")
-            if learner.student_id in seen:
-                raise ValueError(f"duplicate student_id {learner.student_id!r}")
-            seen.add(learner.student_id)
-
-        no_data = tuple(
-            learner.student_id for learner in learner_list if not learner.has_data
-        )
-        scored = [
-            PlacedLearner(
-                student_id=learner.student_id,
-                overall_score=learner.overall_score,
-                total_correct=learner.total_correct,
-                total_attempted=learner.total_attempted,
-            )
-            for learner in learner_list
-            if learner.has_data
-        ]
-        # Highest score first. Equal scores are ordered by student_id so that
-        # the same learners always give the same proposal, whatever the input order.
-        scored.sort(key=lambda learner: learner.student_id)
-        scored.sort(key=lambda learner: learner.overall_score, reverse=True)
-
-        groups = _place_balanced(scored, max_group_size)
+        ordered, no_data = _prepare(learners, max_group_size)
+        groups = _place(ordered, max_group_size, _lowest_total)
         return GroupProposal(
             strategy=BALANCED_STRATEGY,
             status=PROPOSED_STATUS,
@@ -221,9 +253,76 @@ class GroupFormationHeuristic:
             no_data_student_ids=no_data,
         )
 
+    def propose_strength_based(
+        self,
+        learners: Iterable[LearnerPerformance],
+        max_group_size: int,
+    ) -> GroupProposal:
+        ordered, no_data = _prepare(learners, max_group_size)
+        groups = _place(ordered, max_group_size, _most_complementary)
+        return GroupProposal(
+            strategy=STRENGTH_BASED_STRATEGY,
+            status=PROPOSED_STATUS,
+            max_group_size=max_group_size,
+            groups=groups,
+            no_data_student_ids=no_data,
+        )
 
-def _place_balanced(
-    ordered: list[PlacedLearner], max_group_size: int
+
+def _prepare(
+    learners: Iterable[LearnerPerformance], max_group_size: int
+) -> tuple[list[PlacedLearner], tuple[str, ...]]:
+    if isinstance(max_group_size, bool) or not isinstance(max_group_size, int):
+        raise TypeError("max_group_size must be an int")
+    if max_group_size < 1:
+        raise ValueError("max_group_size must be at least 1")
+
+    learner_list = list(learners)
+    seen: set[str] = set()
+    for learner in learner_list:
+        if not isinstance(learner, LearnerPerformance):
+            raise TypeError("learners must contain LearnerPerformance items")
+        if learner.student_id in seen:
+            raise ValueError(f"duplicate student_id {learner.student_id!r}")
+        seen.add(learner.student_id)
+
+    no_data = tuple(
+        learner.student_id for learner in learner_list if not learner.has_data
+    )
+    scored = [
+        PlacedLearner(
+            student_id=learner.student_id,
+            overall_score=learner.overall_score,
+            total_correct=learner.total_correct,
+            total_attempted=learner.total_attempted,
+            strong_topics=learner.strong_topics,
+            weak_topics=learner.weak_topics,
+        )
+        for learner in learner_list
+        if learner.has_data
+    ]
+    # Highest score first. Equal scores are ordered by student_id so that
+    # the same learners always give the same proposal, whatever the input order.
+    scored.sort(key=lambda learner: learner.student_id)
+    scored.sort(key=lambda learner: learner.overall_score, reverse=True)
+    return scored, no_data
+
+
+# A selection rule returns a value for placing `learner` into `members`;
+# the lowest value wins.
+_Selection = Callable[[PlacedLearner, list[PlacedLearner]], object]
+
+
+def _lowest_total(learner: PlacedLearner, members: list[PlacedLearner]) -> Fraction:
+    return sum((member.overall_score for member in members), Fraction(0))
+
+
+def _most_complementary(learner: PlacedLearner, members: list[PlacedLearner]) -> int:
+    return -sum(complementarity(learner, member) for member in members)
+
+
+def _place(
+    ordered: list[PlacedLearner], max_group_size: int, selection: _Selection
 ) -> tuple[ProposedGroup, ...]:
     count = len(ordered)
     if count == 0:
@@ -242,16 +341,17 @@ def _place_balanced(
         for index in range(group_count)
     ]
     members: list[list[PlacedLearner]] = [[] for _ in range(group_count)]
-    totals = [Fraction(0)] * group_count
 
     for learner in ordered:
         open_indexes = [
             i for i in range(group_count) if len(members[i]) < capacities[i]
         ]
-        # Lowest total score, then fewer members, then lower group number.
-        target = min(open_indexes, key=lambda i: (totals[i], len(members[i]), i))
+        # Best selection score, then fewer members, then lower group number.
+        target = min(
+            open_indexes,
+            key=lambda i: (selection(learner, members[i]), len(members[i]), i),
+        )
         members[target].append(learner)
-        totals[target] += learner.overall_score
 
     return tuple(
         ProposedGroup(group_number=index + 1, members=tuple(group))
